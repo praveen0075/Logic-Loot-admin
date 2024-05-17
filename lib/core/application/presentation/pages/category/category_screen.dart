@@ -36,6 +36,12 @@ class CategoryScreen extends StatelessWidget {
             showOptions(
                 ctx: context,
                 indext: index,
+                // onTapFuction:  showDialoguWidgetForEditCategory(
+                //       ctx: context,
+                //       size: size,
+                //       categoryDescriptionController:
+                //           categoryDescriptionController,
+                //       categoryNameController: categoryNameController)
                 );
           },
           child: ListTile(

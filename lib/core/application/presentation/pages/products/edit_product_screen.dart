@@ -1,9 +1,10 @@
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
-import 'package:logic_loot_admin/core/application/presentation/widgets/textformfield_for_adding.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/textformfield_for_editing.dart';
 
 final TextEditingController productNameController = TextEditingController();
 final TextEditingController productPriceController = TextEditingController();
@@ -14,15 +15,15 @@ final TextEditingController productSpecController = TextEditingController();
 final TextEditingController productDescriptionController = TextEditingController();
 final formKey = GlobalKey<FormState>();
 
-class AddProductScreen extends StatelessWidget {
-  const AddProductScreen({super.key});
+class EditProductScreen extends StatelessWidget {
+  const EditProductScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add Product"),
+        title: const Text("Edit Product"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -66,17 +67,17 @@ class AddProductScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 child: Column(
                   children: [
-                    AdminTextformFields.textFromFieldForAddProduct(
+                    AdminTextformFieldsForEdit.textFromFieldForEdit(
                         cntrlr: productNameController,
                         errormsg: "Name is required",
                         name: "Product Name"),
                     kheight10,
-                    AdminTextformFields.textFromFieldForAddProduct(
+                    AdminTextformFieldsForEdit.textFromFieldForEdit(
                         cntrlr: productPriceController,
                         errormsg: "Enter the Price",
                         name: "Price (eg:45000)"),
                     kheight10,
-                    AdminTextformFields.textFromFieldForAddProduct(
+                    AdminTextformFieldsForEdit.textFromFieldForEdit(
                         cntrlr: productQuantityController,
                         errormsg: "Name is required",
                         name: "Quantity"),
@@ -152,9 +153,9 @@ class AddProductScreen extends StatelessWidget {
                       onChanged: (value){},
                     ),
                     kheight10,
-                    AdminTextformFields.descriptionField(errmsg: "Sepcification is required",name: "Specifications",mxLine: 3,cntrlr: productSpecController),
+                    AdminTextformFieldsForEdit.descriptionField(errmsg: "Sepcification is required",name: "Specifications",mxLine: 3,cntrlr: productSpecController),
                     kheight10,
-                    AdminTextformFields.descriptionField(errmsg: "Descritpion is required",name: "Description",mxLine: 5,cntrlr: productDescriptionController),
+                    AdminTextformFieldsForEdit.descriptionField(errmsg: "Descritpion is required",name: "Description",mxLine: 5,cntrlr: productDescriptionController),
                     kheight10,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,

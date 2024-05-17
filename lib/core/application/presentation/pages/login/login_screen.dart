@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/dashboard/dashboard_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
-import 'package:logic_loot_admin/core/application/presentation/widgets/textformfield.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/textformfield_for_adding.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
