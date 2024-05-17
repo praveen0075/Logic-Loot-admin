@@ -8,9 +8,14 @@ class CouponScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(
-
+      title: const Text("Coupons"),
+      centerTitle: true ,
       ),
-      drawer: SideBarWidget(),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => ,))
+      },child: const Icon(Icons.add)),
+      drawer: const SideBarWidget(),
+      // body: ,
     );
   }
 }

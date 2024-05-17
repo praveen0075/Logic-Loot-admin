@@ -42,7 +42,7 @@ class AdminTextformFields {
           //     ),
           // errorBorder: OutlineInputBorder(
           //     borderRadius: BorderRadius.all(Radius.circular(20))),
-          hintText: 'Admin Name',
+          hintText: 'Admin Email',
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
           )),

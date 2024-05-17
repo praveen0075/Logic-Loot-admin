@@ -40,11 +40,11 @@ class ProductServices implements IproductRepo{
       
       }else{
         print("error");
-        return Left(Failure("Failed to add Product"));
+        return Left(Failure(msg:"Failed to add Product"));
       }   
     } catch (e) {
       print(e);
-      return Left(Failure("Someting went wrong"));
+      return Left(Failure(msg:"Someting went wrong"));
     }
   }
   
@@ -68,15 +68,15 @@ class ProductServices implements IproductRepo{
         return Right(responseModel);
       }else{
         print("error");
-        return Left(Failure("Something went wrong"));
+        return Left(Failure(msg:"Something went wrong"));
       }
      }else{
       print("token missing");
-      return Left(Failure("Some error occured"));
+      return Left(Failure(msg:"Some error occured"));
      }
    } catch (e) {
     print(e);
-     return Left(Failure('Oops ! something went wrong'));
+     return Left(Failure(msg:'Oops ! something went wrong'));
    }
   }
   

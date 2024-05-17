@@ -1,5 +1,5 @@
 class Failure{
   String msg ;
 
-  Failure(this.msg);
+  Failure({required this.msg});
 }

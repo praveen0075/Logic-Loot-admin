@@ -217,6 +217,7 @@ import 'package:logic_loot_admin/core/application/presentation/pages/dashboard/d
 import 'package:logic_loot_admin/core/application/presentation/pages/login/login_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/orders/orders.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/product_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SideBarWidget extends StatelessWidget {
   const SideBarWidget({super.key});
@@ -302,9 +303,12 @@ Widget buildMenuItems(BuildContext context) => Container(
           thickness: 2,
         ),
         ListTile(
-          leading: Icon(Icons.logout),
-          title: Text("Log out"),
-          onTap: () => Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LoginScreen()), (route) => false)
+          leading: const Icon(Icons.logout),
+          title: const Text("Log out"),
+          onTap: ()async{ 
+            SharedPreferences preff = await SharedPreferences.getInstance();
+            preff.clear();
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LoginScreen()), (route) => false);}
 ,
         )
       ],

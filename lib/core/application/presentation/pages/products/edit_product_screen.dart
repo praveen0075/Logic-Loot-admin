@@ -11,7 +11,7 @@ final TextEditingController productPriceController = TextEditingController();
 final TextEditingController productQuantityController = TextEditingController();
 final TextEditingController productCategoryController = TextEditingController();
 final TextEditingController productSizeController = TextEditingController();
-final TextEditingController productSpecController = TextEditingController();
+final TextEditingController productSpecController = TextEditingController();  
 final TextEditingController productDescriptionController = TextEditingController();
 final formKey = GlobalKey<FormState>();
 
@@ -163,7 +163,7 @@ class EditProductScreen extends StatelessWidget {
                         TextButton(
                           style: const ButtonStyle(),
                           onPressed: (){
-          
+                          
                           }, child: const Text("Clear",style: TextStyle(color: Colors.red,fontSize: 20),)),
                         TextButton(onPressed: (){
                           if(formKey.currentState!.validate()){
