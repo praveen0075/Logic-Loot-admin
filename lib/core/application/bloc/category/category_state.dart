@@ -10,14 +10,14 @@ class CategoryState with _$CategoryState {
       required bool isGEtCategorySuccess,
       required bool isDeleteCategoryhasErro,
       required bool isDeleteCategorySuccess,
-      GetAllCategories? getallCategory,
+      required List<CategoryAll>? getallCategory ,
       String? messag}) = _CategoryState;
   factory CategoryState.initial() {
-    return const CategoryState(
+    return const CategoryState( 
         isLoading: false,
         isAddcateHasError: false,
         isAddCategorySuccess: false,
         isGEtCategorySuccess: false,
-        isGetCategoryHasError: false,isDeleteCategorySuccess: false,isDeleteCategoryhasErro: false);
+        isGetCategoryHasError: false,isDeleteCategorySuccess: false,isDeleteCategoryhasErro: false,getallCategory: []);
   }
 }

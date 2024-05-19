@@ -26,15 +26,15 @@ class CategoryServices implements CategoryRepository {
           headers: {"Cookie": "Authorise=$tkn"});
       // print(response);
       // print(response.body);
-      // print(response.statusCode);
+      print(response.statusCode);
       if (response.statusCode == 200) {
         final result = categoryResponseFromJson(response.body);
         // print(result);
-
-        // print("Success");
+        
+        print("Success");
         return Right(result);
       } else {
-        // print("failure (else) ");
+        print("failure (else) ");
         final errResponse = jsonDecode(response.body);
         final err = errResponse["error"];
         return Left(err);
@@ -46,7 +46,7 @@ class CategoryServices implements CategoryRepository {
   }
 
   @override
-  Future<Either<String, GetAllCategories>> getAllcategory() async {
+  Future<Either<String,GetAllCategories>> getAllcategory() async {
     try {
       final tkn = await SharedPreffs.getAdminToken();
       final response = await http.Client().get(
@@ -55,7 +55,8 @@ class CategoryServices implements CategoryRepository {
       print(response.statusCode);
       if (response.statusCode == 200) {
         final responseModel = getAllCategoriesFromJson(response.body);
-        print(responseModel);
+        // print(responseModel);
+        print(responseModel.categories[2].name);
         return Right(responseModel);
       } else {
         print("error");

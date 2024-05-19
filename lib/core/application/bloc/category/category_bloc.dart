@@ -1,14 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:logic_loot_admin/core/domain/model/response_model/category_response_model.dart';
 import 'package:logic_loot_admin/core/domain/model/response_model/get_allcategoris_response.dart';
 import 'package:logic_loot_admin/core/domain/repository/category_repository.dart';
 
 part 'category_event.dart';
 part 'category_state.dart';
 part 'category_bloc.freezed.dart';
-
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   final CategoryRepository categoryRepo;
+
   CategoryBloc(this.categoryRepo) : super(CategoryState.initial()) {
     on<_AddCategory>((event, emit) async {
       emit(state.copyWith(isLoading: true));
@@ -29,25 +30,29 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
             isAddcateHasError: false,
             messag: success.success));
       });
-      emit(CategoryState.initial());
     });
+
     on<_GetCategory>((event, emit) async {
       emit(state.copyWith(isLoading: true));
       final result = await categoryRepo.getAllcategory();
+      print(result);
       result.fold((failure) {
+        print("Failure");
         emit(state.copyWith(
             isLoading: false,
             isGetCategoryHasError: true,
-            isAddCategorySuccess: false,
+            isGEtCategorySuccess: false,
             messag: failure));
       }, (success) {
+        print(success);
         emit(state.copyWith(
             isLoading: false,
             isGetCategoryHasError: false,
             isGEtCategorySuccess: true,
-            getallCategory: success));
+            getallCategory: success.categories)); 
       });
     });
+
     on<_DeleteCategory>((event, emit) async {
       emit(state.copyWith(isLoading: true));
       final result = await categoryRepo.deleteCategory(id: event.id);

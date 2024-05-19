@@ -489,7 +489,7 @@ mixin _$CategoryState {
   bool get isGEtCategorySuccess => throw _privateConstructorUsedError;
   bool get isDeleteCategoryhasErro => throw _privateConstructorUsedError;
   bool get isDeleteCategorySuccess => throw _privateConstructorUsedError;
-  GetAllCategories? get getallCategory => throw _privateConstructorUsedError;
+  List<CategoryAll>? get getallCategory => throw _privateConstructorUsedError;
   String? get messag => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -511,7 +511,7 @@ abstract class $CategoryStateCopyWith<$Res> {
       bool isGEtCategorySuccess,
       bool isDeleteCategoryhasErro,
       bool isDeleteCategorySuccess,
-      GetAllCategories? getallCategory,
+      List<CategoryAll>? getallCategory,
       String? messag});
 }
 
@@ -570,7 +570,7 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
       getallCategory: freezed == getallCategory
           ? _value.getallCategory
           : getallCategory // ignore: cast_nullable_to_non_nullable
-              as GetAllCategories?,
+              as List<CategoryAll>?,
       messag: freezed == messag
           ? _value.messag
           : messag // ignore: cast_nullable_to_non_nullable
@@ -595,7 +595,7 @@ abstract class _$$CategoryStateImplCopyWith<$Res>
       bool isGEtCategorySuccess,
       bool isDeleteCategoryhasErro,
       bool isDeleteCategorySuccess,
-      GetAllCategories? getallCategory,
+      List<CategoryAll>? getallCategory,
       String? messag});
 }
 
@@ -650,9 +650,9 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
           : isDeleteCategorySuccess // ignore: cast_nullable_to_non_nullable
               as bool,
       getallCategory: freezed == getallCategory
-          ? _value.getallCategory
+          ? _value._getallCategory
           : getallCategory // ignore: cast_nullable_to_non_nullable
-              as GetAllCategories?,
+              as List<CategoryAll>?,
       messag: freezed == messag
           ? _value.messag
           : messag // ignore: cast_nullable_to_non_nullable
@@ -672,8 +672,9 @@ class _$CategoryStateImpl implements _CategoryState {
       required this.isGEtCategorySuccess,
       required this.isDeleteCategoryhasErro,
       required this.isDeleteCategorySuccess,
-      this.getallCategory,
-      this.messag});
+      required final List<CategoryAll>? getallCategory,
+      this.messag})
+      : _getallCategory = getallCategory;
 
   @override
   final bool isLoading;
@@ -689,8 +690,16 @@ class _$CategoryStateImpl implements _CategoryState {
   final bool isDeleteCategoryhasErro;
   @override
   final bool isDeleteCategorySuccess;
+  final List<CategoryAll>? _getallCategory;
   @override
-  final GetAllCategories? getallCategory;
+  List<CategoryAll>? get getallCategory {
+    final value = _getallCategory;
+    if (value == null) return null;
+    if (_getallCategory is EqualUnmodifiableListView) return _getallCategory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? messag;
 
@@ -720,8 +729,8 @@ class _$CategoryStateImpl implements _CategoryState {
             (identical(
                     other.isDeleteCategorySuccess, isDeleteCategorySuccess) ||
                 other.isDeleteCategorySuccess == isDeleteCategorySuccess) &&
-            (identical(other.getallCategory, getallCategory) ||
-                other.getallCategory == getallCategory) &&
+            const DeepCollectionEquality()
+                .equals(other._getallCategory, _getallCategory) &&
             (identical(other.messag, messag) || other.messag == messag));
   }
 
@@ -735,7 +744,7 @@ class _$CategoryStateImpl implements _CategoryState {
       isGEtCategorySuccess,
       isDeleteCategoryhasErro,
       isDeleteCategorySuccess,
-      getallCategory,
+      const DeepCollectionEquality().hash(_getallCategory),
       messag);
 
   @JsonKey(ignore: true)
@@ -754,7 +763,7 @@ abstract class _CategoryState implements CategoryState {
       required final bool isGEtCategorySuccess,
       required final bool isDeleteCategoryhasErro,
       required final bool isDeleteCategorySuccess,
-      final GetAllCategories? getallCategory,
+      required final List<CategoryAll>? getallCategory,
       final String? messag}) = _$CategoryStateImpl;
 
   @override
@@ -772,7 +781,7 @@ abstract class _CategoryState implements CategoryState {
   @override
   bool get isDeleteCategorySuccess;
   @override
-  GetAllCategories? get getallCategory;
+  List<CategoryAll>? get getallCategory;
   @override
   String? get messag;
   @override

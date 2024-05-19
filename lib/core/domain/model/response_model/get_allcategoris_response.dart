@@ -9,14 +9,14 @@ GetAllCategories getAllCategoriesFromJson(String str) => GetAllCategories.fromJs
 String getAllCategoriesToJson(GetAllCategories data) => json.encode(data.toJson());
 
 class GetAllCategories {
-    List<Category> categories;
+    List<CategoryAll> categories;
 
     GetAllCategories({
         required this.categories,
     });
 
     factory GetAllCategories.fromJson(Map<String, dynamic> json) => GetAllCategories(
-        categories: List<Category>.from(json["Categories"].map((x) => Category.fromJson(x))),
+        categories: List<CategoryAll>.from(json["Categories"].map((x) => CategoryAll.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
@@ -24,18 +24,18 @@ class GetAllCategories {
     };
 }
 
-class Category {
+class CategoryAll {
     int id;
     String name;
     String description;
 
-    Category({
+    CategoryAll({
         required this.id,
         required this.name,
         required this.description,
     });
 
-    factory Category.fromJson(Map<String, dynamic> json) => Category(
+    factory CategoryAll.fromJson(Map<String, dynamic> json) => CategoryAll(
         id: json["ID"],
         name: json["name"],
         description: json["description"],

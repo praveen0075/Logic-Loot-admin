@@ -8,5 +8,5 @@ void snackBarWidget({
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(msg),
       backgroundColor: bgColor,
-      duration: const Duration(milliseconds: 1600)));
+      duration: const Duration(milliseconds: 2000)));
 }
