@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:logic_loot_admin/core/application/bloc/coupon/coupon_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
-
+import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
+import 'package:logic_loot_admin/core/domain/model/body_model/coupon_body_model.dart';
 
 class AddCouponScreen extends StatefulWidget {
   const AddCouponScreen({super.key});
@@ -32,74 +35,120 @@ class _AddCouponScreenState extends State<AddCouponScreen> {
           padding: const EdgeInsets.all(25),
           child: Form(
             key: formkeyCoupon,
-            child: SingleChildScrollView(
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  kheight30,
-                   CouponTextformField(txt: "Coupon Code",cntrlr: couponCodecontroller,errmsg: "Please enter the code"),
-                  kheight15,
-                   CouponTextformField(txt: "Amount",cntrlr: couponAmountController,errmsg: "Amount is required"),
-                  kheight15,
-                   CouponTextformField(txt: "Usage limit",cntrlr: couponLimitContoller,errmsg: "Please enter the limit",),
-                  kheight15,
-                  TextFormField(
-                    controller: validityDateController,
-                    readOnly: true,
-                    decoration: InputDecoration(
-                        hintText: "Select Validity",
-                        suffixIcon: IconButton(
-                            onPressed: () async {
-                              DateTime? dateValue = await showDatePicker(
-                                  context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime.now(),
-                                  lastDate:
-                                      DateTime(2030).add(const Duration(days: 365)));
-                                      final formatedDate = DateFormat("dd-MM-yyyy").format(dateValue!);
-                                      setState(() {
-                                        validityDateController.text = formatedDate;
-                                      });
-                            },
-                            icon:const Icon(Icons.calendar_month_rounded)),
-                          
-                        focusedBorder: const OutlineInputBorder(),
-                        border: const OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                        ),
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 212, 210, 234)),
+            child: BlocConsumer<CouponBloc, CouponState>(
+              listener: (context, state) {
+                if(state.isAddCouponHasError){
+                  snackBarWidget(context: context, msg: state.message??"failed to add coupon", bgColor: Colors.red);
+                }else if(state.isAddCouponSuccess){
+                  snackBarWidget(context: context, msg: state.message??"Coupon adding success", bgColor: Colors.green);
+                  validityDateController.clear();
+                  couponCodecontroller.clear();
+                  couponAmountController.clear();
+                  couponLimitContoller.clear();
+                  Navigator.pop(context);
+                }
+              },
+              builder: (context, state) {
+                if(state.isLoading){
+                  return const Center(child: CircularProgressIndicator());
+                }else{
+                return SingleChildScrollView(
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      kheight30,
+                      CouponTextformField(
+                          txt: "Coupon Code",
+                          cntrlr: couponCodecontroller,
+                          errmsg: "Please enter the code"),
+                      kheight15,
+                      CouponTextformField(
+                          txt: "Amount",
+                          cntrlr: couponAmountController,
+                          errmsg: "Amount is required"),
+                      kheight15,
+                      CouponTextformField(
+                        txt: "Usage limit",
+                        cntrlr: couponLimitContoller,
+                        errmsg: "Please enter the limit",
+                      ),
+                      kheight15,
+                      TextFormField(
+                        controller: validityDateController,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                            hintText: "Select Validity",
+                            suffixIcon: IconButton(
+                                onPressed: () async {
+                                  DateTime? dateValue = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime.now(),
+                                      firstDate: DateTime.now(),
+                                      lastDate: DateTime(2030)
+                                          .add(const Duration(days: 365)));
+                                final formattedDate = DateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(dateValue!.toUtc());
+
+                                  setState(() {
+                                    validityDateController.text = formattedDate;
+                                  });
+                                },
+                                icon: const Icon(Icons.calendar_month_rounded)),
+                            focusedBorder: const OutlineInputBorder(),
+                            border: const OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            ),
+                            filled: true,
+                            fillColor:
+                                const Color.fromARGB(255, 212, 210, 234)),
                         validator: (value) {
-                          if(value!.isEmpty){
+                          if (value!.isEmpty) {
                             return "Please Select the usage validity";
-                          }else{
+                          } else {
                             return null;
                           }
                         },
+                      ),
+                      kheight20,
+                      Container(
+                        height: size.height / 17,
+                        width: size.width,
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            gradient: LinearGradient(
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                                colors: [
+                                  Color.fromARGB(255, 77, 87, 231),
+                                  Color.fromARGB(255, 237, 128, 243),
+                                ])),
+                        child: TextButton(
+                            onPressed: () {
+                              if (formkeyCoupon.currentState!.validate()) {
+                                final amount =
+                                    int.parse(couponAmountController.text);
+                                final usageLimit =
+                                    int.parse(couponLimitContoller.text);
+                                final model = AddCouponBody(
+                                    amount: amount,
+                                    code: couponCodecontroller.text,
+                                    type: "fixed",
+                                    usageLimit: usageLimit,
+                                    validUntil: validityDateController.text);
+
+                                context.read<CouponBloc>().add(
+                                    CouponEvent.addCoupons(couponModel: model));
+                              }
+                            },
+                            child: const Text(
+                              "Click Here To Add Coupon",
+                              style: TextStyle(color: Colors.white),
+                            )),
+                      ),
+                    ],
                   ),
-                  kheight20,
-                  Container(
-                    height: size.height/17,
-                    width: size.width,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                    gradient:  LinearGradient(
-                                    begin: Alignment.bottomLeft,
-                                    end: Alignment.topRight,
-                                    colors: [
-                                      Color.fromARGB(255, 77, 87, 231),
-                                      Color.fromARGB(255, 237, 128, 243),
-                                    ])
-                    
-                    ),
-                    child: TextButton(onPressed: (){
-                      if(formkeyCoupon.currentState!.validate()){
-              
-                      }
-                    }, child: const Text("Click Here To Add Coupon",style: TextStyle(color: Colors.white),)),
-                  ),
-              ],
-              ),
+                );
+                }
+              },
             ),
           ),
         ));
@@ -107,7 +156,11 @@ class _AddCouponScreenState extends State<AddCouponScreen> {
 }
 
 class CouponTextformField extends StatelessWidget {
-  const CouponTextformField({super.key, required this.txt, required this.cntrlr,required this.errmsg});
+  const CouponTextformField(
+      {super.key,
+      required this.txt,
+      required this.cntrlr,
+      required this.errmsg});
 
   final String txt;
   final TextEditingController cntrlr;
@@ -126,13 +179,13 @@ class CouponTextformField extends StatelessWidget {
           ),
           filled: true,
           fillColor: const Color.fromARGB(255, 212, 210, 234)),
-          validator: (value) {
-            if(value!.isEmpty){
-              return errmsg;
-            }else{
-              return null;
-            }
-          },
+      validator: (value) {
+        if (value!.isEmpty) {
+          return errmsg;
+        } else {
+          return null;
+        }
+      },
     );
   }
 }

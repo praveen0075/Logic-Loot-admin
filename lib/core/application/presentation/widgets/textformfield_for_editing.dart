@@ -57,7 +57,7 @@ class AdminTextformFieldsForEdit {
   }
 
   static TextFormField adminPassTextformField(
-      {TextEditingController? txtContorller, String? errmsg}) {
+      {TextEditingController? txtContorller}) {
     return TextFormField(
         obscureText: true,
         controller: txtContorller,
@@ -90,7 +90,8 @@ class AdminTextformFieldsForEdit {
   static TextFormField textFromFieldForEdit(
       {required String name,
       required String errormsg,
-      required TextEditingController cntrlr}) {
+      required TextEditingController cntrlr,
+      String? initValue}) {
     return TextFormField(
       controller: cntrlr,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -110,27 +111,29 @@ class AdminTextformFieldsForEdit {
       },
     );
   }
- static TextFormField descriptionField({required String name, required String errmsg,required int mxLine,required TextEditingController cntrlr}) {
-    return TextFormField(
-                  maxLines: mxLine,
-                 controller: cntrlr,
-                        autovalidateMode:
-                            AutovalidateMode.onUserInteraction,
-                        decoration:   InputDecoration(
-                            hintText: name,
-                             hintStyle: const TextStyle(color: black),
-                            border: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
-                            )),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return errmsg;
-                          } else {
-                            return null;
-                          }
-                        },
-              );
-  }
 
+  static TextFormField descriptionField(
+      {required String name,
+      required String errmsg,
+      required int mxLine,
+      required TextEditingController cntrlr}) {
+    return TextFormField(
+      maxLines: mxLine,
+      controller: cntrlr,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+          hintText: name,
+          hintStyle: const TextStyle(color: black),
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+          )),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return errmsg;
+        } else {
+          return null;
+        }
+      },
+    );
+  }
 }

@@ -1,22 +1,22 @@
 // To parse this JSON data, do
 //
-//     final getAllproductResponseModel = getAllproductResponseModelFromJson(jsonString);
+//     final getAllProducts = getAllProductsFromJson(jsonString);
 
 import 'dart:convert';
 
-GetAllproductResponseModel getAllproductResponseModelFromJson(String str) => GetAllproductResponseModel.fromJson(json.decode(str));
+GetAllProducts getAllProductsFromJson(String str) => GetAllProducts.fromJson(json.decode(str));
 
-String getAllproductResponseModelToJson(GetAllproductResponseModel data) => json.encode(data.toJson());
+String getAllProductsToJson(GetAllProducts data) => json.encode(data.toJson());
 
-class GetAllproductResponseModel {
-    List<Product> products;
+class GetAllProducts {
+    List<Products> products;
 
-    GetAllproductResponseModel({
+    GetAllProducts({
         required this.products,
     });
 
-    factory GetAllproductResponseModel.fromJson(Map<String, dynamic> json) => GetAllproductResponseModel(
-        products: List<Product>.from(json["products"].map((x) => Product.fromJson(x))),
+    factory GetAllProducts.fromJson(Map<String, dynamic> json) => GetAllProducts(
+        products: List<Products>.from(json["products"].map((x) => Products.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
@@ -24,7 +24,7 @@ class GetAllproductResponseModel {
     };
 }
 
-class Product {
+class Products {
     int id;
     String name;
     int price;
@@ -34,7 +34,7 @@ class Product {
     String imageUrl;
     int quantity;
 
-    Product({
+    Products({
         required this.id,
         required this.name,
         required this.price,
@@ -45,7 +45,7 @@ class Product {
         required this.quantity,
     });
 
-    factory Product.fromJson(Map<String, dynamic> json) => Product(
+    factory Products.fromJson(Map<String, dynamic> json) => Products(
         id: json["id"],
         name: json["name"],
         price: json["price"],

@@ -18,21 +18,26 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CategoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String category, String description) addCategory,
+    required TResult Function(
+            String categoryNameValue, String categoryDescriptionValue)
+        addCategory,
     required TResult Function() getCategory,
     required TResult Function(int id) deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String category, String description)? addCategory,
+    TResult? Function(
+            String categoryNameValue, String categoryDescriptionValue)?
+        addCategory,
     TResult? Function()? getCategory,
     TResult? Function(int id)? deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String category, String description)? addCategory,
+    TResult Function(String categoryNameValue, String categoryDescriptionValue)?
+        addCategory,
     TResult Function()? getCategory,
     TResult Function(int id)? deleteCategory,
     required TResult orElse(),
@@ -86,7 +91,7 @@ abstract class _$$AddCategoryImplCopyWith<$Res> {
           _$AddCategoryImpl value, $Res Function(_$AddCategoryImpl) then) =
       __$$AddCategoryImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String category, String description});
+  $Res call({String categoryNameValue, String categoryDescriptionValue});
 }
 
 /// @nodoc
@@ -100,17 +105,17 @@ class __$$AddCategoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? category = null,
-    Object? description = null,
+    Object? categoryNameValue = null,
+    Object? categoryDescriptionValue = null,
   }) {
     return _then(_$AddCategoryImpl(
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
+      categoryNameValue: null == categoryNameValue
+          ? _value.categoryNameValue
+          : categoryNameValue // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      categoryDescriptionValue: null == categoryDescriptionValue
+          ? _value.categoryDescriptionValue
+          : categoryDescriptionValue // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -119,16 +124,18 @@ class __$$AddCategoryImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddCategoryImpl implements _AddCategory {
-  const _$AddCategoryImpl({required this.category, required this.description});
+  const _$AddCategoryImpl(
+      {required this.categoryNameValue,
+      required this.categoryDescriptionValue});
 
   @override
-  final String category;
+  final String categoryNameValue;
   @override
-  final String description;
+  final String categoryDescriptionValue;
 
   @override
   String toString() {
-    return 'CategoryEvent.addCategory(category: $category, description: $description)';
+    return 'CategoryEvent.addCategory(categoryNameValue: $categoryNameValue, categoryDescriptionValue: $categoryDescriptionValue)';
   }
 
   @override
@@ -136,14 +143,16 @@ class _$AddCategoryImpl implements _AddCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddCategoryImpl &&
-            (identical(other.category, category) ||
-                other.category == category) &&
-            (identical(other.description, description) ||
-                other.description == description));
+            (identical(other.categoryNameValue, categoryNameValue) ||
+                other.categoryNameValue == categoryNameValue) &&
+            (identical(
+                    other.categoryDescriptionValue, categoryDescriptionValue) ||
+                other.categoryDescriptionValue == categoryDescriptionValue));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, category, description);
+  int get hashCode =>
+      Object.hash(runtimeType, categoryNameValue, categoryDescriptionValue);
 
   @JsonKey(ignore: true)
   @override
@@ -154,33 +163,38 @@ class _$AddCategoryImpl implements _AddCategory {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String category, String description) addCategory,
+    required TResult Function(
+            String categoryNameValue, String categoryDescriptionValue)
+        addCategory,
     required TResult Function() getCategory,
     required TResult Function(int id) deleteCategory,
   }) {
-    return addCategory(category, description);
+    return addCategory(categoryNameValue, categoryDescriptionValue);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String category, String description)? addCategory,
+    TResult? Function(
+            String categoryNameValue, String categoryDescriptionValue)?
+        addCategory,
     TResult? Function()? getCategory,
     TResult? Function(int id)? deleteCategory,
   }) {
-    return addCategory?.call(category, description);
+    return addCategory?.call(categoryNameValue, categoryDescriptionValue);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String category, String description)? addCategory,
+    TResult Function(String categoryNameValue, String categoryDescriptionValue)?
+        addCategory,
     TResult Function()? getCategory,
     TResult Function(int id)? deleteCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
-      return addCategory(category, description);
+      return addCategory(categoryNameValue, categoryDescriptionValue);
     }
     return orElse();
   }
@@ -222,11 +236,11 @@ class _$AddCategoryImpl implements _AddCategory {
 
 abstract class _AddCategory implements CategoryEvent {
   const factory _AddCategory(
-      {required final String category,
-      required final String description}) = _$AddCategoryImpl;
+      {required final String categoryNameValue,
+      required final String categoryDescriptionValue}) = _$AddCategoryImpl;
 
-  String get category;
-  String get description;
+  String get categoryNameValue;
+  String get categoryDescriptionValue;
   @JsonKey(ignore: true)
   _$$AddCategoryImplCopyWith<_$AddCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -270,7 +284,9 @@ class _$GetCategoryImpl implements _GetCategory {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String category, String description) addCategory,
+    required TResult Function(
+            String categoryNameValue, String categoryDescriptionValue)
+        addCategory,
     required TResult Function() getCategory,
     required TResult Function(int id) deleteCategory,
   }) {
@@ -280,7 +296,9 @@ class _$GetCategoryImpl implements _GetCategory {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String category, String description)? addCategory,
+    TResult? Function(
+            String categoryNameValue, String categoryDescriptionValue)?
+        addCategory,
     TResult? Function()? getCategory,
     TResult? Function(int id)? deleteCategory,
   }) {
@@ -290,7 +308,8 @@ class _$GetCategoryImpl implements _GetCategory {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String category, String description)? addCategory,
+    TResult Function(String categoryNameValue, String categoryDescriptionValue)?
+        addCategory,
     TResult Function()? getCategory,
     TResult Function(int id)? deleteCategory,
     required TResult orElse(),
@@ -405,7 +424,9 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String category, String description) addCategory,
+    required TResult Function(
+            String categoryNameValue, String categoryDescriptionValue)
+        addCategory,
     required TResult Function() getCategory,
     required TResult Function(int id) deleteCategory,
   }) {
@@ -415,7 +436,9 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String category, String description)? addCategory,
+    TResult? Function(
+            String categoryNameValue, String categoryDescriptionValue)?
+        addCategory,
     TResult? Function()? getCategory,
     TResult? Function(int id)? deleteCategory,
   }) {
@@ -425,7 +448,8 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String category, String description)? addCategory,
+    TResult Function(String categoryNameValue, String categoryDescriptionValue)?
+        addCategory,
     TResult Function()? getCategory,
     TResult Function(int id)? deleteCategory,
     required TResult orElse(),
@@ -483,7 +507,7 @@ abstract class _DeleteCategory implements CategoryEvent {
 /// @nodoc
 mixin _$CategoryState {
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get isAddcateHasError => throw _privateConstructorUsedError;
+  bool get isAddcategoryHasError => throw _privateConstructorUsedError;
   bool get isAddCategorySuccess => throw _privateConstructorUsedError;
   bool get isGetCategoryHasError => throw _privateConstructorUsedError;
   bool get isGEtCategorySuccess => throw _privateConstructorUsedError;
@@ -505,7 +529,7 @@ abstract class $CategoryStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
-      bool isAddcateHasError,
+      bool isAddcategoryHasError,
       bool isAddCategorySuccess,
       bool isGetCategoryHasError,
       bool isGEtCategorySuccess,
@@ -529,7 +553,7 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? isAddcateHasError = null,
+    Object? isAddcategoryHasError = null,
     Object? isAddCategorySuccess = null,
     Object? isGetCategoryHasError = null,
     Object? isGEtCategorySuccess = null,
@@ -543,9 +567,9 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isAddcateHasError: null == isAddcateHasError
-          ? _value.isAddcateHasError
-          : isAddcateHasError // ignore: cast_nullable_to_non_nullable
+      isAddcategoryHasError: null == isAddcategoryHasError
+          ? _value.isAddcategoryHasError
+          : isAddcategoryHasError // ignore: cast_nullable_to_non_nullable
               as bool,
       isAddCategorySuccess: null == isAddCategorySuccess
           ? _value.isAddCategorySuccess
@@ -589,7 +613,7 @@ abstract class _$$CategoryStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
-      bool isAddcateHasError,
+      bool isAddcategoryHasError,
       bool isAddCategorySuccess,
       bool isGetCategoryHasError,
       bool isGEtCategorySuccess,
@@ -611,7 +635,7 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? isAddcateHasError = null,
+    Object? isAddcategoryHasError = null,
     Object? isAddCategorySuccess = null,
     Object? isGetCategoryHasError = null,
     Object? isGEtCategorySuccess = null,
@@ -625,9 +649,9 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isAddcateHasError: null == isAddcateHasError
-          ? _value.isAddcateHasError
-          : isAddcateHasError // ignore: cast_nullable_to_non_nullable
+      isAddcategoryHasError: null == isAddcategoryHasError
+          ? _value.isAddcategoryHasError
+          : isAddcategoryHasError // ignore: cast_nullable_to_non_nullable
               as bool,
       isAddCategorySuccess: null == isAddCategorySuccess
           ? _value.isAddCategorySuccess
@@ -666,7 +690,7 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
 class _$CategoryStateImpl implements _CategoryState {
   const _$CategoryStateImpl(
       {required this.isLoading,
-      required this.isAddcateHasError,
+      required this.isAddcategoryHasError,
       required this.isAddCategorySuccess,
       required this.isGetCategoryHasError,
       required this.isGEtCategorySuccess,
@@ -679,7 +703,7 @@ class _$CategoryStateImpl implements _CategoryState {
   @override
   final bool isLoading;
   @override
-  final bool isAddcateHasError;
+  final bool isAddcategoryHasError;
   @override
   final bool isAddCategorySuccess;
   @override
@@ -705,7 +729,7 @@ class _$CategoryStateImpl implements _CategoryState {
 
   @override
   String toString() {
-    return 'CategoryState(isLoading: $isLoading, isAddcateHasError: $isAddcateHasError, isAddCategorySuccess: $isAddCategorySuccess, isGetCategoryHasError: $isGetCategoryHasError, isGEtCategorySuccess: $isGEtCategorySuccess, isDeleteCategoryhasErro: $isDeleteCategoryhasErro, isDeleteCategorySuccess: $isDeleteCategorySuccess, getallCategory: $getallCategory, messag: $messag)';
+    return 'CategoryState(isLoading: $isLoading, isAddcategoryHasError: $isAddcategoryHasError, isAddCategorySuccess: $isAddCategorySuccess, isGetCategoryHasError: $isGetCategoryHasError, isGEtCategorySuccess: $isGEtCategorySuccess, isDeleteCategoryhasErro: $isDeleteCategoryhasErro, isDeleteCategorySuccess: $isDeleteCategorySuccess, getallCategory: $getallCategory, messag: $messag)';
   }
 
   @override
@@ -715,8 +739,8 @@ class _$CategoryStateImpl implements _CategoryState {
             other is _$CategoryStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.isAddcateHasError, isAddcateHasError) ||
-                other.isAddcateHasError == isAddcateHasError) &&
+            (identical(other.isAddcategoryHasError, isAddcategoryHasError) ||
+                other.isAddcategoryHasError == isAddcategoryHasError) &&
             (identical(other.isAddCategorySuccess, isAddCategorySuccess) ||
                 other.isAddCategorySuccess == isAddCategorySuccess) &&
             (identical(other.isGetCategoryHasError, isGetCategoryHasError) ||
@@ -738,7 +762,7 @@ class _$CategoryStateImpl implements _CategoryState {
   int get hashCode => Object.hash(
       runtimeType,
       isLoading,
-      isAddcateHasError,
+      isAddcategoryHasError,
       isAddCategorySuccess,
       isGetCategoryHasError,
       isGEtCategorySuccess,
@@ -757,7 +781,7 @@ class _$CategoryStateImpl implements _CategoryState {
 abstract class _CategoryState implements CategoryState {
   const factory _CategoryState(
       {required final bool isLoading,
-      required final bool isAddcateHasError,
+      required final bool isAddcategoryHasError,
       required final bool isAddCategorySuccess,
       required final bool isGetCategoryHasError,
       required final bool isGEtCategorySuccess,
@@ -769,7 +793,7 @@ abstract class _CategoryState implements CategoryState {
   @override
   bool get isLoading;
   @override
-  bool get isAddcateHasError;
+  bool get isAddcategoryHasError;
   @override
   bool get isAddCategorySuccess;
   @override

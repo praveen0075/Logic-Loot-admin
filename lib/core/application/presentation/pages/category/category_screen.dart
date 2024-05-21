@@ -5,24 +5,33 @@ import 'package:logic_loot_admin/core/application/presentation/pages/category/ad
 import 'package:logic_loot_admin/core/application/presentation/pages/category/widgets/show_bottom_sheet.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_widget.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
 
+// final formkeycat = GlobalKey<FormState>();
+// TextEditingController categoryNameController = TextEditingController();
+// TextEditingController categoryDescriptionController = TextEditingController();
 
-final formkeycat = GlobalKey<FormState>();
-TextEditingController categoryNameController = TextEditingController();
-TextEditingController categoryDescriptionController = TextEditingController();
-
-class CategoryScreen extends StatelessWidget {
+class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   BlocProvider.of<CategoryBloc>(context)
-    //       .add(const CategoryEvent.getCategory());
-    // });
-    // context.read<CategoryBloc>().add(const CategoryEvent.getCategory());
+  State<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends State<CategoryScreen> {
+
+@override
+  void initState() {
+    super.initState();
     BlocProvider.of<CategoryBloc>(context).add(const CategoryEvent.getCategory());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print("build--->");
+
     var size = MediaQuery.of(context).size;
+
     return Scaffold(
         appBar: AppBar(
           title: const Text("Categories"),
@@ -32,69 +41,94 @@ class CategoryScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
             onPressed: () {
               // showDialoguWidget(context, size, categoryNameController,
-                  // categoryDescriptionController);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const AddCategoryScreen(),));
+              // categoryDescriptionController);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AddCategoryScreen(),
+                  ));
             },
             child: const Icon(Icons.add)),
-        body: BlocBuilder<CategoryBloc, CategoryState>(
-          builder: (context, state) { 
+        body: BlocConsumer<CategoryBloc, CategoryState>(
+          listener: (context, state) {
+            if(state.isDeleteCategoryhasErro){
+              snackBarWidget(context: context, msg: state.messag??"Failed to Delete Category", bgColor: Colors.red);
+            }else if(state.isDeleteCategorySuccess){
+              snackBarWidget(context: context, msg: state.messag??"Category deleted Successfully", bgColor: Colors.green);
+            }
+          },
+          builder: (context, state) {
             if(state.isLoading){
               return const Center(child: CircularProgressIndicator(),);
-            }else if(state.isGetCategoryHasError){
-              return CategoryListWidget(state: state);
+            }else if(state.isGetCategoryHasError == true){
+              return const Center(child: Text("Something Went Wrong!"),); 
             }else{
-              return state.isGEtCategorySuccess? CategoryListWidget(state: state) : const Center(child: Text("Oops! somthing Went wrong"),);;
+            return CategoryListWidget(stt: state,);
             }
-          }
-        ));
+
+          },
+        )
+
+        //     BlocBuilder<CategoryBloc, CategoryState>(builder: (context, state) {
+        //   if (state.isLoading) {
+        //     return const Center(
+        //       child: CircularProgressIndicator(),
+        //     );
+        //   } else if (state.isGetCategoryHasError) {
+        //     return CategoryListWidget(state: state);
+        //   } else {
+        //     return state.isGEtCategorySuccess
+        //         ? CategoryListWidget(state: state)
+        //         : const Center(
+        //             child: Text("Oops! somthing Went wrong"),
+        //           );
+        //   }
+        // })
+        );
   }
-} 
+}
 
 class CategoryListWidget extends StatelessWidget {
   const CategoryListWidget({
     super.key,
-    required this.state,
+    required this.stt,
   });
 
-  final CategoryState state;
+  final CategoryState stt;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      itemCount: state.getallCategory!.length,
+      itemCount: stt.getallCategory!.length,
+      // itemCount: 10,
       separatorBuilder: (context, index) => const Divider(),
       itemBuilder: (context, index) => InkWell(
         onLongPress: () {
           showOptions(
             ctx: context,
             indext: index,
-            // onTapFuction:  showDialoguWidgetForEditCategory(
-            //       ctx: context,
-            //       size: size,
-            //       categoryDescriptionController:
-            //           categoryDescriptionController,
-            //       categoryNameController: categoryNameController)
+            categoryId: stt.getallCategory![index].id
           );
         },
         child: ListTile(
           onTap: () {
             showDialog(
                 context: context,
-                builder: (context) => const AlertDialog(
-                      title: Text("Category"),
-                      content: Text(
-                          "akdsfkshdfkhkasjdlfjal;sjfl;jasl;j ajsdl;fjl;jasl;dfj;a ajsl;djfl;jasl;djf jls;jdfljlasdjf; asd asjd;fjlasjd;lf asjdlfjl;asjd;lf jasd;lfjl;asjdl;f asjjdl;fjl;asjdflj"),
+                builder: (context) =>  AlertDialog(
+                      title: Text(stt.getallCategory![index].name),
+                      content: Text(stt.getallCategory![index].description),
                     ));
           },
           leading: const Icon(
             Icons.blur_on_sharp,
             color: appcolorblue,
           ),
-          title: Padding(
-            padding: EdgeInsets.only(left: 10),
+          title:  Padding(
+            padding: const EdgeInsets.only(left: 10),
             child: Text(
-              state.getallCategory![index].name,
-              style: TextStyle(fontSize: 20),
+              stt.getallCategory![index].name,
+              // "Category",
+              style: const  TextStyle(fontSize: 20),
             ),
           ),
         ),

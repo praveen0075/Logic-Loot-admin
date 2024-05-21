@@ -2,8 +2,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logic_loot_admin/core/data/services/product_services.dart';
 import 'package:logic_loot_admin/core/domain/model/body_model/product_model.dart';
-import 'package:logic_loot_admin/core/domain/model/response_model/getAllProduct_model.dart';
-import 'package:logic_loot_admin/core/domain/model/response_model/product_response_model.dart';
+import 'package:logic_loot_admin/core/domain/model/response_model/addproduct_response_model.dart';
+import 'package:logic_loot_admin/core/domain/model/response_model/get_product_response_model.dart';
+import 'package:logic_loot_admin/core/domain/model/response_model/get_productby_id_response_model.dart';
 
 part 'product_event.dart';
 part 'product_state.dart';
@@ -12,41 +13,117 @@ part 'product_bloc.freezed.dart';
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProductServices productRepo;
   ProductBloc(this.productRepo) : super(ProductState.initial()) {
+    on<_GetAllProductEvent>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      final result = await productRepo.getAllProuducts();
+      result.fold((failure) {
+        return emit(state.copyWith(
+            isGetAllProductHasError: true,
+            isGetAllProductSuccess: false,
+            isLoading: false,
+            message: failure));
+      }, (success) {
+        return emit(state.copyWith(
+            isGetAllProductHasError: false,
+            isGetAllProductSuccess: true,
+            isLoading: false,
+            prouctModel: success.products));
+      });
+    });
+
     on<_AddproductEvent>((event, emit) async {
       emit(state.copyWith(isLoading: true));
       final result =
           await productRepo.addProduct(productModel: event.productModel);
-      print(result);
-      print("ready to fold---");
       result.fold((failure) {
-        emit(state.copyWith(
+        return emit(state.copyWith(
             isAddProductHasError: true,
+            isAddProductSuccess: false,
             isLoading: false,
-            isAddProductSuccess: false));
+            message: failure));
       }, (success) {
-        emit(state.copyWith(
+        return emit(state.copyWith(
             isAddProductHasError: false,
+            isAddProductSuccess: true,
             isLoading: false,
-            isAddProductSuccess: true));
+            addproductResponse: success));
       });
-      emit(ProductState.initial());
     });
-    on<_GetAllProductEvent>((event, emit) async {
+
+    on<_GetProductById>((event, emit) async {
       emit(state.copyWith(isLoading: true));
-      final result = await productRepo.getAllProduct();
+      final result =
+          await productRepo.getProductDetialsById(id: event.productId);
       result.fold((failure) {
-        emit(state.copyWith(
-            isGetAllProductHasError: true,
-            isGetAllProductSuccess: false,
-            isLoading: false,
-            message: failure.msg));
+        return emit(state.copyWith(
+            isGetProductByIdHasErro: true,
+            isGetProductByIdSuccess: false,
+            isLoading: false));
       }, (success) {
-        emit(state.copyWith(
-            isGetAllProductSuccess: true,
-            isGetAllProductHasError: false,
-            isLoading: false,
-            message: "Success",prouctModel: success));
+        return emit(state.copyWith(
+          isGetProductByIdHasErro: false,
+          isGetProductByIdSuccess: true,
+          isLoading: false,
+          // getProductByIdResponseModel: success
+        ));
       });
     });
+
+    on<_DeleteProductById>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      final result =
+          await productRepo.deleteProductById(productId: event.productId);
+      result.fold((failure) {
+        return emit(state.copyWith(
+            isDeleteProductByIdhasError: true,
+            isDeleteProductByIdsuccess: false,
+            isLoading: false,
+            message: failure));
+      }, (success) {
+        return emit(state.copyWith(
+            isDeleteProductByIdsuccess: true,
+            isDeleteProductByIdhasError: false,
+            isLoading: false,
+            message: success));
+      });
+    });
+
+    //  on<_GetAllProductEvent>((event, emit) async {
+    //   emit(state.copyWith(isLoading: true));
+    //   final result = await productRepo.getAllProduct();
+    //   result.fold((failure) {
+    //     emit(state.copyWith(
+    //         isGetAllProductHasError: true,
+    //         isGetAllProductSuccess: false,
+    //         isLoading: false,
+    //         message: failure.msg));
+    //   }, (success) {
+    //     emit(state.copyWith(
+    //         isGetAllProductSuccess: true,
+    //         isGetAllProductHasError: false,
+    //         isLoading: false,
+    //         message: "Success",prouctModel: success));
+    //   });
+    // });
+
+    // on<_AddproductEvent>((event, emit) async {
+    //   emit(state.copyWith(isLoading: true));
+    //   final result =
+    //       await productRepo.addProduct(productModel: event.productModel);
+    //   print(result);
+    //   print("ready to fold---");
+    //   result.fold((failure) {
+    //     emit(state.copyWith(
+    //         isAddProductHasError: true,
+    //         isLoading: false,
+    //         isAddProductSuccess: false));
+    //   }, (success) {
+    //     emit(state.copyWith(
+    //         isAddProductHasError: false,
+    //         isLoading: false,
+    //         isAddProductSuccess: true));
+    //   });
+    //   emit(ProductState.initial());
+    // });
   }
 }

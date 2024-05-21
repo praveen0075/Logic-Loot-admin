@@ -57,7 +57,7 @@ class AdminTextformFields {
   }
 
   static TextFormField adminPassTextformField(
-      {TextEditingController? txtContorller, String? errmsg}) {
+      {TextEditingController? txtContorller, String? errmsg,bool? obsc}) {
     return TextFormField(
         obscureText: true,
         controller: txtContorller,

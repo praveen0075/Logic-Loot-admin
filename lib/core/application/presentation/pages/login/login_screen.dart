@@ -19,6 +19,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
 
+  bool show = true;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -78,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
               key: formKey,
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: size.height / 5,
                     width: size.width / 1.8,
                     // color: Colors.red,
@@ -107,9 +109,43 @@ class _LoginScreenState extends State<LoginScreen> {
                             txtContorller: emailController,
                             errmsg: "Please Enter the Email"),
                         kheight20,
-                        AdminTextformFields.adminPassTextformField(
-                            txtContorller: passController,
-                            errmsg: "Please Enter the password"),
+                       TextFormField(
+        obscureText: show,
+        controller: passController,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        decoration:  InputDecoration(
+            // errorStyle: TextStyle(height: 0),
+            prefixIcon: const Icon(
+              Icons.lock_open_rounded,
+              color: Color.fromARGB(255, 77, 87, 231), 
+            ),
+            // suffixIcon: Icon(Icons.visibility_rounded,
+            //     color: Color.fromARGB(255, 77, 87, 231)),
+            suffixIcon: Padding(
+              padding: const EdgeInsets.all(15),
+              child: InkWell(
+                onTap: (){
+                  setState(() {
+                    show = !show;
+                  });
+                },
+                child: const Text("Show",style: TextStyle(color: Color.fromARGB(255, 77, 87, 231),fontWeight: FontWeight.bold),)),
+            ),
+            //  enabledBorder: OutlineInputBorder(
+            //     borderRadius: BorderRadius.all(Radius.circular(15)),
+            //         borderSide: BorderSide(width: 2, color: Color.fromARGB(255, 77, 87, 231)),
+            //       ),
+            hintText: 'Password',
+            border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)))),
+        // controller: ,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter a password';
+          } else {
+            return null;
+          }
+        })
                       ],
                     ),
                   ),

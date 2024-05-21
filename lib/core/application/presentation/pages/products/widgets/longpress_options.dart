@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:logic_loot_admin/core/application/presentation/pages/category/category_screen.dart';
-import 'package:logic_loot_admin/core/application/presentation/pages/category/widgets/showdialogu_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/edit_product_screen.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
 
 void showLongpressOptionsforProduct(
-    {required BuildContext? ctx,required int? indext}) {
+    {required BuildContext? ctx,
+    required int? indext,
+    required int prdouctId}) {
   var size = MediaQuery.of(ctx!).size;
   showModalBottomSheet(
     backgroundColor: Color(Color.getAlphaFromOpacity(1)),
@@ -22,7 +25,13 @@ void showLongpressOptionsforProduct(
                 leading: const Icon(Icons.edit),
                 title: const Text("Edit"),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const EditProductScreen(),));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditProductScreen(
+                          productId: prdouctId,
+                        ),
+                      ));
                   // onTapFuction;
                   // showDialoguWidgetForEditCategory(
                   //     ctx: ctx,
@@ -45,12 +54,41 @@ void showLongpressOptionsforProduct(
                   style: TextStyle(color: Colors.red),
                 ),
                 onTap: () {
-                  showDialoguWidgetForDeleteCategory(
-                      categoryDescriptionController:
-                          categoryDescriptionController,
-                      categoryNameController: categoryNameController,
-                      ctx: ctx,
-                      size: size);
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text("Delete Product?"),
+                      content:
+                          const Text("Do you want to delete this product?"),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              context.read<ProductBloc>().add(
+                                  ProductEvent.deleteProductByid(
+                                      productId: prdouctId));
+                              context.read<ProductBloc>().add(
+                                  const ProductEvent.getAllProductEvent());
+                              Navigator.pop(context);
+                            },
+                            child: const Text(
+                              "Delete",
+                              style: TextStyle(color: Colors.red),
+                            )),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text("Cancel"))
+                      ],
+                    ),
+                  );
+                  // Navigator.pop(context);
+                  // showDialoguWidgetForDeleteCategory(
+                  //     categoryDescriptionController:
+                  //         categoryDescriptionController,
+                  //     categoryNameController: categoryNameController,
+                  //     ctx: ctx,
+                  //     size: size);
                 },
               ),
             )

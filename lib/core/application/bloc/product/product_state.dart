@@ -8,11 +8,27 @@ class ProductState with _$ProductState {
     required bool isAddProductSuccess,
     required bool isGetAllProductHasError,
     required bool isGetAllProductSuccess,
+    required bool isGetProductByIdHasErro,
+    required bool isGetProductByIdSuccess,
+    required bool isDeleteProductByIdhasError,
+    required bool isDeleteProductByIdsuccess,
     String? message,
-    AddproductResponseModel? model,
-    GetAllproductResponseModel? prouctModel,
+    AddProductResponseModel? addproductResponse,
+    GetProductById? getProductByIdResponseModel,
+    List<Products>? prouctModel,
   }) = _ProductState;
-   factory ProductState.initial(){
-    return const ProductState(isLoading: false,isAddProductHasError: false, isAddProductSuccess: false,isGetAllProductHasError: false,isGetAllProductSuccess: false);
+  factory ProductState.initial() {
+    return const ProductState(
+        isLoading: false,
+        isAddProductHasError: false,
+        isAddProductSuccess: false,
+        isGetAllProductHasError: false,
+        isGetAllProductSuccess: false,
+        isGetProductByIdHasErro: false,
+        isGetProductByIdSuccess: false,
+        isDeleteProductByIdhasError: false,
+        isDeleteProductByIdsuccess: false,
+        prouctModel: [],
+        );
   }
 }

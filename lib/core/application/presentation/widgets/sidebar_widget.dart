@@ -209,7 +209,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:logic_loot_admin/core/application/presentation/pages/banners/bannner_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/category/category_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/coupons/coupons_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/customers/customer_screen.dart';
@@ -290,13 +289,6 @@ Widget buildMenuItems(BuildContext context) => Container(
           title: Text("Customers"),
           onTap: (){
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const CustomerScreen(),));
-          },
-        ),
-          ListTile(
-          leading: Icon(Icons.format_color_text_outlined),
-          title: Text("Banners"),
-          onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const BannersScreen(),));
           },
         ),
         Divider(
