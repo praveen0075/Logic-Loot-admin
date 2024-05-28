@@ -1,214 +1,5 @@
-// import 'package:flutter/material.dart';
-// // import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
-// import 'package:logic_loot_admin/core/application/presentation/pages/category/category_screen.dart';
-// import 'package:logic_loot_admin/core/application/presentation/pages/coupons/coupons_screen.dart';
-// import 'package:logic_loot_admin/core/application/presentation/pages/customers/customer_screen.dart';
-// import 'package:logic_loot_admin/core/application/presentation/pages/dashboard/dashboard_screen.dart';
-// import 'package:logic_loot_admin/core/application/presentation/pages/orders/orders.dart';
-// import 'package:logic_loot_admin/core/application/presentation/pages/products/product_screen.dart';
-
-
-// class SideBarWidget extends StatefulWidget {
-//   const SideBarWidget({super.key});
-
-//   @override
-//   State<SideBarWidget> createState() => _SideBarWidgetState();
-// }
-
-// class _SideBarWidgetState extends State<SideBarWidget> {
-//   // int selectedInt = 0;
-//   @override
-//   Widget build(BuildContext context) {
-//     var size = MediaQuery.of(context).size;
-//     var pages = [
-//       const DashBoardScreen(),
-//       const ProductScreen(),
-//       const CategoryScreen(),
-//       const OrdersScreen(),
-//       const CouponScreen(),
-//       const CustomerScreen(),
-      
-//     ];
-//     return Scaffold(
-//       body: Material(
-//         elevation:  30,
-//         child: Container(
-//           width: size.width/1.7,
-//           height: size.height,
-//           color: Colors.blue,
-//           child: const SafeArea(child: Column(
-//             children: [
-//               ListTile(
-//                 title: Text("LOGIC LOOT ADMIN",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
-//               ),
-//               Divider(color: Colors.white,),
-//               SideMenuTiles()
-//             ],
-//           )),
-//         ),
-//       ),
-//     //   bottomNavigationBar: DotNavigationBar(
-//     //     enableFloatingNavBar : false,
-//     //     enablePaddingAnimation : true,
-//     //     // splashColor: appcolorblue,
-//     //     // animationCurve: Curves.linear,
-//     //     // showElevation: true,
-//     //     // selectedIndex: selectedInt,
-//     //     currentIndex: selectedInt,
-//     //     onTap: (index){
-//     //       setState(() {
-//     //         selectedInt = index;
-//     //       });
-//     //     },
-//     //     items: [
-//     //       // FlashyTabBarItem(icon: const Icon(Icons.home), title: const Text("Dashboard")),
-//     //       // FlashyTabBarItem(icon: const Icon(Icons.category), title: const Text("Products")),
-//     //       // FlashyTabBarItem(icon: const Icon(Icons.favorite), title: const Text("Categories")),
-//     //       // FlashyTabBarItem(icon: const Icon(Icons.trolley), title: const Text("Cart")),
-//     //       // FlashyTabBarItem(icon: const Icon(Icons.settings), title: const Text("Settings")),
-//     //         DotNavigationBarItem(
-//     //           icon: const Icon(Icons.home),
-//     //         ),
-//     //         DotNavigationBarItem(
-//     //           icon: const Icon(Icons.category),
-//     //         ),
-//     //         DotNavigationBarItem(
-//     //           icon: const Icon(Icons.favorite),
-//     //         ),
-//     //         DotNavigationBarItem(
-//     //           icon: const Icon(Icons.trolley),
-//     //         ),
-//     //         DotNavigationBarItem(
-//     //           icon: const Icon(Icons.settings),
-//     //         ),
-//     //         DotNavigationBarItem(
-//     //           icon: const Icon(Icons.settings),
-//     //         ),
-//     //   ], 
-//     //   // onItemSelected: (index)=>setState(() {
-//     //   //   selectedInt = index;
-//     //   // }),
-//     //   ),
-//     //   body: pages[selectedInt],
-//     // );
-//     // drawer: ListView(
-    
-//     //   children: [
-        
-//     //     const DrawerHeader(decoration: BoxDecoration(
-//     //       color: Colors.blue,
-//     //     ), child: Text("hello world"),),
-//     //     ListTile(
-//     //       title: const Text("Dashboard"),
-//     //       onTap: () => const DashBoardScreen(),
-//     //     ),
-//     //       ListTile(
-//     //       title: const Text("Product"),
-//     //       onTap: () => const ProductScreen(),
-//     //     ),
-//     //       ListTile(
-//     //       title: const Text("Product"),
-//     //       onTap: () => const ProductScreen(),
-//     //     ),
-//     //       ListTile(
-//     //       title: const Text("Product"),
-//     //       onTap: () => const ProductScreen(),
-//     //     ),
-//     //       ListTile(
-//     //       title: const Text("Product"),
-//     //       onTap: () => const ProductScreen(),
-//     //     ),
-//     //   ],
-//     // ),
-//   //  body: pages[selectedInt],
-//     );
-//   }
-// }
-
-// class SideMenuTiles extends StatelessWidget {
-//   const SideMenuTiles({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-   
-//         ListTile(
-//           onTap: () {},
-//           leading:Icon(Icons.home),
-//           title: Text("Dashboard"),
-//         ),
-//              const Divider(
-//            color: Colors.white,
-//            height: 1,
-//         ),
-//            ListTile(
-//           onTap: () {},
-//           leading:Icon(Icons.home),
-//           title: Text("Products"),
-//         ),
-//              const Divider(
-//            color: Colors.white,
-//            height: 1,
-//         ),
-//            ListTile(
-//           onTap: () {},
-//           leading:Icon(Icons.home),
-//           title: Text("Categories"),
-//         ),
-//              const Divider(
-//            color: Colors.white,
-//            height: 1,
-//         ),
-//            ListTile(
-//           onTap: () {},
-//           leading:Icon(Icons.home),
-//           title: Text("Orders"),
-//         ),
-//              const Divider(
-//            color: Colors.white,
-//            height: 1,
-//         ),
-//            ListTile(
-//           onTap: () {},
-//           leading:Icon(Icons.home),
-//           title: Text("Coupons"),
-//         ),
-//              const Divider(
-//            color: Colors.white,
-//            height: 1,
-//         ),
-//            ListTile(
-//           onTap: () {},
-//           leading:Icon(Icons.home),
-//           title: Text("Customers"),
-//         ),
-//              const Divider(
-//            color: Colors.white,
-//            height: 1,
-//         ), 
-//            ListTile(
-//           onTap: () {},
-//           leading:Icon(Icons.home),
-//           title: Text("Banners"),
-//         ),
-//              const Divider(
-//            color: Colors.white,
-//            height: 1,
-//         ), 
-//              ListTile(
-//           onTap: () {},
-//           leading:Icon(Icons.home),
-//           title: Text("Log out"),
-//         ),
-          
-//       ],
-//     );
-//   }
-// }
-
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/category/category_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/coupons/coupons_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/customers/customer_screen.dart';
@@ -216,95 +7,186 @@ import 'package:logic_loot_admin/core/application/presentation/pages/dashboard/d
 import 'package:logic_loot_admin/core/application/presentation/pages/login/login_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/orders/orders.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/product_screen.dart';
+import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
+import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SideBarWidget extends StatelessWidget {
+class SideBarWidget extends StatefulWidget {
   const SideBarWidget({super.key});
 
   @override
+  State<SideBarWidget> createState() => _SideBarWidgetState();
+}
+
+class _SideBarWidgetState extends State<SideBarWidget> {
+  int selectedIndex = 0;
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return  Drawer(
+    return Drawer(
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            buildHeader(context),
-            buildMenuItems(context),
-          ],
+        child: Container(
+          height: size.height - 1,
+          decoration: const BoxDecoration(
+              // gradient: LinearGradient(begin: Alignment.bottomCente,colors: [appcolorRose,appcolorblue,Colors.white])
+              ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Wrap(
+                children: [
+                  buildHeader(context, size),
+                  // divider,
+                  buildMenuItems(context, size),
+                ],
+              ),
+              //   const Divider(
+              //   thickness: 2,
+              // ),
+              // buildfooter(context, size)
+            ],
+          ),
         ),
       ),
     );
   }
+
+  Widget buildHeader(BuildContext context, Size size) => Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [appcolorRose, appcolorblue])),
+      width: double.infinity,
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+      // color: Colors.blue,
+      height: size.height / 6,
+      // child: const Padding(
+      //   // padding: EdgeInsets.only(),
+      child: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Align(
+              alignment: Alignment.center,
+
+              // child: Image(image: AssetImage("assets/images/Logic-loot.png"))),
+              child: Text(
+                "LOGIC LOOT",
+                style: GoogleFonts.permanentMarker(
+                  textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
+              ))));
+
+  Widget buildMenuItems(BuildContext context, Size size) => Container(
+        //  height: size.height /1.5,
+        decoration: const BoxDecoration(
+            // gradient: LinearGradient(colors:[appcolorRose,appcolorblue])
+            ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.dashboard_customize,
+                  txt: "Dashboard",
+                  index: 1,
+                  targetScreen: const DashBoardScreen()),
+              // divider,
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.shop,
+                  txt: "Product",
+                  index: 2,
+                  targetScreen: const ProductScreen()),
+              // divider,
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.category,
+                  txt: "Categories",
+                  index: 3,
+                  targetScreen: const CategoryScreen()),
+              // divider,
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.snippet_folder,
+                  txt: "Orders",
+                  index: 4,
+                  targetScreen: const OrdersScreen()),
+              // divider,
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.book_online_sharp,
+                  txt: "Coupons",
+                  index: 5,
+                  targetScreen: const CouponScreen()),
+              // divider,
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.group,
+                  txt: "Customers",
+                  index: 6,
+                  targetScreen: const CustomerScreen()),
+              divider,
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.privacy_tip,
+                  txt: "Privacy & Policy",
+                  index: 7,
+                  targetScreen: DashBoardScreen()),
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.info,
+                  txt: "Terms & Conditions",
+                  index: 7,
+                  targetScreen: DashBoardScreen()),
+                  // SizedBox(height: 190,),
+              ListTile(
+                leading: const Icon(Icons.logout,color: Colors.red,),
+                title: const Text("Log out",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500,color: Colors.red),),
+                onTap: () async {
+                  SharedPreferences preff =
+                      await SharedPreferences.getInstance();
+                  preff.clear();
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()),
+                      (route) => false);
+                },
+              )
+            ],
+          ),
+        ),
+      );
+
+  Widget buildMenuItem(
+      {required BuildContext context,
+      required IconData icon,
+      required String txt,
+      required int index,
+      required Widget targetScreen}) {
+    bool isSelected = index == selectedIndex;
+    return ListTile(
+      leading: Icon(
+        icon,
+        color: isSelected ? appcolorRose : null,
+      ),
+      title: Text(
+        txt,
+        style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+            color: isSelected ? appcolorRose : null),
+      ),
+      onTap: () {
+        selectedIndex = index;
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => targetScreen,
+            ));
+      },
+    );
+  }
 }
-
-Widget buildHeader(BuildContext context) => Container(
-  padding:  EdgeInsets.only(
-    top: MediaQuery.of(context).padding.top
-  ),
-);
-
-Widget buildMenuItems(BuildContext context) => Container(
-  child: Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Wrap(
-      children: [
-        ListTile(
-          leading: Icon(Icons.dashboard_customize),
-          title: Text("DashBoard"),
-          onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const DashBoardScreen(),));
-          },
-        ),
-          ListTile(
-          leading: Icon(Icons.shop),
-          title: Text("Product"),
-          onTap: (){
-            // Navigator.pop(context);
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ProductScreen(),));
-          },
-        ),
-          ListTile(
-          leading: Icon(Icons.category),
-          title: Text("Categories"),
-          onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const CategoryScreen(),));
-          },
-        ),
-          ListTile(
-          leading: Icon(Icons.snippet_folder),
-          title: Text("Orders"),
-          onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const OrdersScreen(),));
-          },
-        ),
-          ListTile(
-          leading: Icon(Icons.book_online_sharp),
-          title: Text("Coupons"),
-          onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const CouponScreen(),));
-          },
-        ),
-          ListTile(
-          leading: Icon(Icons.group),
-          title: Text("Customers"),
-          onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const CustomerScreen(),));
-          },
-        ),
-        Divider(
-          thickness: 2,
-        ),
-        ListTile(
-          leading: const Icon(Icons.logout),
-          title: const Text("Log out"),
-          onTap: ()async{ 
-            SharedPreferences preff = await SharedPreferences.getInstance();
-            preff.clear();
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LoginScreen()), (route) => false);}
-,
-        )
-      ],
-    ),
-  ),
-);
-

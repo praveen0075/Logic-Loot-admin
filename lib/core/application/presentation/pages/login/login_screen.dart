@@ -123,11 +123,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         return const CircularProgressIndicator();
                       } else {
                         return KbuttonWidget(
-                            labeltxt: "Sign In",
-                            size: size,
-                            formKey: formKey,
-                            emailController: emailController,
-                            passController: passController);
+                          labeltxt: "Sign In",
+                          size: size,
+                          formKey: formKey,
+                          onpress: () {
+                            if (formKey.currentState!.validate()) {
+                              context.read<AuthBloc>().add(
+                                  AuthEvent.logInReqEvent(
+                                      email: emailController.text.trim(),
+                                      password: passController.text.trim()));
+                            }
+                          },
+                        );
                       }
                     },
                   ),

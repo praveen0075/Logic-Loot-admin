@@ -8,16 +8,14 @@ class KbuttonWidget extends StatelessWidget {
       {super.key,
       required this.size,
       required this.formKey,
-      required this.emailController,
-      required this.passController,
-      required this.labeltxt});
+
+      required this.labeltxt, this.onpress});
 
   final String labeltxt;
   final Size size;
   final GlobalKey<FormState> formKey;
-  final TextEditingController emailController;
-  final TextEditingController passController;
-
+  final Function()? onpress;
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,13 +31,7 @@ class KbuttonWidget extends StatelessWidget {
                 appcolorRose,
               ])),
       child: TextButton(
-          onPressed: () {
-            if (formKey.currentState!.validate()) {
-              context.read<AuthBloc>().add(AuthEvent.logInReqEvent(
-                  email: emailController.text.trim(),
-                  password: passController.text.trim()));
-            }
-          },
+          onPressed:onpress,
           child: Text(
             labeltxt,
             style: const TextStyle(color: txtColorWhite, fontSize: 19),

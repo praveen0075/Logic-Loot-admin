@@ -1,6 +1,4 @@
-
 import 'dart:io';
-
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +8,7 @@ import 'package:logic_loot_admin/core/application/bloc/category/category_bloc.da
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/textformfield_for_adding.dart';
 import 'package:logic_loot_admin/core/domain/model/body_model/product_model.dart';
@@ -22,7 +21,9 @@ final TextEditingController productSizeController = TextEditingController();
 final TextEditingController productSpecController = TextEditingController();
 final TextEditingController productDescriptionController =
     TextEditingController();
-final formKey = GlobalKey<FormState>();
+
+final formKeyforAddProduct = GlobalKey<FormState>();
+
 class AddProductScreen extends StatefulWidget {
   const AddProductScreen({super.key});
 
@@ -39,35 +40,45 @@ class _AddProductScreenState extends State<AddProductScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<CategoryBloc>(context).add(const CategoryEvent.getCategory());
+    BlocProvider.of<CategoryBloc>(context)
+        .add(const CategoryEvent.getCategory());
+  }
+
+  void clearValues() {
+    productNameController.clear();
+    productPriceController.clear();
+    productQuantityController.clear();
+    productCategoryController.clear();
+    productSizeController.clear();
+    productSpecController.clear();
+    productDescriptionController.clear();
+    setState(() {
+      _image = null;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Add Product"),
-        centerTitle: true,
-      ),
+      appBar: const PreferredSize(preferredSize: Size.fromHeight(50), child: AppBarWidget(title: "Product",)) ,
       body: SingleChildScrollView(
         child: Form(
-          key: formKey,
+          key: formKeyforAddProduct,
           child: BlocConsumer<ProductBloc, ProductState>(
             listener: (context, state) {
               if (state.isAddProductSuccess) {
-                snackBarWidget(context: context, msg: "Successfully added Product", bgColor: Colors.green);
-                productCategoryController.clear();
-                productDescriptionController.clear();
-                productNameController.clear();
-                productPriceController.clear();
-                productQuantityController.clear();
-                productSpecController.clear();
-                selectedCategoryId = null;
-                selectedSize = null;
-                 Navigator.pop(context);
+                snackBarWidget(
+                    context: context,
+                    msg: "Successfully added Product",
+                    bgColor: Colors.green);
+                clearValues();
+                Navigator.pop(context);
               } else if (state.isAddProductHasError) {
-                snackBarWidget(context: context, msg: state.message ?? "Failed to add Product", bgColor: Colors.red);
+                snackBarWidget(
+                    context: context,
+                    msg: state.message ?? "Failed to add Product",
+                    bgColor: Colors.red);
               }
             },
             builder: (context, state) {
@@ -85,7 +96,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       child: InkWell(
                         onTap: () async {
                           final picker = ImagePicker();
-                          final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+                          final pickedFile = await picker.pickImage(
+                              source: ImageSource.gallery);
 
                           if (pickedFile != null) {
                             setState(() {
@@ -152,8 +164,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
                               if (state.isGetCategoryHasError) {
                                 return DropDownTextField(
                                   dropdownColor: Colors.white,
-                                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                                  dropDownIconProperty: IconProperty(icon: Icons.category_outlined),
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  dropDownIconProperty: IconProperty(
+                                      icon: Icons.category_outlined),
                                   textFieldDecoration: InputDecoration(
                                     hintText: "No Data",
                                     hintStyle: const TextStyle(color: black),
@@ -168,20 +182,32 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   enableSearch: true,
                                   initialValue: "No Category",
                                   clearOption: true,
-                                  dropDownList: [],
+                                  dropDownList: const [],
                                   onChanged: (value) {},
                                 );
                               } else if (state.isLoading) {
                                 return const CircularProgressIndicator();
-                              } else if (state.getallCategory != null && state.getallCategory!.isNotEmpty) {
-                                categoryList.clear(); // Clear the list to avoid duplication
+                              } else if (state.getallCategory != null &&
+                                  state.getallCategory!.isNotEmpty) {
+                                categoryList
+                                    .clear(); // Clear the list to avoid duplication
                                 for (var category in state.getallCategory!) {
-                                  categoryList.add(DropDownValueModel(name: category.name, value: category.id));
+                                  categoryList.add(DropDownValueModel(
+                                      name: category.name, value: category.id));
                                 }
                                 return DropDownTextField(
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return "Please select Category";
+                                    } else {
+                                      return null;
+                                    }
+                                  },
                                   dropdownColor: Colors.white,
-                                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                                  dropDownIconProperty: IconProperty(icon: Icons.category_outlined),
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  dropDownIconProperty: IconProperty(
+                                      icon: Icons.category_outlined),
                                   textFieldDecoration: InputDecoration(
                                     hintText: "Select Category",
                                     hintStyle: const TextStyle(color: black),
@@ -198,7 +224,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   clearOption: true,
                                   dropDownList: categoryList,
                                   onChanged: (value) async {
-                                    selectedCategoryId = value.value; // Update the selected category ID
+                                    selectedCategoryId = value.value;
                                   },
                                 );
                               } else {
@@ -208,11 +234,20 @@ class _AddProductScreenState extends State<AddProductScreen> {
                           ),
                           kheight10,
                           DropDownTextField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please select RAM";
+                              } else {
+                                return null;
+                              }
+                            },
                             dropdownColor: Colors.white,
-                            autovalidateMode: AutovalidateMode.onUserInteraction,
-                            dropDownIconProperty: IconProperty(icon: Icons.navigate_next),
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            dropDownIconProperty:
+                                IconProperty(icon: Icons.navigate_next),
                             textFieldDecoration: InputDecoration(
-                              hintText: "Select Product Size",
+                              hintText: "Select the prouct RAM",
                               hintStyle: const TextStyle(color: black),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
@@ -232,7 +267,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                             ],
                             onChanged: (value) async {
                               selectedSize = value.value.toString();
-                              print("Selected size: $selectedSize"); // Add print statement for debugging
+                              print("Selected size: $selectedSize");
                             },
                           ),
                           kheight10,
@@ -251,60 +286,157 @@ class _AddProductScreenState extends State<AddProductScreen> {
                           ),
                           kheight10,
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              TextButton(
-                                style: const ButtonStyle(),
-                                onPressed: () {
-                                  // Clear logic here if needed
-                                },
-                                child: const Text(
-                                  "Clear",
-                                  style: TextStyle(color: Colors.red, fontSize: 20),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: ()async{
-                                  if (formKey.currentState!.validate()) {
-                                    if (selectedCategoryId == null) {
-                                      snackBarWidget(
-                                          context: context, msg: "Category is not selected", bgColor: Colors.red);
-                                    } else if (selectedSize == null) {
-                                      snackBarWidget(
-                                          context: context, msg: "Product size is not selected", bgColor: Colors.red);
-                                    } else if (_image == null) {
-                                      snackBarWidget(
-                                          context: context, msg: "Please select image for the product", bgColor: Colors.red);
-                                    } else {
-                                      final productPrice = num.parse(productPriceController.text);
-                                      final productQuantity = int.parse(productQuantityController.text);
-                                      final productImageFile = _image;
-                                      final productModel = AddproductModel(
-                                        name: productNameController.text.trim(),
-                                        price: productPrice,
-                                        size: selectedSize ?? '',
-                                        specification: productSpecController.text.trim(),
-                                        quantity: productQuantity,
-                                        description: productDescriptionController.text.trim(),
-                                        categoryId: selectedCategoryId!,
-                                        imageurl: productImageFile!,
-                                      );
-                                      context.read<ProductBloc>().add(
-                                        ProductEvent.addProductEvent(productModel: productModel));
-                                        context.read<ProductBloc>().add(const ProductEvent.getAllProductEvent());
-                                    }
-                                    // Print the selected category ID and size for debugging
-                                    print("Selected Category ID: $selectedCategoryId");
-                                    print("Selected Size: $selectedSize");
-                                  }
-                                },
-                                child: const Text(
-                                  "Submit",
-                                  style: TextStyle(color: appcolorblue, fontSize: 20),
-                                ),
-                              ),
+                              Expanded(
+                                  child: SizedBox(
+                                height: 50,
+                                child: OutlinedButton(
+                                    style: const ButtonStyle(
+                                        side: MaterialStatePropertyAll(
+                                            BorderSide(color: appcolorblue)),
+                                        foregroundColor:
+                                            MaterialStatePropertyAll(
+                                                Colors.red)),
+                                    onPressed: () {
+                                      setState(() {
+                                        formKeyforAddProduct.currentState!
+                                            .reset();
+                                        clearValues();
+                                      });
+                                    },
+                                    child: const Text("Clear")),
+                              )),
+                              kwidth15,
+                              Expanded(
+                                  child: SizedBox(
+                                      height: 50,
+                                      child: OutlinedButton(
+                                          style: const ButtonStyle(
+                                              backgroundColor:
+                                                  MaterialStatePropertyAll(
+                                                      appcolorblue),
+                                              foregroundColor:
+                                                  MaterialStatePropertyAll(
+                                                      Colors.white),
+                                              side: MaterialStatePropertyAll(
+                                                  BorderSide(
+                                                      color: appcolorblue))),
+                                          onPressed: () {
+                                            if (formKeyforAddProduct
+                                                .currentState!
+                                                .validate()) {
+                                              // if (selectedCategoryId == null) {
+                                              //   snackBarWidget(
+                                              //       context: context, msg: "Category is not selected", bgColor: Colors.red);
+                                              // } else if (selectedSize == null) {
+                                              //   snackBarWidget(
+                                              //       context: context, msg: "Product size is not selected", bgColor: Colors.red);
+                                            }
+                                            if (_image == null) {
+                                              snackBarWidget(
+                                                  context: context,
+                                                  msg:
+                                                      "Please select image for the product",
+                                                  bgColor: Colors.red);
+                                            } else {
+                                              final productPrice = num.parse(
+                                                  productPriceController.text);
+                                              final productQuantity = int.parse(
+                                                  productQuantityController
+                                                      .text);
+                                              final productImageFile = _image;
+                                              final productModel =
+                                                  AddproductModel(
+                                                name: productNameController.text
+                                                    .trim(),
+                                                price: productPrice,
+                                                size: selectedSize ?? '',
+                                                specification:
+                                                    productSpecController.text
+                                                        .trim(),
+                                                quantity: productQuantity,
+                                                description:
+                                                    productDescriptionController
+                                                        .text
+                                                        .trim(),
+                                                categoryId: selectedCategoryId!,
+                                                imageurl: productImageFile!,
+                                              );
+                                              context.read<ProductBloc>().add(
+                                                  ProductEvent.addProductEvent(
+                                                      productModel:
+                                                          productModel));
+                                              context.read<ProductBloc>().add(
+                                                  const ProductEvent
+                                                      .getAllProductEvent());
+                                            }
+                                            // Print the selected category ID and size for debugging
+                                            print(
+                                                "Selected Category ID: $selectedCategoryId");
+                                            print(
+                                                "Selected Size: $selectedSize");
+                                            // }
+                                          },
+                                          child: const Text("Submit"))))
                             ],
                           ),
+                          // KbuttonWidget(size: size, formKey: formKey, labeltxt: "Clear "),
+                          // KbuttonWidget(size: size, formKey: formKey, labeltxt: "Submit"),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.end,
+                          //   children: [
+                          //     TextButton(
+                          //       style: const ButtonStyle(),
+                          //       onPressed: () {
+                          //         // Clear logic here if needed
+                          //       },
+                          //       child: const Text(
+                          //         "Clear",
+                          //         style: TextStyle(color: Colors.red, fontSize: 20),
+                          //       ),
+                          //     ),
+                          //     TextButton(
+                          //       onPressed: ()async{
+                          //         if (formKey.currentState!.validate()) {
+                          //           if (selectedCategoryId == null) {
+                          //             snackBarWidget(
+                          //                 context: context, msg: "Category is not selected", bgColor: Colors.red);
+                          //           } else if (selectedSize == null) {
+                          //             snackBarWidget(
+                          //                 context: context, msg: "Product size is not selected", bgColor: Colors.red);
+                          //           } else if (_image == null) {
+                          //             snackBarWidget(
+                          //                 context: context, msg: "Please select image for the product", bgColor: Colors.red);
+                          //           } else {
+                          //             final productPrice = num.parse(productPriceController.text);
+                          //             final productQuantity = int.parse(productQuantityController.text);
+                          //             final productImageFile = _image;
+                          //             final productModel = AddproductModel(
+                          //               name: productNameController.text.trim(),
+                          //               price: productPrice,
+                          //               size: selectedSize ?? '',
+                          //               specification: productSpecController.text.trim(),
+                          //               quantity: productQuantity,
+                          //               description: productDescriptionController.text.trim(),
+                          //               categoryId: selectedCategoryId!,
+                          //               imageurl: productImageFile!,
+                          //             );
+                          //             context.read<ProductBloc>().add(
+                          //               ProductEvent.addProductEvent(productModel: productModel));
+                          //               context.read<ProductBloc>().add(const ProductEvent.getAllProductEvent());
+                          //           }
+                          //           // Print the selected category ID and size for debugging
+                          //           print("Selected Category ID: $selectedCategoryId");
+                          //           print("Selected Size: $selectedSize");
+                          //         }
+                          //       },
+                          //       child: const Text(
+                          //         "Submit",
+                          //         style: TextStyle(color: appcolorblue, fontSize: 20),
+                          //       ),
+                          //     ),
+                          // ],
+                          // ),
                         ],
                       ),
                     ),
