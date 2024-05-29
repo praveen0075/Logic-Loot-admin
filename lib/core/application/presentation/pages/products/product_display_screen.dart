@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 
 class ProductDisplayScreen extends StatelessWidget {
   const ProductDisplayScreen({super.key, required this.id});
@@ -15,10 +16,7 @@ class ProductDisplayScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Product Details"),
-        centerTitle: true,
-      ),
+     appBar: const PreferredSize(preferredSize:  Size.fromHeight(50), child: AppBarWidget(title: "Product Details",)),
       body: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) {
           if (state.isLoading) {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/edit_product_screen.dart';
-import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
 
 void showLongpressOptionsforProduct(
     {required BuildContext? ctx,

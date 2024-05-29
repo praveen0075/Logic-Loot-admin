@@ -4,12 +4,11 @@ import 'package:logic_loot_admin/core/application/bloc/category/category_bloc.da
 import 'package:logic_loot_admin/core/application/presentation/pages/category/add_category_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/category/widgets/show_bottom_sheet.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
+import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
 
-// final formkeycat = GlobalKey<FormState>();
-// TextEditingController categoryNameController = TextEditingController();
-// TextEditingController categoryDescriptionController = TextEditingController();
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -33,12 +32,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Categories"),
-          centerTitle: true,
-        ),
+        appBar: const PreferredSize(preferredSize:  Size.fromHeight(50), child: AppBarWidget(title: "Category")),
         drawer: const SideBarWidget(),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: appcolorRose,
             onPressed: () {
               // showDialoguWidget(context, size, categoryNameController,
               // categoryDescriptionController);
@@ -100,8 +97,7 @@ class CategoryListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       itemCount: stt.getallCategory!.length,
-      // itemCount: 10,
-      separatorBuilder: (context, index) => const Divider(),
+      separatorBuilder: (context, index) => kheight10,
       itemBuilder: (context, index) => InkWell(
         onLongPress: () {
           showOptions(
@@ -110,27 +106,24 @@ class CategoryListWidget extends StatelessWidget {
             categoryId: stt.getallCategory![index].id
           );
         },
-        child: ListTile(
-          onTap: () {
-            showDialog(
-                context: context,
-                builder: (context) =>  AlertDialog(
-                      title: Text(stt.getallCategory![index].name),
-                      content: Text(stt.getallCategory![index].description),
-                    ));
-          },
-          leading: const Icon(
-            Icons.blur_on_sharp,
-            color: appcolorblue,
-          ),
-          title:  Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Text(
-              stt.getallCategory![index].name,
-              // "Category",
-              style: const  TextStyle(fontSize: 20),
+        child: ExpansionTile(
+          iconColor: appcolorblue,
+          textColor: appcolorblue,
+          // backgroundColor: Colors.grey.shade200,
+          // maintainState: true,
+          // collapsedBackgroundColor: Colors.red,
+          leading: const Icon(Icons.category_outlined,size: 18,),
+          title: Text(stt.getallCategory![index].name,style: const TextStyle(fontSize: 21,fontWeight: FontWeight.w400),) ,
+          children: [
+            ListTile(
+              title:  Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  stt.getallCategory![index].description,style: TextStyle(color: Colors.grey.shade800),
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

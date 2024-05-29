@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/textformfield_for_editing.dart';
 
 final TextEditingController productNameController = TextEditingController();
@@ -39,10 +40,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Edit Product"),
-        centerTitle: true,
-      ),
+     appBar: const PreferredSize(preferredSize:  Size.fromHeight(50), child: AppBarWidget(title: "Edit product",)),
       body: SingleChildScrollView(
         child: Form(
           key: formKey,

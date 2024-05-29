@@ -119,7 +119,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      Icons.image_outlined,
+                                      Icons.add_photo_alternate_outlined,
                                       size: 29,
                                     ),
                                     kheight10,
@@ -380,63 +380,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                           child: const Text("Submit"))))
                             ],
                           ),
-                          // KbuttonWidget(size: size, formKey: formKey, labeltxt: "Clear "),
-                          // KbuttonWidget(size: size, formKey: formKey, labeltxt: "Submit"),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.end,
-                          //   children: [
-                          //     TextButton(
-                          //       style: const ButtonStyle(),
-                          //       onPressed: () {
-                          //         // Clear logic here if needed
-                          //       },
-                          //       child: const Text(
-                          //         "Clear",
-                          //         style: TextStyle(color: Colors.red, fontSize: 20),
-                          //       ),
-                          //     ),
-                          //     TextButton(
-                          //       onPressed: ()async{
-                          //         if (formKey.currentState!.validate()) {
-                          //           if (selectedCategoryId == null) {
-                          //             snackBarWidget(
-                          //                 context: context, msg: "Category is not selected", bgColor: Colors.red);
-                          //           } else if (selectedSize == null) {
-                          //             snackBarWidget(
-                          //                 context: context, msg: "Product size is not selected", bgColor: Colors.red);
-                          //           } else if (_image == null) {
-                          //             snackBarWidget(
-                          //                 context: context, msg: "Please select image for the product", bgColor: Colors.red);
-                          //           } else {
-                          //             final productPrice = num.parse(productPriceController.text);
-                          //             final productQuantity = int.parse(productQuantityController.text);
-                          //             final productImageFile = _image;
-                          //             final productModel = AddproductModel(
-                          //               name: productNameController.text.trim(),
-                          //               price: productPrice,
-                          //               size: selectedSize ?? '',
-                          //               specification: productSpecController.text.trim(),
-                          //               quantity: productQuantity,
-                          //               description: productDescriptionController.text.trim(),
-                          //               categoryId: selectedCategoryId!,
-                          //               imageurl: productImageFile!,
-                          //             );
-                          //             context.read<ProductBloc>().add(
-                          //               ProductEvent.addProductEvent(productModel: productModel));
-                          //               context.read<ProductBloc>().add(const ProductEvent.getAllProductEvent());
-                          //           }
-                          //           // Print the selected category ID and size for debugging
-                          //           print("Selected Category ID: $selectedCategoryId");
-                          //           print("Selected Size: $selectedSize");
-                          //         }
-                          //       },
-                          //       child: const Text(
-                          //         "Submit",
-                          //         style: TextStyle(color: appcolorblue, fontSize: 20),
-                          //       ),
-                          //     ),
-                          // ],
-                          // ),
                         ],
                       ),
                     ),

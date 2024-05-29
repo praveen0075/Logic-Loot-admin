@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/coupon/coupon_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/coupons/add_coupon_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/coupons/widgets/bottom_delete_option_widget.dart';
+import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_widget.dart';
 
 class CouponScreen extends StatefulWidget {
@@ -25,11 +27,9 @@ class _CouponScreenState extends State<CouponScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Coupons"),
-        centerTitle: true,
-      ),
+      appBar: const PreferredSize(preferredSize:  Size.fromHeight(50), child: AppBarWidget(title: "Coupons",)),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: appcolorRose,
           onPressed: () {
             Navigator.push(
                 context,

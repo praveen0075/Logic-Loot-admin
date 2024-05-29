@@ -124,7 +124,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
               buildMenuItem(
                   context: context,
                   icon: Icons.group,
-                  txt: "Customers",
+                  txt: "Manage users",
                   index: 6,
                   targetScreen: const CustomerScreen()),
               divider,
@@ -133,26 +133,80 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   icon: Icons.privacy_tip,
                   txt: "Privacy & Policy",
                   index: 7,
-                  targetScreen: DashBoardScreen()),
+                  targetScreen: const DashBoardScreen()),
               buildMenuItem(
                   context: context,
                   icon: Icons.info,
                   txt: "Terms & Conditions",
                   index: 7,
-                  targetScreen: DashBoardScreen()),
-                  // SizedBox(height: 190,),
+                  targetScreen: const DashBoardScreen()),
+              // SizedBox(height: 190,),
               ListTile(
-                leading: const Icon(Icons.logout,color: Colors.red,),
-                title: const Text("Log out",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500,color: Colors.red),),
-                onTap: () async {
-                  SharedPreferences preff =
-                      await SharedPreferences.getInstance();
-                  preff.clear();
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
-                      (route) => false);
+                leading: const Icon(
+                  Icons.logout,
+                  color: Colors.red,
+                ),
+                title: const Text(
+                  "Log out",
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.red),
+                ),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      // content: Column(
+                      //   children: [
+                      //     TextButton(onPressed: (){}, child: Text("Log out",style: TextStyle(color: Colors.red),))
+                      //   ],
+                      // ),
+                      title: const Center(
+                          child: Text(
+                        "Log out of\nyour account?",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      )),
+                      actions: [
+                        Center(
+                            child: TextButton(
+                                onPressed: () async {
+                                  SharedPreferences preff =
+                                      await SharedPreferences.getInstance();
+                                  preff.clear();
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const LoginScreen()),
+                                      (route) => false);
+                                },
+                                child: const Text(
+                                  "Log out",
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 22),
+                                ))),
+                        Center(
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  "Cancel",
+                                  style: TextStyle(fontSize: 22),
+                                ))),
+                      ],
+                    ),
+                  );
+                  // SharedPreferences preff =
+                  //     await SharedPreferences.getInstance();
+                  // preff.clear();
+                  // Navigator.pushAndRemoveUntil(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const LoginScreen()),
+                  //     (route) => false);
                 },
               )
             ],
