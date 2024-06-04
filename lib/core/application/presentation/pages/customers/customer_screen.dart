@@ -27,17 +27,25 @@ class _CustomerScreenState extends State<CustomerScreen> {
     Colors.indigo.shade300,
   ];
 
+  Random random = Random();
+
   bool isBlock = true;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    Random random = Random();
     return Scaffold(
-   appBar: const PreferredSize(preferredSize:  Size.fromHeight(50), child: AppBarWidget(title: "Users",)),
+      appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: AppBarWidget(
+            title: "Users",
+          )),
       drawer: const SideBarWidget(),
-      body: 
-      ListView.separated(
+      body: ListView.separated(
           itemBuilder: (context, index) {
+            // Color avatarColor = Colors.red.shade300;
+            // for(int i = 0 ; i <= 20 ; i ++ ){
+            //   avatarColor = avatarColors[i];
+            // }
             Color avatarColor =
                 avatarColors[random.nextInt(avatarColors.length)];
             return ListTile(

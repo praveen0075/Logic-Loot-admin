@@ -30,7 +30,6 @@ class _ProductScreenState extends State<ProductScreen> {
     String productName;
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: const PreferredSize(
           preferredSize: Size.fromHeight(50),
           child: AppBarWidget(
@@ -95,7 +94,7 @@ class _ProductScreenState extends State<ProductScreen> {
                               children: [
                                 IconButton(
                                     onPressed: () {},
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.more,
                                       color: Colors.red,
                                     )),

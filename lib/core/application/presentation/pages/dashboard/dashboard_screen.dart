@@ -10,6 +10,7 @@ class DashBoardScreen extends StatelessWidget {
     return const Scaffold(
 appBar:  PreferredSize(preferredSize:  Size.fromHeight(50), child: AppBarWidget(title: "Dashboard",)),
       drawer:  SideBarWidget(),
+      body: Center(child: Text("Comming soon...."),),
     );
   }
-}
+} 

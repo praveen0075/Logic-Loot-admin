@@ -61,7 +61,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: const PreferredSize(preferredSize: Size.fromHeight(50), child: AppBarWidget(title: "Product",)) ,
+      appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: AppBarWidget(
+            title: "Product",
+          )),
       body: SingleChildScrollView(
         child: Form(
           key: formKeyforAddProduct,

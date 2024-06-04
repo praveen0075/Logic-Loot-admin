@@ -2,43 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/category/category_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
+import 'package:logic_loot_admin/core/application/presentation/utils/controllers/textediting_controllers.dart';
+import 'package:logic_loot_admin/core/application/presentation/utils/keys/keys.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/add_button.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/add_textformfield_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
 
-class AddCategoryScreen extends StatefulWidget {
+class AddCategoryScreen extends StatelessWidget {
   const AddCategoryScreen({super.key});
-
-  @override
-  State<AddCategoryScreen> createState() => _AddCategoryScreenState();
-}
-
-class _AddCategoryScreenState extends State<AddCategoryScreen> {
-  final formkeyAddCat = GlobalKey<FormState>();
-  final categoryNameController = TextEditingController();
-  final categoryDescriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: const PreferredSize(preferredSize: Size.fromHeight(50), child: AppBarWidget(title: "Add Category")),
+      appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: AppBarWidget(title: "Add Category")),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Form(
-          key: formkeyAddCat,
+          key: AllKeys.categoryAddFormKey,
           child: Column(
             children: [
               AddTextFormFieldWidget(
                   txt: "Category Name",
-                  cntrlr: categoryNameController,
+                  cntrlr: TxtEdtControllers.addCategoryNameController,
                   errmsg: "Please Enter the Category name"),
               kheight20,
               TextFormField(
                 minLines: 6,
                 maxLines: 50,
-                controller: categoryDescriptionController,
+                controller: TxtEdtControllers.addCategoryDescriptioncontroller,
                 decoration: const InputDecoration(
                     hintText: "Category Description",
                     enabled: true,
@@ -92,20 +87,19 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
                       child: AddButton(
                         txt: "Add Category",
                         onpressed: () async {
-                          if (formkeyAddCat.currentState!.validate()) {
+                          if (AllKeys.categoryAddFormKey.currentState!
+                              .validate()) {
+                            final ctName = TxtEdtControllers
+                                .addCategoryNameController.text;
+                            final ctDescription = TxtEdtControllers
+                                .addCategoryDescriptioncontroller.text;
                             context.read<CategoryBloc>().add(
                                 CategoryEvent.addCategory(
-                                    categoryNameValue:
-                                        categoryNameController.text.trim(),
+                                    categoryNameValue: ctName.trim(),
                                     categoryDescriptionValue:
-                                        categoryDescriptionController.text
-                                            .trim()));
-                            context
-                                .read<CategoryBloc>()
-                                .add(const CategoryEvent.getCategory());
-                            categoryDescriptionController.clear();
-                            categoryNameController.clear();
-                            Navigator.pop(context);
+                                        ctDescription.trim()));
+
+                            // Navigator.pop(context);
                           }
                         },
                       ),

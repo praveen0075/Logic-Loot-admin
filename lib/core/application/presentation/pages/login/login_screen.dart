@@ -76,9 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     },
                                     child: show
                                         ? const Icon(
-                                            Icons.visibility_off_outlined,
+                                            Icons.visibility_outlined,
                                             color: appcolorblue)
-                                        : const Icon(Icons.visibility_outlined,
+                                        : const Icon(Icons.visibility_off_outlined,
                                             color: appcolorblue),
                                   ),
                                 ),

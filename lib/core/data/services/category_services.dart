@@ -104,6 +104,7 @@ class CategoryServices {
 
         if (respone.statusCode == 200) {
           final success = resultModel["success"];
+          
           return Right(success);
         } else {
           final error = resultModel["error"];
