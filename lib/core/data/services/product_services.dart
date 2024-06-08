@@ -10,7 +10,7 @@ import 'package:logic_loot_admin/core/domain/model/response_model/get_productby_
 
 // class ProductServices implements IproductRepo{
 class ProductServices {
-  Future<Either<String, AddProductResponseModel>> addProduct(
+  Future<Either<String, String>> addProduct(
       {required AddproductModel productModel}) async {
     try {
       final tkn = await SharedPreffs.getAdminToken();
@@ -39,16 +39,18 @@ class ProductServices {
 
       if (response.statusCode == 200) {
         print("succes");
-        final resultModel = addProductResponseModelFromJson(responseModel);
-        return Right(resultModel);
+        // final resultModel = addProductResponseModelFromJson(responseModel);
+        return const Right("Product added successfully");
       } else {
         final result = jsonDecode(responseModel);
-        if (result is Map<String, dynamic> && result.containsKey('error')) {
-          final error = result["error"];
-          return Left(error);
-        } else {
-          return const Left("Unexpected error format");
-        }
+        final error = result["error"];
+        return Left(error);
+        // if (result is Map<String, dynamic> && result.containsKey('error')) {
+        //   final error = result["error"];
+        //   return Left(error);
+        // } else {
+        //   return const Left("Unexpected error format");
+        // }
       }
     } catch (e) {
       print("Exception $e");
@@ -56,7 +58,7 @@ class ProductServices {
     }
   }
 
-  Future<Either<String, GetAllProducts>> getAllProuducts() async {
+  Future<Either<String, List<Products>>> getAllProuducts() async {
     try {
       final tkn = await SharedPreffs.getAdminToken();
       print("admin token --> $tkn");
@@ -74,17 +76,32 @@ class ProductServices {
 
         print("response statuscode --> ${response.statusCode}");
 
-        final responseResult = jsonDecode(response.body);
+        // 
 
-        print("response result model ---> $responseResult");
+        // print("response result model ---> $responseResult");
 
         if (response.statusCode == 200) {
-          final success = getAllProductsFromJson(response.body);
-          print("result--> $success");
+          final jsonResponse = jsonDecode(response.body);
+          print(jsonResponse);
 
-          return Right(success);
+          // if(jsonResponse["produ"])
+
+           if (jsonResponse['products'] != null) {
+          final List<dynamic> productsJson = jsonResponse['products'];
+          final List<Products> products = productsJson.map((item) => Products.fromJson(item)).toList();
+          print("Parsed products --> $products");
+
+          return Right(products);
+        } else {
+          return Left("Product is empty");
+        }
+          
+          // print("result--> $success");
+
+          // if(success.products != null)
         } else {
           print("error");
+          final responseResult = jsonDecode(response.body);
           final error = responseResult["error"];
           return Left(error);
         }
@@ -144,17 +161,21 @@ class ProductServices {
             Uri.parse("https://lapify.online/admin/products/$productId"),
             headers: {"Cookie": "Authorise=$tkn"});
 
-            print("response body --> ${response.body}");
+        print("response body --> ${response.body}");
 
-            print("response status code --> ${response.statusCode}");
+        print("response status code --> ${response.statusCode}");
 
-            if(response.statusCode == 200){
-              print("success");
-              return const Right("Product Deleted");
-            }else{
-              print("Failed");
-              return const Left("Failed to Delete the product");
-            }
+        if (response.statusCode == 200) {
+          final responsejson = jsonDecode(response.body);
+          final success = responsejson["succes"];
+          print(success);
+          return Right(success);
+        } else {
+          final responsejson = jsonDecode(response.body);
+          final error = responsejson["error"];
+          print("Failed");
+          return Left(error);
+        }
       }
     } catch (e) {
       print("Exception ---> $e");

@@ -8,3 +8,8 @@
 //   Future<Either<String,GetAllCategories>> getAllcategory();
 //   Future<Either<String,String>> deleteCategory({required int id});
 // }
+
+
+class CategoryRespository{
+  
+}

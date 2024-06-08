@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/category/widgets/showdialogu_widget.dart';
 
 void showOptions(
-    {required BuildContext? ctx,required int? indext,required int categoryId}) {
+    {required BuildContext? ctx,
+    required int? indext,
+    required int categoryId}) {
   var size = MediaQuery.of(ctx!).size;
   showModalBottomSheet(
     backgroundColor: Color(Color.getAlphaFromOpacity(1)),
@@ -43,8 +45,7 @@ void showOptions(
                 ),
                 onTap: () {
                   showDialoguWidgetForDeleteCategory(
-                      ctx: ctx,
-                      size: size,cId: categoryId);
+                      ctx: ctx, size: size, ctId: categoryId);
                 },
               ),
             )

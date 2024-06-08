@@ -646,24 +646,103 @@ abstract class _DeleteProductById implements ProductEvent {
 
 /// @nodoc
 mixin _$ProductState {
-  bool get isLoading => throw _privateConstructorUsedError;
-  bool get isAddProductHasError => throw _privateConstructorUsedError;
-  bool get isAddProductSuccess => throw _privateConstructorUsedError;
-  bool get isGetAllProductHasError => throw _privateConstructorUsedError;
-  bool get isGetAllProductSuccess => throw _privateConstructorUsedError;
-  bool get isGetProductByIdHasErro => throw _privateConstructorUsedError;
-  bool get isGetProductByIdSuccess => throw _privateConstructorUsedError;
-  bool get isDeleteProductByIdhasError => throw _privateConstructorUsedError;
-  bool get isDeleteProductByIdsuccess => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
-  AddProductResponseModel? get addproductResponse =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) =>
       throw _privateConstructorUsedError;
-  GetProductById? get getProductByIdResponseModel =>
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) =>
       throw _privateConstructorUsedError;
-  List<Products>? get prouctModel => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProductStateCopyWith<ProductState> get copyWith =>
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -672,21 +751,6 @@ abstract class $ProductStateCopyWith<$Res> {
   factory $ProductStateCopyWith(
           ProductState value, $Res Function(ProductState) then) =
       _$ProductStateCopyWithImpl<$Res, ProductState>;
-  @useResult
-  $Res call(
-      {bool isLoading,
-      bool isAddProductHasError,
-      bool isAddProductSuccess,
-      bool isGetAllProductHasError,
-      bool isGetAllProductSuccess,
-      bool isGetProductByIdHasErro,
-      bool isGetProductByIdSuccess,
-      bool isDeleteProductByIdhasError,
-      bool isDeleteProductByIdsuccess,
-      String? message,
-      AddProductResponseModel? addproductResponse,
-      GetProductById? getProductByIdResponseModel,
-      List<Products>? prouctModel});
 }
 
 /// @nodoc
@@ -698,353 +762,2062 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
 
-  @pragma('vm:prefer-inline')
+/// @nodoc
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
+
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? isAddProductHasError = null,
-    Object? isAddProductSuccess = null,
-    Object? isGetAllProductHasError = null,
-    Object? isGetAllProductSuccess = null,
-    Object? isGetProductByIdHasErro = null,
-    Object? isGetProductByIdSuccess = null,
-    Object? isDeleteProductByIdhasError = null,
-    Object? isDeleteProductByIdsuccess = null,
-    Object? message = freezed,
-    Object? addproductResponse = freezed,
-    Object? getProductByIdResponseModel = freezed,
-    Object? prouctModel = freezed,
+  String toString() {
+    return 'ProductState.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddProductHasError: null == isAddProductHasError
-          ? _value.isAddProductHasError
-          : isAddProductHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddProductSuccess: null == isAddProductSuccess
-          ? _value.isAddProductSuccess
-          : isAddProductSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllProductHasError: null == isGetAllProductHasError
-          ? _value.isGetAllProductHasError
-          : isGetAllProductHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllProductSuccess: null == isGetAllProductSuccess
-          ? _value.isGetAllProductSuccess
-          : isGetAllProductSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetProductByIdHasErro: null == isGetProductByIdHasErro
-          ? _value.isGetProductByIdHasErro
-          : isGetProductByIdHasErro // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetProductByIdSuccess: null == isGetProductByIdSuccess
-          ? _value.isGetProductByIdSuccess
-          : isGetProductByIdSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteProductByIdhasError: null == isDeleteProductByIdhasError
-          ? _value.isDeleteProductByIdhasError
-          : isDeleteProductByIdhasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteProductByIdsuccess: null == isDeleteProductByIdsuccess
-          ? _value.isDeleteProductByIdsuccess
-          : isDeleteProductByIdsuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addproductResponse: freezed == addproductResponse
-          ? _value.addproductResponse
-          : addproductResponse // ignore: cast_nullable_to_non_nullable
-              as AddProductResponseModel?,
-      getProductByIdResponseModel: freezed == getProductByIdResponseModel
-          ? _value.getProductByIdResponseModel
-          : getProductByIdResponseModel // ignore: cast_nullable_to_non_nullable
-              as GetProductById?,
-      prouctModel: freezed == prouctModel
-          ? _value.prouctModel
-          : prouctModel // ignore: cast_nullable_to_non_nullable
-              as List<Products>?,
-    ) as $Val);
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
   }
 }
 
-/// @nodoc
-abstract class _$$ProductStateImplCopyWith<$Res>
-    implements $ProductStateCopyWith<$Res> {
-  factory _$$ProductStateImplCopyWith(
-          _$ProductStateImpl value, $Res Function(_$ProductStateImpl) then) =
-      __$$ProductStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {bool isLoading,
-      bool isAddProductHasError,
-      bool isAddProductSuccess,
-      bool isGetAllProductHasError,
-      bool isGetAllProductSuccess,
-      bool isGetProductByIdHasErro,
-      bool isGetProductByIdSuccess,
-      bool isDeleteProductByIdhasError,
-      bool isDeleteProductByIdsuccess,
-      String? message,
-      AddProductResponseModel? addproductResponse,
-      GetProductById? getProductByIdResponseModel,
-      List<Products>? prouctModel});
+abstract class Initial implements ProductState {
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-class __$$ProductStateImplCopyWithImpl<$Res>
-    extends _$ProductStateCopyWithImpl<$Res, _$ProductStateImpl>
-    implements _$$ProductStateImplCopyWith<$Res> {
-  __$$ProductStateImplCopyWithImpl(
-      _$ProductStateImpl _value, $Res Function(_$ProductStateImpl) _then)
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingImpl implements Loading {
+  const _$LoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProductState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loading implements ProductState {
+  const factory Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ErrorstImplCopyWith<$Res> {
+  factory _$$ErrorstImplCopyWith(
+          _$ErrorstImpl value, $Res Function(_$ErrorstImpl) then) =
+      __$$ErrorstImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errmsg});
+}
+
+/// @nodoc
+class __$$ErrorstImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$ErrorstImpl>
+    implements _$$ErrorstImplCopyWith<$Res> {
+  __$$ErrorstImplCopyWithImpl(
+      _$ErrorstImpl _value, $Res Function(_$ErrorstImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
-    Object? isAddProductHasError = null,
-    Object? isAddProductSuccess = null,
-    Object? isGetAllProductHasError = null,
-    Object? isGetAllProductSuccess = null,
-    Object? isGetProductByIdHasErro = null,
-    Object? isGetProductByIdSuccess = null,
-    Object? isDeleteProductByIdhasError = null,
-    Object? isDeleteProductByIdsuccess = null,
-    Object? message = freezed,
-    Object? addproductResponse = freezed,
-    Object? getProductByIdResponseModel = freezed,
-    Object? prouctModel = freezed,
+    Object? errmsg = null,
   }) {
-    return _then(_$ProductStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddProductHasError: null == isAddProductHasError
-          ? _value.isAddProductHasError
-          : isAddProductHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddProductSuccess: null == isAddProductSuccess
-          ? _value.isAddProductSuccess
-          : isAddProductSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllProductHasError: null == isGetAllProductHasError
-          ? _value.isGetAllProductHasError
-          : isGetAllProductHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetAllProductSuccess: null == isGetAllProductSuccess
-          ? _value.isGetAllProductSuccess
-          : isGetAllProductSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetProductByIdHasErro: null == isGetProductByIdHasErro
-          ? _value.isGetProductByIdHasErro
-          : isGetProductByIdHasErro // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetProductByIdSuccess: null == isGetProductByIdSuccess
-          ? _value.isGetProductByIdSuccess
-          : isGetProductByIdSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteProductByIdhasError: null == isDeleteProductByIdhasError
-          ? _value.isDeleteProductByIdhasError
-          : isDeleteProductByIdhasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteProductByIdsuccess: null == isDeleteProductByIdsuccess
-          ? _value.isDeleteProductByIdsuccess
-          : isDeleteProductByIdsuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addproductResponse: freezed == addproductResponse
-          ? _value.addproductResponse
-          : addproductResponse // ignore: cast_nullable_to_non_nullable
-              as AddProductResponseModel?,
-      getProductByIdResponseModel: freezed == getProductByIdResponseModel
-          ? _value.getProductByIdResponseModel
-          : getProductByIdResponseModel // ignore: cast_nullable_to_non_nullable
-              as GetProductById?,
-      prouctModel: freezed == prouctModel
-          ? _value._prouctModel
-          : prouctModel // ignore: cast_nullable_to_non_nullable
-              as List<Products>?,
+    return _then(_$ErrorstImpl(
+      null == errmsg
+          ? _value.errmsg
+          : errmsg // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ProductStateImpl implements _ProductState {
-  const _$ProductStateImpl(
-      {required this.isLoading,
-      required this.isAddProductHasError,
-      required this.isAddProductSuccess,
-      required this.isGetAllProductHasError,
-      required this.isGetAllProductSuccess,
-      required this.isGetProductByIdHasErro,
-      required this.isGetProductByIdSuccess,
-      required this.isDeleteProductByIdhasError,
-      required this.isDeleteProductByIdsuccess,
-      this.message,
-      this.addproductResponse,
-      this.getProductByIdResponseModel,
-      final List<Products>? prouctModel})
-      : _prouctModel = prouctModel;
+class _$ErrorstImpl implements Errorst {
+  const _$ErrorstImpl(this.errmsg);
 
   @override
-  final bool isLoading;
-  @override
-  final bool isAddProductHasError;
-  @override
-  final bool isAddProductSuccess;
-  @override
-  final bool isGetAllProductHasError;
-  @override
-  final bool isGetAllProductSuccess;
-  @override
-  final bool isGetProductByIdHasErro;
-  @override
-  final bool isGetProductByIdSuccess;
-  @override
-  final bool isDeleteProductByIdhasError;
-  @override
-  final bool isDeleteProductByIdsuccess;
-  @override
-  final String? message;
-  @override
-  final AddProductResponseModel? addproductResponse;
-  @override
-  final GetProductById? getProductByIdResponseModel;
-  final List<Products>? _prouctModel;
-  @override
-  List<Products>? get prouctModel {
-    final value = _prouctModel;
-    if (value == null) return null;
-    if (_prouctModel is EqualUnmodifiableListView) return _prouctModel;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final String errmsg;
 
   @override
   String toString() {
-    return 'ProductState(isLoading: $isLoading, isAddProductHasError: $isAddProductHasError, isAddProductSuccess: $isAddProductSuccess, isGetAllProductHasError: $isGetAllProductHasError, isGetAllProductSuccess: $isGetAllProductSuccess, isGetProductByIdHasErro: $isGetProductByIdHasErro, isGetProductByIdSuccess: $isGetProductByIdSuccess, isDeleteProductByIdhasError: $isDeleteProductByIdhasError, isDeleteProductByIdsuccess: $isDeleteProductByIdsuccess, message: $message, addproductResponse: $addproductResponse, getProductByIdResponseModel: $getProductByIdResponseModel, prouctModel: $prouctModel)';
+    return 'ProductState.erorrst(errmsg: $errmsg)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProductStateImpl &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.isAddProductHasError, isAddProductHasError) ||
-                other.isAddProductHasError == isAddProductHasError) &&
-            (identical(other.isAddProductSuccess, isAddProductSuccess) ||
-                other.isAddProductSuccess == isAddProductSuccess) &&
-            (identical(other.isGetAllProductHasError, isGetAllProductHasError) ||
-                other.isGetAllProductHasError == isGetAllProductHasError) &&
-            (identical(other.isGetAllProductSuccess, isGetAllProductSuccess) ||
-                other.isGetAllProductSuccess == isGetAllProductSuccess) &&
-            (identical(
-                    other.isGetProductByIdHasErro, isGetProductByIdHasErro) ||
-                other.isGetProductByIdHasErro == isGetProductByIdHasErro) &&
-            (identical(
-                    other.isGetProductByIdSuccess, isGetProductByIdSuccess) ||
-                other.isGetProductByIdSuccess == isGetProductByIdSuccess) &&
-            (identical(other.isDeleteProductByIdhasError,
-                    isDeleteProductByIdhasError) ||
-                other.isDeleteProductByIdhasError ==
-                    isDeleteProductByIdhasError) &&
-            (identical(other.isDeleteProductByIdsuccess,
-                    isDeleteProductByIdsuccess) ||
-                other.isDeleteProductByIdsuccess ==
-                    isDeleteProductByIdsuccess) &&
-            (identical(other.message, message) || other.message == message) &&
-            (identical(other.addproductResponse, addproductResponse) ||
-                other.addproductResponse == addproductResponse) &&
-            (identical(other.getProductByIdResponseModel,
-                    getProductByIdResponseModel) ||
-                other.getProductByIdResponseModel ==
-                    getProductByIdResponseModel) &&
-            const DeepCollectionEquality()
-                .equals(other._prouctModel, _prouctModel));
+            other is _$ErrorstImpl &&
+            (identical(other.errmsg, errmsg) || other.errmsg == errmsg));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isAddProductHasError,
-      isAddProductSuccess,
-      isGetAllProductHasError,
-      isGetAllProductSuccess,
-      isGetProductByIdHasErro,
-      isGetProductByIdSuccess,
-      isDeleteProductByIdhasError,
-      isDeleteProductByIdsuccess,
-      message,
-      addproductResponse,
-      getProductByIdResponseModel,
-      const DeepCollectionEquality().hash(_prouctModel));
+  int get hashCode => Object.hash(runtimeType, errmsg);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProductStateImplCopyWith<_$ProductStateImpl> get copyWith =>
-      __$$ProductStateImplCopyWithImpl<_$ProductStateImpl>(this, _$identity);
+  _$$ErrorstImplCopyWith<_$ErrorstImpl> get copyWith =>
+      __$$ErrorstImplCopyWithImpl<_$ErrorstImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return erorrst(errmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return erorrst?.call(errmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (erorrst != null) {
+      return erorrst(errmsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return erorrst(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return erorrst?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (erorrst != null) {
+      return erorrst(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _ProductState implements ProductState {
-  const factory _ProductState(
-      {required final bool isLoading,
-      required final bool isAddProductHasError,
-      required final bool isAddProductSuccess,
-      required final bool isGetAllProductHasError,
-      required final bool isGetAllProductSuccess,
-      required final bool isGetProductByIdHasErro,
-      required final bool isGetProductByIdSuccess,
-      required final bool isDeleteProductByIdhasError,
-      required final bool isDeleteProductByIdsuccess,
-      final String? message,
-      final AddProductResponseModel? addproductResponse,
-      final GetProductById? getProductByIdResponseModel,
-      final List<Products>? prouctModel}) = _$ProductStateImpl;
+abstract class Errorst implements ProductState {
+  const factory Errorst(final String errmsg) = _$ErrorstImpl;
+
+  String get errmsg;
+  @JsonKey(ignore: true)
+  _$$ErrorstImplCopyWith<_$ErrorstImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Products> products});
+}
+
+/// @nodoc
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? products = null,
+  }) {
+    return _then(_$SuccessImpl(
+      null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Products>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessImpl implements Success {
+  const _$SuccessImpl(final List<Products> products) : _products = products;
+
+  final List<Products> _products;
+  @override
+  List<Products> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
 
   @override
-  bool get isLoading;
+  String toString() {
+    return 'ProductState.success(products: $products)';
+  }
+
   @override
-  bool get isAddProductHasError;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            const DeepCollectionEquality().equals(other._products, _products));
+  }
+
   @override
-  bool get isAddProductSuccess;
-  @override
-  bool get isGetAllProductHasError;
-  @override
-  bool get isGetAllProductSuccess;
-  @override
-  bool get isGetProductByIdHasErro;
-  @override
-  bool get isGetProductByIdSuccess;
-  @override
-  bool get isDeleteProductByIdhasError;
-  @override
-  bool get isDeleteProductByIdsuccess;
-  @override
-  String? get message;
-  @override
-  AddProductResponseModel? get addproductResponse;
-  @override
-  GetProductById? get getProductByIdResponseModel;
-  @override
-  List<Products>? get prouctModel;
-  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_products));
+
   @JsonKey(ignore: true)
-  _$$ProductStateImplCopyWith<_$ProductStateImpl> get copyWith =>
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return success(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return success?.call(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(products);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Success implements ProductState {
+  const factory Success(final List<Products> products) = _$SuccessImpl;
+
+  List<Products> get products;
+  @JsonKey(ignore: true)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddSuccessImplCopyWith<$Res> {
+  factory _$$AddSuccessImplCopyWith(
+          _$AddSuccessImpl value, $Res Function(_$AddSuccessImpl) then) =
+      __$$AddSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String successmsg});
+}
+
+/// @nodoc
+class __$$AddSuccessImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$AddSuccessImpl>
+    implements _$$AddSuccessImplCopyWith<$Res> {
+  __$$AddSuccessImplCopyWithImpl(
+      _$AddSuccessImpl _value, $Res Function(_$AddSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? successmsg = null,
+  }) {
+    return _then(_$AddSuccessImpl(
+      null == successmsg
+          ? _value.successmsg
+          : successmsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddSuccessImpl implements AddSuccess {
+  const _$AddSuccessImpl(this.successmsg);
+
+  @override
+  final String successmsg;
+
+  @override
+  String toString() {
+    return 'ProductState.addSuccess(successmsg: $successmsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddSuccessImpl &&
+            (identical(other.successmsg, successmsg) ||
+                other.successmsg == successmsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, successmsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddSuccessImplCopyWith<_$AddSuccessImpl> get copyWith =>
+      __$$AddSuccessImplCopyWithImpl<_$AddSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return addSuccess(successmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return addSuccess?.call(successmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (addSuccess != null) {
+      return addSuccess(successmsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return addSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return addSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (addSuccess != null) {
+      return addSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddSuccess implements ProductState {
+  const factory AddSuccess(final String successmsg) = _$AddSuccessImpl;
+
+  String get successmsg;
+  @JsonKey(ignore: true)
+  _$$AddSuccessImplCopyWith<_$AddSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddFailureImplCopyWith<$Res> {
+  factory _$$AddFailureImplCopyWith(
+          _$AddFailureImpl value, $Res Function(_$AddFailureImpl) then) =
+      __$$AddFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String failuremsg});
+}
+
+/// @nodoc
+class __$$AddFailureImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$AddFailureImpl>
+    implements _$$AddFailureImplCopyWith<$Res> {
+  __$$AddFailureImplCopyWithImpl(
+      _$AddFailureImpl _value, $Res Function(_$AddFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failuremsg = null,
+  }) {
+    return _then(_$AddFailureImpl(
+      null == failuremsg
+          ? _value.failuremsg
+          : failuremsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddFailureImpl implements AddFailure {
+  const _$AddFailureImpl(this.failuremsg);
+
+  @override
+  final String failuremsg;
+
+  @override
+  String toString() {
+    return 'ProductState.addFailure(failuremsg: $failuremsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddFailureImpl &&
+            (identical(other.failuremsg, failuremsg) ||
+                other.failuremsg == failuremsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failuremsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddFailureImplCopyWith<_$AddFailureImpl> get copyWith =>
+      __$$AddFailureImplCopyWithImpl<_$AddFailureImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return addFailure(failuremsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return addFailure?.call(failuremsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (addFailure != null) {
+      return addFailure(failuremsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return addFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return addFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (addFailure != null) {
+      return addFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddFailure implements ProductState {
+  const factory AddFailure(final String failuremsg) = _$AddFailureImpl;
+
+  String get failuremsg;
+  @JsonKey(ignore: true)
+  _$$AddFailureImplCopyWith<_$AddFailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddLoadingImplCopyWith<$Res> {
+  factory _$$AddLoadingImplCopyWith(
+          _$AddLoadingImpl value, $Res Function(_$AddLoadingImpl) then) =
+      __$$AddLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AddLoadingImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$AddLoadingImpl>
+    implements _$$AddLoadingImplCopyWith<$Res> {
+  __$$AddLoadingImplCopyWithImpl(
+      _$AddLoadingImpl _value, $Res Function(_$AddLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AddLoadingImpl implements AddLoading {
+  const _$AddLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProductState.addLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AddLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return addLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return addLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (addLoading != null) {
+      return addLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return addLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return addLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (addLoading != null) {
+      return addLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddLoading implements ProductState {
+  const factory AddLoading() = _$AddLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String successmsg});
+}
+
+/// @nodoc
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? successmsg = null,
+  }) {
+    return _then(_$DeleteSuccessImpl(
+      null == successmsg
+          ? _value.successmsg
+          : successmsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteSuccessImpl implements DeleteSuccess {
+  const _$DeleteSuccessImpl(this.successmsg);
+
+  @override
+  final String successmsg;
+
+  @override
+  String toString() {
+    return 'ProductState.deleteSuccess(successmsg: $successmsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteSuccessImpl &&
+            (identical(other.successmsg, successmsg) ||
+                other.successmsg == successmsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, successmsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
+      __$$DeleteSuccessImplCopyWithImpl<_$DeleteSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return deleteSuccess(successmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return deleteSuccess?.call(successmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess(successmsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return deleteSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return deleteSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteSuccess implements ProductState {
+  const factory DeleteSuccess(final String successmsg) = _$DeleteSuccessImpl;
+
+  String get successmsg;
+  @JsonKey(ignore: true)
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteFailureImplCopyWith<$Res> {
+  factory _$$DeleteFailureImplCopyWith(
+          _$DeleteFailureImpl value, $Res Function(_$DeleteFailureImpl) then) =
+      __$$DeleteFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errormsg});
+}
+
+/// @nodoc
+class __$$DeleteFailureImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$DeleteFailureImpl>
+    implements _$$DeleteFailureImplCopyWith<$Res> {
+  __$$DeleteFailureImplCopyWithImpl(
+      _$DeleteFailureImpl _value, $Res Function(_$DeleteFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errormsg = null,
+  }) {
+    return _then(_$DeleteFailureImpl(
+      null == errormsg
+          ? _value.errormsg
+          : errormsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteFailureImpl implements DeleteFailure {
+  const _$DeleteFailureImpl(this.errormsg);
+
+  @override
+  final String errormsg;
+
+  @override
+  String toString() {
+    return 'ProductState.deleteFailure(errormsg: $errormsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteFailureImpl &&
+            (identical(other.errormsg, errormsg) ||
+                other.errormsg == errormsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errormsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
+      __$$DeleteFailureImplCopyWithImpl<_$DeleteFailureImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return deleteFailure(errormsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return deleteFailure?.call(errormsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (deleteFailure != null) {
+      return deleteFailure(errormsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return deleteFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return deleteFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (deleteFailure != null) {
+      return deleteFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteFailure implements ProductState {
+  const factory DeleteFailure(final String errormsg) = _$DeleteFailureImpl;
+
+  String get errormsg;
+  @JsonKey(ignore: true)
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetProductByIdSuccessImplCopyWith<$Res> {
+  factory _$$GetProductByIdSuccessImplCopyWith(
+          _$GetProductByIdSuccessImpl value,
+          $Res Function(_$GetProductByIdSuccessImpl) then) =
+      __$$GetProductByIdSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductsById productById, ProductDetails productDetails});
+}
+
+/// @nodoc
+class __$$GetProductByIdSuccessImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$GetProductByIdSuccessImpl>
+    implements _$$GetProductByIdSuccessImplCopyWith<$Res> {
+  __$$GetProductByIdSuccessImplCopyWithImpl(_$GetProductByIdSuccessImpl _value,
+      $Res Function(_$GetProductByIdSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productById = null,
+    Object? productDetails = null,
+  }) {
+    return _then(_$GetProductByIdSuccessImpl(
+      null == productById
+          ? _value.productById
+          : productById // ignore: cast_nullable_to_non_nullable
+              as ProductsById,
+      null == productDetails
+          ? _value.productDetails
+          : productDetails // ignore: cast_nullable_to_non_nullable
+              as ProductDetails,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetProductByIdSuccessImpl implements GetProductByIdSuccess {
+  const _$GetProductByIdSuccessImpl(this.productById, this.productDetails);
+
+  @override
+  final ProductsById productById;
+  @override
+  final ProductDetails productDetails;
+
+  @override
+  String toString() {
+    return 'ProductState.getProductByIdSuccess(productById: $productById, productDetails: $productDetails)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetProductByIdSuccessImpl &&
+            (identical(other.productById, productById) ||
+                other.productById == productById) &&
+            (identical(other.productDetails, productDetails) ||
+                other.productDetails == productDetails));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, productById, productDetails);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetProductByIdSuccessImplCopyWith<_$GetProductByIdSuccessImpl>
+      get copyWith => __$$GetProductByIdSuccessImplCopyWithImpl<
+          _$GetProductByIdSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return getProductByIdSuccess(productById, productDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return getProductByIdSuccess?.call(productById, productDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (getProductByIdSuccess != null) {
+      return getProductByIdSuccess(productById, productDetails);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return getProductByIdSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return getProductByIdSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (getProductByIdSuccess != null) {
+      return getProductByIdSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetProductByIdSuccess implements ProductState {
+  const factory GetProductByIdSuccess(
+          final ProductsById productById, final ProductDetails productDetails) =
+      _$GetProductByIdSuccessImpl;
+
+  ProductsById get productById;
+  ProductDetails get productDetails;
+  @JsonKey(ignore: true)
+  _$$GetProductByIdSuccessImplCopyWith<_$GetProductByIdSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetProductByIdFailureImplCopyWith<$Res> {
+  factory _$$GetProductByIdFailureImplCopyWith(
+          _$GetProductByIdFailureImpl value,
+          $Res Function(_$GetProductByIdFailureImpl) then) =
+      __$$GetProductByIdFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errmsg});
+}
+
+/// @nodoc
+class __$$GetProductByIdFailureImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$GetProductByIdFailureImpl>
+    implements _$$GetProductByIdFailureImplCopyWith<$Res> {
+  __$$GetProductByIdFailureImplCopyWithImpl(_$GetProductByIdFailureImpl _value,
+      $Res Function(_$GetProductByIdFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errmsg = null,
+  }) {
+    return _then(_$GetProductByIdFailureImpl(
+      null == errmsg
+          ? _value.errmsg
+          : errmsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetProductByIdFailureImpl implements GetProductByIdFailure {
+  const _$GetProductByIdFailureImpl(this.errmsg);
+
+  @override
+  final String errmsg;
+
+  @override
+  String toString() {
+    return 'ProductState.getProductByIdFailure(errmsg: $errmsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetProductByIdFailureImpl &&
+            (identical(other.errmsg, errmsg) || other.errmsg == errmsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errmsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetProductByIdFailureImplCopyWith<_$GetProductByIdFailureImpl>
+      get copyWith => __$$GetProductByIdFailureImplCopyWithImpl<
+          _$GetProductByIdFailureImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errmsg) erorrst,
+    required TResult Function(List<Products> products) success,
+    required TResult Function(String successmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function() addLoading,
+    required TResult Function(String successmsg) deleteSuccess,
+    required TResult Function(String errormsg) deleteFailure,
+    required TResult Function(
+            ProductsById productById, ProductDetails productDetails)
+        getProductByIdSuccess,
+    required TResult Function(String errmsg) getProductByIdFailure,
+  }) {
+    return getProductByIdFailure(errmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errmsg)? erorrst,
+    TResult? Function(List<Products> products)? success,
+    TResult? Function(String successmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function()? addLoading,
+    TResult? Function(String successmsg)? deleteSuccess,
+    TResult? Function(String errormsg)? deleteFailure,
+    TResult? Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult? Function(String errmsg)? getProductByIdFailure,
+  }) {
+    return getProductByIdFailure?.call(errmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errmsg)? erorrst,
+    TResult Function(List<Products> products)? success,
+    TResult Function(String successmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function()? addLoading,
+    TResult Function(String successmsg)? deleteSuccess,
+    TResult Function(String errormsg)? deleteFailure,
+    TResult Function(ProductsById productById, ProductDetails productDetails)?
+        getProductByIdSuccess,
+    TResult Function(String errmsg)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (getProductByIdFailure != null) {
+      return getProductByIdFailure(errmsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Errorst value) erorrst,
+    required TResult Function(Success value) success,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(AddLoading value) addLoading,
+    required TResult Function(DeleteSuccess value) deleteSuccess,
+    required TResult Function(DeleteFailure value) deleteFailure,
+    required TResult Function(GetProductByIdSuccess value)
+        getProductByIdSuccess,
+    required TResult Function(GetProductByIdFailure value)
+        getProductByIdFailure,
+  }) {
+    return getProductByIdFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Errorst value)? erorrst,
+    TResult? Function(Success value)? success,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(AddLoading value)? addLoading,
+    TResult? Function(DeleteSuccess value)? deleteSuccess,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
+  }) {
+    return getProductByIdFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Errorst value)? erorrst,
+    TResult Function(Success value)? success,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(AddLoading value)? addLoading,
+    TResult Function(DeleteSuccess value)? deleteSuccess,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
+    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
+    required TResult orElse(),
+  }) {
+    if (getProductByIdFailure != null) {
+      return getProductByIdFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetProductByIdFailure implements ProductState {
+  const factory GetProductByIdFailure(final String errmsg) =
+      _$GetProductByIdFailureImpl;
+
+  String get errmsg;
+  @JsonKey(ignore: true)
+  _$$GetProductByIdFailureImplCopyWith<_$GetProductByIdFailureImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

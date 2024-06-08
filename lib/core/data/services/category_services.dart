@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
@@ -45,7 +46,7 @@ class CategoryServices {
   //   }
   // }
 
-  Future<Either<String, GetAllCategories>> getAllcategory() async {
+  Future<Either<String, List<CategoryAll>>> getAllcategory() async {
     try {
       final tkn = await SharedPreffs.getAdminToken();
 
@@ -53,23 +54,20 @@ class CategoryServices {
           Uri.parse("https://lapify.online/admin/categories"),
           headers: {"Cookie": "Authorise=$tkn"});
 
-      print("get category response ---> ${response.statusCode}");
+      log("response statuscode --> ${response.statusCode}");
 
       if (response.statusCode == 200) {
+
         final responseModel = getAllCategoriesFromJson(response.body);
-        // print(responseModel);
 
-        print(
-            "example response model data ${responseModel.categories[2].name}");
-
-        return Right(responseModel);
+        return Right(responseModel.categories);
       } else {
-        print("error getting response from getall category");
+        log("error getting response from getall category");
 
         return const Left("Failed to get Categories");
       }
     } catch (e) {
-      print(e);
+      log(e.toString());
 
       return const Left("Oops! Something Went wrong");
     }
@@ -79,7 +77,7 @@ class CategoryServices {
       {required String categoryNameValue,
       required String categoryDescriptionValue}) async {
     try {
-      final tkn = await SharedPreffs.getAdminToken();
+      final tkn = await SharedPreffs.getAdminToken(); 
 
       final postModel = jsonEncode(
           {"description": categoryDescriptionValue, "name": categoryNameValue});
@@ -104,14 +102,16 @@ class CategoryServices {
 
         if (respone.statusCode == 200) {
           final success = resultModel["success"];
-          
+          log("success --- $success");
           return Right(success);
         } else {
           final error = resultModel["error"];
+          log("error ---- $error"); 
           return Left(error);
         }
       }
     } catch (e) {
+      log(e.toString());
       return const Left("Oops! Something Went wrong");
     }
   }
@@ -130,24 +130,23 @@ class CategoryServices {
             Uri.parse("https://lapify.online/admin/categories/$categoryId"),
             headers: {"Cookie": "Authorise=$tkn"});
 
-            print("response --> $response");
+        print("response --> $response");
 
-            print("response status code --> ${response.statusCode}");
+        print("response status code --> ${response.statusCode}");
 
-            final resultModel = jsonDecode(response.body);
+        final resultModel = jsonDecode(response.body);
 
-            print("resultModel ---> $resultModel");
+        print("resultModel ---> $resultModel");
 
-
-            if(response.statusCode == 200){
-              print("succuess");
-              final success = resultModel["success"];
-              return Right(success);
-            }else{
-              print("error");
-              final error = resultModel["error"];
-              return Left(error);
-            }
+        if (response.statusCode == 200) {
+          print("succuess");
+          final success = resultModel["success"];
+          return Right(success);
+        } else {
+          print("error");
+          final error = resultModel["error"];
+          return Left(error);
+        }
       }
     } catch (e) {
       print("Exception --> $e");
@@ -178,3 +177,23 @@ class CategoryServices {
   //   }
   // }
 }
+
+
+// import 'dart:developer';
+
+// import 'package:logic_loot_admin/core/domain/model/response_model/get_allcategoris_response.dart';
+// import 'package:http/http.dart' as http;
+
+// class CategoryServices{
+//   final String baseUrl = "https://lapify.online/admin/categories";
+
+//   Future<List<CategoryAll>> getCategory() async{
+//     final response = await http.get(Uri.parse(baseUrl));
+
+//     log("response status code --> ${response.statusCode}");
+
+//     if(response.statusCode == 200){
+//       final 
+//     }
+//   }
+// }

@@ -123,7 +123,7 @@ class __$$AddCategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddCategoryImpl implements _AddCategory {
+class _$AddCategoryImpl with DiagnosticableTreeMixin implements _AddCategory {
   const _$AddCategoryImpl(
       {required this.categoryNameValue,
       required this.categoryDescriptionValue});
@@ -134,8 +134,18 @@ class _$AddCategoryImpl implements _AddCategory {
   final String categoryDescriptionValue;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CategoryEvent.addCategory(categoryNameValue: $categoryNameValue, categoryDescriptionValue: $categoryDescriptionValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CategoryEvent.addCategory'))
+      ..add(DiagnosticsProperty('categoryNameValue', categoryNameValue))
+      ..add(DiagnosticsProperty(
+          'categoryDescriptionValue', categoryDescriptionValue));
   }
 
   @override
@@ -264,12 +274,18 @@ class __$$GetCategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetCategoryImpl implements _GetCategory {
+class _$GetCategoryImpl with DiagnosticableTreeMixin implements _GetCategory {
   const _$GetCategoryImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CategoryEvent.getCategory()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CategoryEvent.getCategory'));
   }
 
   @override
@@ -392,15 +408,25 @@ class __$$DeleteCategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteCategoryImpl implements _DeleteCategory {
+class _$DeleteCategoryImpl
+    with DiagnosticableTreeMixin
+    implements _DeleteCategory {
   const _$DeleteCategoryImpl({required this.id});
 
   @override
   final int id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CategoryEvent.deleteCategory(id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CategoryEvent.deleteCategory'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -506,18 +532,73 @@ abstract class _DeleteCategory implements CategoryEvent {
 
 /// @nodoc
 mixin _$CategoryState {
-  bool get isLoading => throw _privateConstructorUsedError;
-  bool get isAddcategoryHasError => throw _privateConstructorUsedError;
-  bool get isAddCategorySuccess => throw _privateConstructorUsedError;
-  bool get isGetCategoryHasError => throw _privateConstructorUsedError;
-  bool get isGEtCategorySuccess => throw _privateConstructorUsedError;
-  bool get isDeleteCategoryhasErro => throw _privateConstructorUsedError;
-  bool get isDeleteCategorySuccess => throw _privateConstructorUsedError;
-  List<CategoryAll>? get getallCategory => throw _privateConstructorUsedError;
-  String? get messag => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CategoryStateCopyWith<CategoryState> get copyWith =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoryAll> categories) success,
+    required TResult Function(String errmessage) errorst,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String successmsg) addCategorySuccess,
+    required TResult Function(String msg) addFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoryAll> categories)? success,
+    TResult? Function(String errmessage)? errorst,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String successmsg)? addCategorySuccess,
+    TResult? Function(String msg)? addFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoryAll> categories)? success,
+    TResult Function(String errmessage)? errorst,
+    TResult Function()? deleteSuccess,
+    TResult Function(String successmsg)? addCategorySuccess,
+    TResult Function(String msg)? addFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(CategoryLoading value) loading,
+    required TResult Function(GetCategorySuccess value) success,
+    required TResult Function(GetCategoryErrorst value) errorst,
+    required TResult Function(DeleteSucces value) deleteSuccess,
+    required TResult Function(AddCateSucces value) addCategorySuccess,
+    required TResult Function(AddCategoryFailure value) addFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(CategoryLoading value)? loading,
+    TResult? Function(GetCategorySuccess value)? success,
+    TResult? Function(GetCategoryErrorst value)? errorst,
+    TResult? Function(DeleteSucces value)? deleteSuccess,
+    TResult? Function(AddCateSucces value)? addCategorySuccess,
+    TResult? Function(AddCategoryFailure value)? addFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(CategoryLoading value)? loading,
+    TResult Function(GetCategorySuccess value)? success,
+    TResult Function(GetCategoryErrorst value)? errorst,
+    TResult Function(DeleteSucces value)? deleteSuccess,
+    TResult Function(AddCateSucces value)? addCategorySuccess,
+    TResult Function(AddCategoryFailure value)? addFailure,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -526,17 +607,6 @@ abstract class $CategoryStateCopyWith<$Res> {
   factory $CategoryStateCopyWith(
           CategoryState value, $Res Function(CategoryState) then) =
       _$CategoryStateCopyWithImpl<$Res, CategoryState>;
-  @useResult
-  $Res call(
-      {bool isLoading,
-      bool isAddcategoryHasError,
-      bool isAddCategorySuccess,
-      bool isGetCategoryHasError,
-      bool isGEtCategorySuccess,
-      bool isDeleteCategoryhasErro,
-      bool isDeleteCategorySuccess,
-      List<CategoryAll>? getallCategory,
-      String? messag});
 }
 
 /// @nodoc
@@ -548,268 +618,1127 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
 
-  @pragma('vm:prefer-inline')
+/// @nodoc
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$CategoryStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitialImpl with DiagnosticableTreeMixin implements Initial {
+  const _$InitialImpl();
+
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? isAddcategoryHasError = null,
-    Object? isAddCategorySuccess = null,
-    Object? isGetCategoryHasError = null,
-    Object? isGEtCategorySuccess = null,
-    Object? isDeleteCategoryhasErro = null,
-    Object? isDeleteCategorySuccess = null,
-    Object? getallCategory = freezed,
-    Object? messag = freezed,
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CategoryState.initial'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoryAll> categories) success,
+    required TResult Function(String errmessage) errorst,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String successmsg) addCategorySuccess,
+    required TResult Function(String msg) addFailure,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddcategoryHasError: null == isAddcategoryHasError
-          ? _value.isAddcategoryHasError
-          : isAddcategoryHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddCategorySuccess: null == isAddCategorySuccess
-          ? _value.isAddCategorySuccess
-          : isAddCategorySuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetCategoryHasError: null == isGetCategoryHasError
-          ? _value.isGetCategoryHasError
-          : isGetCategoryHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGEtCategorySuccess: null == isGEtCategorySuccess
-          ? _value.isGEtCategorySuccess
-          : isGEtCategorySuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteCategoryhasErro: null == isDeleteCategoryhasErro
-          ? _value.isDeleteCategoryhasErro
-          : isDeleteCategoryhasErro // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteCategorySuccess: null == isDeleteCategorySuccess
-          ? _value.isDeleteCategorySuccess
-          : isDeleteCategorySuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      getallCategory: freezed == getallCategory
-          ? _value.getallCategory
-          : getallCategory // ignore: cast_nullable_to_non_nullable
-              as List<CategoryAll>?,
-      messag: freezed == messag
-          ? _value.messag
-          : messag // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoryAll> categories)? success,
+    TResult? Function(String errmessage)? errorst,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String successmsg)? addCategorySuccess,
+    TResult? Function(String msg)? addFailure,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoryAll> categories)? success,
+    TResult Function(String errmessage)? errorst,
+    TResult Function()? deleteSuccess,
+    TResult Function(String successmsg)? addCategorySuccess,
+    TResult Function(String msg)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(CategoryLoading value) loading,
+    required TResult Function(GetCategorySuccess value) success,
+    required TResult Function(GetCategoryErrorst value) errorst,
+    required TResult Function(DeleteSucces value) deleteSuccess,
+    required TResult Function(AddCateSucces value) addCategorySuccess,
+    required TResult Function(AddCategoryFailure value) addFailure,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(CategoryLoading value)? loading,
+    TResult? Function(GetCategorySuccess value)? success,
+    TResult? Function(GetCategoryErrorst value)? errorst,
+    TResult? Function(DeleteSucces value)? deleteSuccess,
+    TResult? Function(AddCateSucces value)? addCategorySuccess,
+    TResult? Function(AddCategoryFailure value)? addFailure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(CategoryLoading value)? loading,
+    TResult Function(GetCategorySuccess value)? success,
+    TResult Function(GetCategoryErrorst value)? errorst,
+    TResult Function(DeleteSucces value)? deleteSuccess,
+    TResult Function(AddCateSucces value)? addCategorySuccess,
+    TResult Function(AddCategoryFailure value)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
   }
 }
 
-/// @nodoc
-abstract class _$$CategoryStateImplCopyWith<$Res>
-    implements $CategoryStateCopyWith<$Res> {
-  factory _$$CategoryStateImplCopyWith(
-          _$CategoryStateImpl value, $Res Function(_$CategoryStateImpl) then) =
-      __$$CategoryStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {bool isLoading,
-      bool isAddcategoryHasError,
-      bool isAddCategorySuccess,
-      bool isGetCategoryHasError,
-      bool isGEtCategorySuccess,
-      bool isDeleteCategoryhasErro,
-      bool isDeleteCategorySuccess,
-      List<CategoryAll>? getallCategory,
-      String? messag});
+abstract class Initial implements CategoryState {
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-class __$$CategoryStateImplCopyWithImpl<$Res>
-    extends _$CategoryStateCopyWithImpl<$Res, _$CategoryStateImpl>
-    implements _$$CategoryStateImplCopyWith<$Res> {
-  __$$CategoryStateImplCopyWithImpl(
-      _$CategoryStateImpl _value, $Res Function(_$CategoryStateImpl) _then)
+abstract class _$$CategoryLoadingImplCopyWith<$Res> {
+  factory _$$CategoryLoadingImplCopyWith(_$CategoryLoadingImpl value,
+          $Res Function(_$CategoryLoadingImpl) then) =
+      __$$CategoryLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CategoryLoadingImplCopyWithImpl<$Res>
+    extends _$CategoryStateCopyWithImpl<$Res, _$CategoryLoadingImpl>
+    implements _$$CategoryLoadingImplCopyWith<$Res> {
+  __$$CategoryLoadingImplCopyWithImpl(
+      _$CategoryLoadingImpl _value, $Res Function(_$CategoryLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CategoryLoadingImpl
+    with DiagnosticableTreeMixin
+    implements CategoryLoading {
+  const _$CategoryLoadingImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CategoryState.loading'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CategoryLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoryAll> categories) success,
+    required TResult Function(String errmessage) errorst,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String successmsg) addCategorySuccess,
+    required TResult Function(String msg) addFailure,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoryAll> categories)? success,
+    TResult? Function(String errmessage)? errorst,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String successmsg)? addCategorySuccess,
+    TResult? Function(String msg)? addFailure,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoryAll> categories)? success,
+    TResult Function(String errmessage)? errorst,
+    TResult Function()? deleteSuccess,
+    TResult Function(String successmsg)? addCategorySuccess,
+    TResult Function(String msg)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(CategoryLoading value) loading,
+    required TResult Function(GetCategorySuccess value) success,
+    required TResult Function(GetCategoryErrorst value) errorst,
+    required TResult Function(DeleteSucces value) deleteSuccess,
+    required TResult Function(AddCateSucces value) addCategorySuccess,
+    required TResult Function(AddCategoryFailure value) addFailure,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(CategoryLoading value)? loading,
+    TResult? Function(GetCategorySuccess value)? success,
+    TResult? Function(GetCategoryErrorst value)? errorst,
+    TResult? Function(DeleteSucces value)? deleteSuccess,
+    TResult? Function(AddCateSucces value)? addCategorySuccess,
+    TResult? Function(AddCategoryFailure value)? addFailure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(CategoryLoading value)? loading,
+    TResult Function(GetCategorySuccess value)? success,
+    TResult Function(GetCategoryErrorst value)? errorst,
+    TResult Function(DeleteSucces value)? deleteSuccess,
+    TResult Function(AddCateSucces value)? addCategorySuccess,
+    TResult Function(AddCategoryFailure value)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CategoryLoading implements CategoryState {
+  const factory CategoryLoading() = _$CategoryLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$GetCategorySuccessImplCopyWith<$Res> {
+  factory _$$GetCategorySuccessImplCopyWith(_$GetCategorySuccessImpl value,
+          $Res Function(_$GetCategorySuccessImpl) then) =
+      __$$GetCategorySuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<CategoryAll> categories});
+}
+
+/// @nodoc
+class __$$GetCategorySuccessImplCopyWithImpl<$Res>
+    extends _$CategoryStateCopyWithImpl<$Res, _$GetCategorySuccessImpl>
+    implements _$$GetCategorySuccessImplCopyWith<$Res> {
+  __$$GetCategorySuccessImplCopyWithImpl(_$GetCategorySuccessImpl _value,
+      $Res Function(_$GetCategorySuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
-    Object? isAddcategoryHasError = null,
-    Object? isAddCategorySuccess = null,
-    Object? isGetCategoryHasError = null,
-    Object? isGEtCategorySuccess = null,
-    Object? isDeleteCategoryhasErro = null,
-    Object? isDeleteCategorySuccess = null,
-    Object? getallCategory = freezed,
-    Object? messag = freezed,
+    Object? categories = null,
   }) {
-    return _then(_$CategoryStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddcategoryHasError: null == isAddcategoryHasError
-          ? _value.isAddcategoryHasError
-          : isAddcategoryHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddCategorySuccess: null == isAddCategorySuccess
-          ? _value.isAddCategorySuccess
-          : isAddCategorySuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetCategoryHasError: null == isGetCategoryHasError
-          ? _value.isGetCategoryHasError
-          : isGetCategoryHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGEtCategorySuccess: null == isGEtCategorySuccess
-          ? _value.isGEtCategorySuccess
-          : isGEtCategorySuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteCategoryhasErro: null == isDeleteCategoryhasErro
-          ? _value.isDeleteCategoryhasErro
-          : isDeleteCategoryhasErro // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeleteCategorySuccess: null == isDeleteCategorySuccess
-          ? _value.isDeleteCategorySuccess
-          : isDeleteCategorySuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      getallCategory: freezed == getallCategory
-          ? _value._getallCategory
-          : getallCategory // ignore: cast_nullable_to_non_nullable
-              as List<CategoryAll>?,
-      messag: freezed == messag
-          ? _value.messag
-          : messag // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$GetCategorySuccessImpl(
+      null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoryAll>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$CategoryStateImpl implements _CategoryState {
-  const _$CategoryStateImpl(
-      {required this.isLoading,
-      required this.isAddcategoryHasError,
-      required this.isAddCategorySuccess,
-      required this.isGetCategoryHasError,
-      required this.isGEtCategorySuccess,
-      required this.isDeleteCategoryhasErro,
-      required this.isDeleteCategorySuccess,
-      required final List<CategoryAll>? getallCategory,
-      this.messag})
-      : _getallCategory = getallCategory;
+class _$GetCategorySuccessImpl
+    with DiagnosticableTreeMixin
+    implements GetCategorySuccess {
+  const _$GetCategorySuccessImpl(final List<CategoryAll> categories)
+      : _categories = categories;
 
+  final List<CategoryAll> _categories;
   @override
-  final bool isLoading;
-  @override
-  final bool isAddcategoryHasError;
-  @override
-  final bool isAddCategorySuccess;
-  @override
-  final bool isGetCategoryHasError;
-  @override
-  final bool isGEtCategorySuccess;
-  @override
-  final bool isDeleteCategoryhasErro;
-  @override
-  final bool isDeleteCategorySuccess;
-  final List<CategoryAll>? _getallCategory;
-  @override
-  List<CategoryAll>? get getallCategory {
-    final value = _getallCategory;
-    if (value == null) return null;
-    if (_getallCategory is EqualUnmodifiableListView) return _getallCategory;
+  List<CategoryAll> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_categories);
   }
 
   @override
-  final String? messag;
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryState.success(categories: $categories)';
+  }
 
   @override
-  String toString() {
-    return 'CategoryState(isLoading: $isLoading, isAddcategoryHasError: $isAddcategoryHasError, isAddCategorySuccess: $isAddCategorySuccess, isGetCategoryHasError: $isGetCategoryHasError, isGEtCategorySuccess: $isGEtCategorySuccess, isDeleteCategoryhasErro: $isDeleteCategoryhasErro, isDeleteCategorySuccess: $isDeleteCategorySuccess, getallCategory: $getallCategory, messag: $messag)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CategoryState.success'))
+      ..add(DiagnosticsProperty('categories', categories));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CategoryStateImpl &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.isAddcategoryHasError, isAddcategoryHasError) ||
-                other.isAddcategoryHasError == isAddcategoryHasError) &&
-            (identical(other.isAddCategorySuccess, isAddCategorySuccess) ||
-                other.isAddCategorySuccess == isAddCategorySuccess) &&
-            (identical(other.isGetCategoryHasError, isGetCategoryHasError) ||
-                other.isGetCategoryHasError == isGetCategoryHasError) &&
-            (identical(other.isGEtCategorySuccess, isGEtCategorySuccess) ||
-                other.isGEtCategorySuccess == isGEtCategorySuccess) &&
-            (identical(
-                    other.isDeleteCategoryhasErro, isDeleteCategoryhasErro) ||
-                other.isDeleteCategoryhasErro == isDeleteCategoryhasErro) &&
-            (identical(
-                    other.isDeleteCategorySuccess, isDeleteCategorySuccess) ||
-                other.isDeleteCategorySuccess == isDeleteCategorySuccess) &&
+            other is _$GetCategorySuccessImpl &&
             const DeepCollectionEquality()
-                .equals(other._getallCategory, _getallCategory) &&
-            (identical(other.messag, messag) || other.messag == messag));
+                .equals(other._categories, _categories));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isAddcategoryHasError,
-      isAddCategorySuccess,
-      isGetCategoryHasError,
-      isGEtCategorySuccess,
-      isDeleteCategoryhasErro,
-      isDeleteCategorySuccess,
-      const DeepCollectionEquality().hash(_getallCategory),
-      messag);
+      runtimeType, const DeepCollectionEquality().hash(_categories));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CategoryStateImplCopyWith<_$CategoryStateImpl> get copyWith =>
-      __$$CategoryStateImplCopyWithImpl<_$CategoryStateImpl>(this, _$identity);
+  _$$GetCategorySuccessImplCopyWith<_$GetCategorySuccessImpl> get copyWith =>
+      __$$GetCategorySuccessImplCopyWithImpl<_$GetCategorySuccessImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoryAll> categories) success,
+    required TResult Function(String errmessage) errorst,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String successmsg) addCategorySuccess,
+    required TResult Function(String msg) addFailure,
+  }) {
+    return success(categories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoryAll> categories)? success,
+    TResult? Function(String errmessage)? errorst,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String successmsg)? addCategorySuccess,
+    TResult? Function(String msg)? addFailure,
+  }) {
+    return success?.call(categories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoryAll> categories)? success,
+    TResult Function(String errmessage)? errorst,
+    TResult Function()? deleteSuccess,
+    TResult Function(String successmsg)? addCategorySuccess,
+    TResult Function(String msg)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(categories);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(CategoryLoading value) loading,
+    required TResult Function(GetCategorySuccess value) success,
+    required TResult Function(GetCategoryErrorst value) errorst,
+    required TResult Function(DeleteSucces value) deleteSuccess,
+    required TResult Function(AddCateSucces value) addCategorySuccess,
+    required TResult Function(AddCategoryFailure value) addFailure,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(CategoryLoading value)? loading,
+    TResult? Function(GetCategorySuccess value)? success,
+    TResult? Function(GetCategoryErrorst value)? errorst,
+    TResult? Function(DeleteSucces value)? deleteSuccess,
+    TResult? Function(AddCateSucces value)? addCategorySuccess,
+    TResult? Function(AddCategoryFailure value)? addFailure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(CategoryLoading value)? loading,
+    TResult Function(GetCategorySuccess value)? success,
+    TResult Function(GetCategoryErrorst value)? errorst,
+    TResult Function(DeleteSucces value)? deleteSuccess,
+    TResult Function(AddCateSucces value)? addCategorySuccess,
+    TResult Function(AddCategoryFailure value)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _CategoryState implements CategoryState {
-  const factory _CategoryState(
-      {required final bool isLoading,
-      required final bool isAddcategoryHasError,
-      required final bool isAddCategorySuccess,
-      required final bool isGetCategoryHasError,
-      required final bool isGEtCategorySuccess,
-      required final bool isDeleteCategoryhasErro,
-      required final bool isDeleteCategorySuccess,
-      required final List<CategoryAll>? getallCategory,
-      final String? messag}) = _$CategoryStateImpl;
+abstract class GetCategorySuccess implements CategoryState {
+  const factory GetCategorySuccess(final List<CategoryAll> categories) =
+      _$GetCategorySuccessImpl;
+
+  List<CategoryAll> get categories;
+  @JsonKey(ignore: true)
+  _$$GetCategorySuccessImplCopyWith<_$GetCategorySuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetCategoryErrorstImplCopyWith<$Res> {
+  factory _$$GetCategoryErrorstImplCopyWith(_$GetCategoryErrorstImpl value,
+          $Res Function(_$GetCategoryErrorstImpl) then) =
+      __$$GetCategoryErrorstImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errmessage});
+}
+
+/// @nodoc
+class __$$GetCategoryErrorstImplCopyWithImpl<$Res>
+    extends _$CategoryStateCopyWithImpl<$Res, _$GetCategoryErrorstImpl>
+    implements _$$GetCategoryErrorstImplCopyWith<$Res> {
+  __$$GetCategoryErrorstImplCopyWithImpl(_$GetCategoryErrorstImpl _value,
+      $Res Function(_$GetCategoryErrorstImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errmessage = null,
+  }) {
+    return _then(_$GetCategoryErrorstImpl(
+      null == errmessage
+          ? _value.errmessage
+          : errmessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetCategoryErrorstImpl
+    with DiagnosticableTreeMixin
+    implements GetCategoryErrorst {
+  const _$GetCategoryErrorstImpl(this.errmessage);
 
   @override
-  bool get isLoading;
+  final String errmessage;
+
   @override
-  bool get isAddcategoryHasError;
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryState.errorst(errmessage: $errmessage)';
+  }
+
   @override
-  bool get isAddCategorySuccess;
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CategoryState.errorst'))
+      ..add(DiagnosticsProperty('errmessage', errmessage));
+  }
+
   @override
-  bool get isGetCategoryHasError;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetCategoryErrorstImpl &&
+            (identical(other.errmessage, errmessage) ||
+                other.errmessage == errmessage));
+  }
+
   @override
-  bool get isGEtCategorySuccess;
-  @override
-  bool get isDeleteCategoryhasErro;
-  @override
-  bool get isDeleteCategorySuccess;
-  @override
-  List<CategoryAll>? get getallCategory;
-  @override
-  String? get messag;
-  @override
+  int get hashCode => Object.hash(runtimeType, errmessage);
+
   @JsonKey(ignore: true)
-  _$$CategoryStateImplCopyWith<_$CategoryStateImpl> get copyWith =>
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetCategoryErrorstImplCopyWith<_$GetCategoryErrorstImpl> get copyWith =>
+      __$$GetCategoryErrorstImplCopyWithImpl<_$GetCategoryErrorstImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoryAll> categories) success,
+    required TResult Function(String errmessage) errorst,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String successmsg) addCategorySuccess,
+    required TResult Function(String msg) addFailure,
+  }) {
+    return errorst(errmessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoryAll> categories)? success,
+    TResult? Function(String errmessage)? errorst,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String successmsg)? addCategorySuccess,
+    TResult? Function(String msg)? addFailure,
+  }) {
+    return errorst?.call(errmessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoryAll> categories)? success,
+    TResult Function(String errmessage)? errorst,
+    TResult Function()? deleteSuccess,
+    TResult Function(String successmsg)? addCategorySuccess,
+    TResult Function(String msg)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (errorst != null) {
+      return errorst(errmessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(CategoryLoading value) loading,
+    required TResult Function(GetCategorySuccess value) success,
+    required TResult Function(GetCategoryErrorst value) errorst,
+    required TResult Function(DeleteSucces value) deleteSuccess,
+    required TResult Function(AddCateSucces value) addCategorySuccess,
+    required TResult Function(AddCategoryFailure value) addFailure,
+  }) {
+    return errorst(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(CategoryLoading value)? loading,
+    TResult? Function(GetCategorySuccess value)? success,
+    TResult? Function(GetCategoryErrorst value)? errorst,
+    TResult? Function(DeleteSucces value)? deleteSuccess,
+    TResult? Function(AddCateSucces value)? addCategorySuccess,
+    TResult? Function(AddCategoryFailure value)? addFailure,
+  }) {
+    return errorst?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(CategoryLoading value)? loading,
+    TResult Function(GetCategorySuccess value)? success,
+    TResult Function(GetCategoryErrorst value)? errorst,
+    TResult Function(DeleteSucces value)? deleteSuccess,
+    TResult Function(AddCateSucces value)? addCategorySuccess,
+    TResult Function(AddCategoryFailure value)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (errorst != null) {
+      return errorst(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetCategoryErrorst implements CategoryState {
+  const factory GetCategoryErrorst(final String errmessage) =
+      _$GetCategoryErrorstImpl;
+
+  String get errmessage;
+  @JsonKey(ignore: true)
+  _$$GetCategoryErrorstImplCopyWith<_$GetCategoryErrorstImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteSuccesImplCopyWith<$Res> {
+  factory _$$DeleteSuccesImplCopyWith(
+          _$DeleteSuccesImpl value, $Res Function(_$DeleteSuccesImpl) then) =
+      __$$DeleteSuccesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeleteSuccesImplCopyWithImpl<$Res>
+    extends _$CategoryStateCopyWithImpl<$Res, _$DeleteSuccesImpl>
+    implements _$$DeleteSuccesImplCopyWith<$Res> {
+  __$$DeleteSuccesImplCopyWithImpl(
+      _$DeleteSuccesImpl _value, $Res Function(_$DeleteSuccesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DeleteSuccesImpl with DiagnosticableTreeMixin implements DeleteSucces {
+  const _$DeleteSuccesImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryState.deleteSuccess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CategoryState.deleteSuccess'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeleteSuccesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoryAll> categories) success,
+    required TResult Function(String errmessage) errorst,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String successmsg) addCategorySuccess,
+    required TResult Function(String msg) addFailure,
+  }) {
+    return deleteSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoryAll> categories)? success,
+    TResult? Function(String errmessage)? errorst,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String successmsg)? addCategorySuccess,
+    TResult? Function(String msg)? addFailure,
+  }) {
+    return deleteSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoryAll> categories)? success,
+    TResult Function(String errmessage)? errorst,
+    TResult Function()? deleteSuccess,
+    TResult Function(String successmsg)? addCategorySuccess,
+    TResult Function(String msg)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(CategoryLoading value) loading,
+    required TResult Function(GetCategorySuccess value) success,
+    required TResult Function(GetCategoryErrorst value) errorst,
+    required TResult Function(DeleteSucces value) deleteSuccess,
+    required TResult Function(AddCateSucces value) addCategorySuccess,
+    required TResult Function(AddCategoryFailure value) addFailure,
+  }) {
+    return deleteSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(CategoryLoading value)? loading,
+    TResult? Function(GetCategorySuccess value)? success,
+    TResult? Function(GetCategoryErrorst value)? errorst,
+    TResult? Function(DeleteSucces value)? deleteSuccess,
+    TResult? Function(AddCateSucces value)? addCategorySuccess,
+    TResult? Function(AddCategoryFailure value)? addFailure,
+  }) {
+    return deleteSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(CategoryLoading value)? loading,
+    TResult Function(GetCategorySuccess value)? success,
+    TResult Function(GetCategoryErrorst value)? errorst,
+    TResult Function(DeleteSucces value)? deleteSuccess,
+    TResult Function(AddCateSucces value)? addCategorySuccess,
+    TResult Function(AddCategoryFailure value)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteSucces implements CategoryState {
+  const factory DeleteSucces() = _$DeleteSuccesImpl;
+}
+
+/// @nodoc
+abstract class _$$AddCateSuccesImplCopyWith<$Res> {
+  factory _$$AddCateSuccesImplCopyWith(
+          _$AddCateSuccesImpl value, $Res Function(_$AddCateSuccesImpl) then) =
+      __$$AddCateSuccesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String successmsg});
+}
+
+/// @nodoc
+class __$$AddCateSuccesImplCopyWithImpl<$Res>
+    extends _$CategoryStateCopyWithImpl<$Res, _$AddCateSuccesImpl>
+    implements _$$AddCateSuccesImplCopyWith<$Res> {
+  __$$AddCateSuccesImplCopyWithImpl(
+      _$AddCateSuccesImpl _value, $Res Function(_$AddCateSuccesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? successmsg = null,
+  }) {
+    return _then(_$AddCateSuccesImpl(
+      null == successmsg
+          ? _value.successmsg
+          : successmsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddCateSuccesImpl
+    with DiagnosticableTreeMixin
+    implements AddCateSucces {
+  const _$AddCateSuccesImpl(this.successmsg);
+
+  @override
+  final String successmsg;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryState.addCategorySuccess(successmsg: $successmsg)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CategoryState.addCategorySuccess'))
+      ..add(DiagnosticsProperty('successmsg', successmsg));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddCateSuccesImpl &&
+            (identical(other.successmsg, successmsg) ||
+                other.successmsg == successmsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, successmsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddCateSuccesImplCopyWith<_$AddCateSuccesImpl> get copyWith =>
+      __$$AddCateSuccesImplCopyWithImpl<_$AddCateSuccesImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoryAll> categories) success,
+    required TResult Function(String errmessage) errorst,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String successmsg) addCategorySuccess,
+    required TResult Function(String msg) addFailure,
+  }) {
+    return addCategorySuccess(successmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoryAll> categories)? success,
+    TResult? Function(String errmessage)? errorst,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String successmsg)? addCategorySuccess,
+    TResult? Function(String msg)? addFailure,
+  }) {
+    return addCategorySuccess?.call(successmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoryAll> categories)? success,
+    TResult Function(String errmessage)? errorst,
+    TResult Function()? deleteSuccess,
+    TResult Function(String successmsg)? addCategorySuccess,
+    TResult Function(String msg)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (addCategorySuccess != null) {
+      return addCategorySuccess(successmsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(CategoryLoading value) loading,
+    required TResult Function(GetCategorySuccess value) success,
+    required TResult Function(GetCategoryErrorst value) errorst,
+    required TResult Function(DeleteSucces value) deleteSuccess,
+    required TResult Function(AddCateSucces value) addCategorySuccess,
+    required TResult Function(AddCategoryFailure value) addFailure,
+  }) {
+    return addCategorySuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(CategoryLoading value)? loading,
+    TResult? Function(GetCategorySuccess value)? success,
+    TResult? Function(GetCategoryErrorst value)? errorst,
+    TResult? Function(DeleteSucces value)? deleteSuccess,
+    TResult? Function(AddCateSucces value)? addCategorySuccess,
+    TResult? Function(AddCategoryFailure value)? addFailure,
+  }) {
+    return addCategorySuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(CategoryLoading value)? loading,
+    TResult Function(GetCategorySuccess value)? success,
+    TResult Function(GetCategoryErrorst value)? errorst,
+    TResult Function(DeleteSucces value)? deleteSuccess,
+    TResult Function(AddCateSucces value)? addCategorySuccess,
+    TResult Function(AddCategoryFailure value)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (addCategorySuccess != null) {
+      return addCategorySuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddCateSucces implements CategoryState {
+  const factory AddCateSucces(final String successmsg) = _$AddCateSuccesImpl;
+
+  String get successmsg;
+  @JsonKey(ignore: true)
+  _$$AddCateSuccesImplCopyWith<_$AddCateSuccesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddCategoryFailureImplCopyWith<$Res> {
+  factory _$$AddCategoryFailureImplCopyWith(_$AddCategoryFailureImpl value,
+          $Res Function(_$AddCategoryFailureImpl) then) =
+      __$$AddCategoryFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String msg});
+}
+
+/// @nodoc
+class __$$AddCategoryFailureImplCopyWithImpl<$Res>
+    extends _$CategoryStateCopyWithImpl<$Res, _$AddCategoryFailureImpl>
+    implements _$$AddCategoryFailureImplCopyWith<$Res> {
+  __$$AddCategoryFailureImplCopyWithImpl(_$AddCategoryFailureImpl _value,
+      $Res Function(_$AddCategoryFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? msg = null,
+  }) {
+    return _then(_$AddCategoryFailureImpl(
+      null == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddCategoryFailureImpl
+    with DiagnosticableTreeMixin
+    implements AddCategoryFailure {
+  const _$AddCategoryFailureImpl(this.msg);
+
+  @override
+  final String msg;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryState.addFailure(msg: $msg)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CategoryState.addFailure'))
+      ..add(DiagnosticsProperty('msg', msg));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddCategoryFailureImpl &&
+            (identical(other.msg, msg) || other.msg == msg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, msg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddCategoryFailureImplCopyWith<_$AddCategoryFailureImpl> get copyWith =>
+      __$$AddCategoryFailureImplCopyWithImpl<_$AddCategoryFailureImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CategoryAll> categories) success,
+    required TResult Function(String errmessage) errorst,
+    required TResult Function() deleteSuccess,
+    required TResult Function(String successmsg) addCategorySuccess,
+    required TResult Function(String msg) addFailure,
+  }) {
+    return addFailure(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CategoryAll> categories)? success,
+    TResult? Function(String errmessage)? errorst,
+    TResult? Function()? deleteSuccess,
+    TResult? Function(String successmsg)? addCategorySuccess,
+    TResult? Function(String msg)? addFailure,
+  }) {
+    return addFailure?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CategoryAll> categories)? success,
+    TResult Function(String errmessage)? errorst,
+    TResult Function()? deleteSuccess,
+    TResult Function(String successmsg)? addCategorySuccess,
+    TResult Function(String msg)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (addFailure != null) {
+      return addFailure(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(CategoryLoading value) loading,
+    required TResult Function(GetCategorySuccess value) success,
+    required TResult Function(GetCategoryErrorst value) errorst,
+    required TResult Function(DeleteSucces value) deleteSuccess,
+    required TResult Function(AddCateSucces value) addCategorySuccess,
+    required TResult Function(AddCategoryFailure value) addFailure,
+  }) {
+    return addFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(CategoryLoading value)? loading,
+    TResult? Function(GetCategorySuccess value)? success,
+    TResult? Function(GetCategoryErrorst value)? errorst,
+    TResult? Function(DeleteSucces value)? deleteSuccess,
+    TResult? Function(AddCateSucces value)? addCategorySuccess,
+    TResult? Function(AddCategoryFailure value)? addFailure,
+  }) {
+    return addFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(CategoryLoading value)? loading,
+    TResult Function(GetCategorySuccess value)? success,
+    TResult Function(GetCategoryErrorst value)? errorst,
+    TResult Function(DeleteSucces value)? deleteSuccess,
+    TResult Function(AddCateSucces value)? addCategorySuccess,
+    TResult Function(AddCategoryFailure value)? addFailure,
+    required TResult orElse(),
+  }) {
+    if (addFailure != null) {
+      return addFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddCategoryFailure implements CategoryState {
+  const factory AddCategoryFailure(final String msg) = _$AddCategoryFailureImpl;
+
+  String get msg;
+  @JsonKey(ignore: true)
+  _$$AddCategoryFailureImplCopyWith<_$AddCategoryFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
