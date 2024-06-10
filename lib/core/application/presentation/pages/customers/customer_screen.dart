@@ -1,8 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
-import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logic_loot_admin/core/application/bloc/customer/customer_bloc.dart';
+import 'package:logic_loot_admin/core/application/presentation/pages/customers/widgets/customer_tile_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_widget.dart';
 
@@ -14,24 +15,29 @@ class CustomerScreen extends StatefulWidget {
 }
 
 class _CustomerScreenState extends State<CustomerScreen> {
-  List avatarColors = [
-    Colors.red.shade300,
-    Colors.yellow.shade300,
-    Colors.green.shade300,
-    Colors.blue.shade300,
-    Colors.orange.shade300,
-    Colors.pink.shade300,
-    Colors.amber.shade300,
-    Colors.purple.shade300,
-    Colors.cyan.shade300,
-    Colors.indigo.shade300,
-  ];
+  // List avatarColors = [
+  //   Colors.red.shade300,
+  //   Colors.yellow.shade300,
+  //   Colors.green.shade300,
+  //   Colors.blue.shade300,
+  //   Colors.orange.shade300,
+  //   Colors.pink.shade300,
+  //   Colors.amber.shade300,
+  //   Colors.purple.shade300,
+  //   Colors.cyan.shade300,
+  //   Colors.indigo.shade300,
+  // ];
 
-  Random random = Random();
+  // Random random = Random();
+  // Color? avatarColor;
 
   bool isBlock = true;
   @override
   Widget build(BuildContext context) {
+    
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+        BlocProvider.of<CustomerBloc>(context).add(const CustomerEvent.getAllCustomer());
+    // });
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const PreferredSize(
@@ -40,51 +46,21 @@ class _CustomerScreenState extends State<CustomerScreen> {
             title: "Users",
           )),
       drawer: const SideBarWidget(),
-      body: ListView.separated(
-          itemBuilder: (context, index) {
-            // Color avatarColor = Colors.red.shade300;
-            // for(int i = 0 ; i <= 20 ; i ++ ){
-            //   avatarColor = avatarColors[i];
-            // }
-            Color avatarColor =
-                avatarColors[random.nextInt(avatarColors.length)];
-            return ListTile(
-              leading: CircleAvatar(
-                backgroundColor: avatarColor,
-                radius: 25,
-                child: const Center(
-                    child: Text(
-                  "A",
-                  style: TextStyle(fontSize: 23),
-                )),
-              ),
-              title: const Text(
-                "user name",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              subtitle: const Text("7994078089"),
-              trailing: Container(
-                  height: size.height / 24,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: MaterialButton(
-                      color: isBlock ? Colors.grey : appcolorblue,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      onPressed: () {
-                        setState(() {
-                          isBlock = !isBlock;
-                        });
-                      },
-                      child: Text(
-                        isBlock ? "Unblock" : "Block",
-                        style: const TextStyle(color: Colors.white),
-                      ))),
-            );
-          },
-          separatorBuilder: (context, index) => kheight10,
-          itemCount: 20),
+      body: BlocBuilder<CustomerBloc, CustomerState>(
+        builder: (context, state) {
+          if(state is Loading){
+            return const Center(child: CircularProgressIndicator(),);
+          }else if(state is ErrorSt){
+            return Center(child: Text(state.errmsg),);
+          }else if (state is Success){
+            print(state.users);
+            final userList = state.users;
+          return CustomerTileWidget(size: size, isBlock: isBlock,userList: userList,);
+          }else{
+            return const Center(child: Text("Internal Error"),);
+          }
+        },
+      ),
     );
   }
 }

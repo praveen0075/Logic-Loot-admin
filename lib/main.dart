@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/auth/auth_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/category/category_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/coupon/coupon_bloc.dart';
+import 'package:logic_loot_admin/core/application/bloc/customer/customer_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/dashboard/dashboard_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/login/login_screen.dart';
@@ -10,6 +11,7 @@ import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_w
 import 'package:logic_loot_admin/core/data/services/auth_services.dart';
 import 'package:logic_loot_admin/core/data/services/category_services.dart';
 import 'package:logic_loot_admin/core/data/services/coupon_services.dart';
+import 'package:logic_loot_admin/core/data/services/customer_services.dart';
 import 'package:logic_loot_admin/core/data/services/product_services.dart';
 import 'package:logic_loot_admin/core/data/shared_preferances/shared_pref.dart';
 
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
   final  cateRepo = CategoryServices();
   final productRepo = ProductServices();
   final couponRepo = CouponServices();
+  final customerRepo = CustomerServices();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +41,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<CategoryBloc>(create: (context) => CategoryBloc(cateRepo),),
         BlocProvider<ProductBloc>(create: (context) => ProductBloc(productRepo),),
         BlocProvider<CouponBloc>(create: (context) => CouponBloc(couponRepo),),
+        BlocProvider<CustomerBloc>(create: (context) => CustomerBloc(customerRepo),),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

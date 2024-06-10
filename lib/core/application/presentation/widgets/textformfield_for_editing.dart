@@ -91,9 +91,12 @@ class AdminTextformFieldsForEdit {
       {required String name,
       required String errormsg,
       required TextEditingController cntrlr,
-      String? initValue}) {
+      String? initvalue,
+      // String? currentValue,
+      }) {
     return TextFormField(
-      controller: cntrlr,
+      // initialValue: initValue,
+      controller: TextEditingController(text: initvalue),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
           hintText: name,
@@ -109,12 +112,16 @@ class AdminTextformFieldsForEdit {
           return null;
         }
       },
+      onChanged: (value) {
+        
+      },
     );
   }
 
   static TextFormField descriptionField(
       {required String name,
       required String errmsg,
+      // String? initValue,
       required int mxLine,
       required TextEditingController cntrlr}) {
     return TextFormField(

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:logic_loot_admin/core/data/shared_preferances/shared_pref.dart';
 import 'package:logic_loot_admin/core/domain/model/body_model/product_model.dart';
-import 'package:logic_loot_admin/core/domain/model/response_model/addproduct_response_model.dart';
 import 'package:logic_loot_admin/core/domain/model/response_model/get_product_response_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:logic_loot_admin/core/domain/model/response_model/get_productby_id_response_model.dart';
@@ -70,7 +69,7 @@ class ProductServices {
       } else {
         final response = await http.Client().get(
             Uri.parse("https://lapify.online/admin/products?page=1&limit=50"),
-            headers: {"Cookie": "Authorise=$tkn"});
+              );
 
         print("resonse --> $response");
 

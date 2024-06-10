@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/add_product_screen.dart';
-import 'package:logic_loot_admin/core/application/presentation/pages/products/edit_product_screen.dart';
-import 'package:logic_loot_admin/core/application/presentation/pages/products/product_display_screen.dart';
-import 'package:logic_loot_admin/core/application/presentation/pages/products/widgets/longpress_options.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/widgets/product_tile_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
-import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_widget.dart';
 
@@ -29,7 +23,7 @@ class ProductScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: appcolorRose,
         onPressed: () {
-          Navigator.pushReplacement(
+          Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => const AddProductScreen(),

@@ -15,6 +15,7 @@ class AppBarWidget extends StatelessWidget {
       // elevation: 5,
       title:  Text(title),
       centerTitle: true,
+      leading: prIcon,
     );
   }
 }

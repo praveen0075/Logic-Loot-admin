@@ -5,7 +5,6 @@ import 'package:logic_loot_admin/core/application/presentation/pages/products/pr
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
-import 'package:logic_loot_admin/core/domain/model/response_model/addproduct_response_model.dart';
 
 class ProductDisplayScreen extends StatelessWidget {
   const ProductDisplayScreen({super.key, required this.id});
@@ -39,7 +38,6 @@ class ProductDisplayScreen extends StatelessWidget {
             var productDetails =
                 state.productDetails;
             return Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
                   child: SizedBox(
@@ -77,7 +75,7 @@ class ProductDisplayScreen extends StatelessWidget {
                             style: const TextStyle(
                                 color: Colors.green, fontSize: 28)),
                       ])),
-                      Divider(),
+                      const Divider(),
                       secondRow(txt: "Size", val: product.size),
                       secondRow(
                           txt: "Category",
@@ -93,7 +91,7 @@ class ProductDisplayScreen extends StatelessWidget {
                             fontSize: 20, fontWeight: FontWeight.w500),
                       ),
                       Text(productDetails.specification,
-                          style: TextStyle(color: black)),
+                          style: const TextStyle(color: black)),
                       divider,
                       const Text(
                         "Description",
@@ -104,13 +102,13 @@ class ProductDisplayScreen extends StatelessWidget {
                           text: TextSpan(children: [
                         TextSpan(
                             text: "${product.name}: ",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: black,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400)),
                         TextSpan(
                             text: productDetails.description,
-                            style: TextStyle(color: black))
+                            style: const TextStyle(color: black))
                       ])),
                     ],
                   ),
