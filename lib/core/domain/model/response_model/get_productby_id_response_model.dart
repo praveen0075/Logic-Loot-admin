@@ -1,30 +1,58 @@
 // To parse this JSON data, do
 //
-//     final getProductById = getProductByIdFromJson(jsonString);
+//     final productDetailsById = productDetailsByIdFromJson(jsonString);
 
 import 'dart:convert';
 
-GetProductById getProductByIdFromJson(String str) => GetProductById.fromJson(json.decode(str));
+ProductDetailsById productDetailsByIdFromJson(String str) => ProductDetailsById.fromJson(json.decode(str));
 
-String getProductByIdToJson(GetProductById data) => json.encode(data.toJson());
+String productDetailsByIdToJson(ProductDetailsById data) => json.encode(data.toJson());
 
-class GetProductById {
+class ProductDetailsById {
+    Inventory inventory;
     ProductDetails productDetails;
-    ProductsById products;
+    Product products;
 
-    GetProductById({
+    ProductDetailsById({
+        required this.inventory,
         required this.productDetails,
         required this.products,
     });
 
-    factory GetProductById.fromJson(Map<String, dynamic> json) => GetProductById(
+    factory ProductDetailsById.fromJson(Map<String, dynamic> json) => ProductDetailsById(
+        inventory: Inventory.fromJson(json["inventory"]),
         productDetails: ProductDetails.fromJson(json["product details"]),
-        products: ProductsById.fromJson(json["products"]),
+        products: Product.fromJson(json["products"]),
     );
 
     Map<String, dynamic> toJson() => {
+        "inventory": inventory.toJson(),
         "product details": productDetails.toJson(),
         "products": products.toJson(),
+    };
+}
+
+class Inventory {
+    int productId;
+    int quantity;
+    int productCategory;
+
+    Inventory({
+        required this.productId,
+        required this.quantity,
+        required this.productCategory,
+    });
+
+    factory Inventory.fromJson(Map<String, dynamic> json) => Inventory(
+        productId: json["ProductId"],
+        quantity: json["Quantity"],
+        productCategory: json["ProductCategory"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "ProductId": productId,
+        "Quantity": quantity,
+        "ProductCategory": productCategory,
     };
 }
 
@@ -52,7 +80,7 @@ class ProductDetails {
     };
 }
 
-class ProductsById {
+class Product {
     int id;
     String name;
     int price;
@@ -62,7 +90,7 @@ class ProductsById {
     int category;
     String imageurl;
 
-    ProductsById({
+    Product({
         required this.id,
         required this.name,
         required this.price,
@@ -73,7 +101,7 @@ class ProductsById {
         required this.imageurl,
     });
 
-    factory ProductsById.fromJson(Map<String, dynamic> json) => ProductsById(
+    factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["ID"],
         name: json["name"],
         price: json["price"],

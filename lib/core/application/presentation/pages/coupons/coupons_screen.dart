@@ -48,7 +48,7 @@ class _CouponScreenState extends State<CouponScreen> {
           }else if (state.avialableCoupons.isEmpty){
             return const Center(child: Text("Coupon is Empty"),);
           }
-          else{
+          else if (state.isGetCouponHasSuccess){
           return ListView.separated(
               itemBuilder: (context, index) => ListTile(
                     onLongPress: () {
@@ -166,6 +166,8 @@ class _CouponScreenState extends State<CouponScreen> {
                   ),
               separatorBuilder: (context, index) => kheight10,
               itemCount: state.avialableCoupons.length);
+          }else{
+            return Center(child:Text("NO Data available"),);
           }
         },
       ),

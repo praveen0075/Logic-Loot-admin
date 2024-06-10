@@ -69,14 +69,14 @@ class ProductServices {
       } else {
         final response = await http.Client().get(
             Uri.parse("https://lapify.online/admin/products?page=1&limit=50"),
-              );
+              headers:  {"Cookie": "Authorise=$tkn"});
 
         print("resonse --> $response");
 
         print("response statuscode --> ${response.statusCode}");
 
         // 
-
+ 
         // print("response result model ---> $responseResult");
 
         if (response.statusCode == 200) {
@@ -111,7 +111,7 @@ class ProductServices {
     }
   }
 
-  Future<Either<String, GetProductById>> getProductDetialsById(
+  Future<Either<String, ProductDetailsById>> getProductDetialsById(
       {required int id}) async {
     try {
       final tkn = await SharedPreffs.getAdminToken();
@@ -132,7 +132,7 @@ class ProductServices {
 
         if (response.statusCode == 200) {
           print("success");
-          final result = getProductByIdFromJson(response.body);
+          final result = productDetailsByIdFromJson(response.body);
           return Right(result);
         } else {
           print("Error");

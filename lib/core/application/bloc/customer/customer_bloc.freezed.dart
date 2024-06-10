@@ -19,19 +19,20 @@ mixin _$CustomerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllCustomer,
-    required TResult Function(bool toggleValue) toggleUserBlkAndUnblk,
+    required TResult Function(int userId, BuildContext context)
+        toggleUserBlkAndUnblk,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllCustomer,
-    TResult? Function(bool toggleValue)? toggleUserBlkAndUnblk,
+    TResult? Function(int userId, BuildContext context)? toggleUserBlkAndUnblk,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllCustomer,
-    TResult Function(bool toggleValue)? toggleUserBlkAndUnblk,
+    TResult Function(int userId, BuildContext context)? toggleUserBlkAndUnblk,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,7 +115,8 @@ class _$GetAllCustomerImpl implements _GetAllCustomer {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllCustomer,
-    required TResult Function(bool toggleValue) toggleUserBlkAndUnblk,
+    required TResult Function(int userId, BuildContext context)
+        toggleUserBlkAndUnblk,
   }) {
     return getAllCustomer();
   }
@@ -123,7 +125,7 @@ class _$GetAllCustomerImpl implements _GetAllCustomer {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllCustomer,
-    TResult? Function(bool toggleValue)? toggleUserBlkAndUnblk,
+    TResult? Function(int userId, BuildContext context)? toggleUserBlkAndUnblk,
   }) {
     return getAllCustomer?.call();
   }
@@ -132,7 +134,7 @@ class _$GetAllCustomerImpl implements _GetAllCustomer {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllCustomer,
-    TResult Function(bool toggleValue)? toggleUserBlkAndUnblk,
+    TResult Function(int userId, BuildContext context)? toggleUserBlkAndUnblk,
     required TResult orElse(),
   }) {
     if (getAllCustomer != null) {
@@ -185,7 +187,7 @@ abstract class _$$ToggleUserBlkAndUnblkImplCopyWith<$Res> {
           $Res Function(_$ToggleUserBlkAndUnblkImpl) then) =
       __$$ToggleUserBlkAndUnblkImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool toggleValue});
+  $Res call({int userId, BuildContext context});
 }
 
 /// @nodoc
@@ -199,13 +201,18 @@ class __$$ToggleUserBlkAndUnblkImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? toggleValue = null,
+    Object? userId = null,
+    Object? context = null,
   }) {
     return _then(_$ToggleUserBlkAndUnblkImpl(
-      null == toggleValue
-          ? _value.toggleValue
-          : toggleValue // ignore: cast_nullable_to_non_nullable
-              as bool,
+      null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
@@ -213,14 +220,16 @@ class __$$ToggleUserBlkAndUnblkImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ToggleUserBlkAndUnblkImpl implements _ToggleUserBlkAndUnblk {
-  const _$ToggleUserBlkAndUnblkImpl(this.toggleValue);
+  const _$ToggleUserBlkAndUnblkImpl(this.userId, this.context);
 
   @override
-  final bool toggleValue;
+  final int userId;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'CustomerEvent.toggleUserBlkAndUnblk(toggleValue: $toggleValue)';
+    return 'CustomerEvent.toggleUserBlkAndUnblk(userId: $userId, context: $context)';
   }
 
   @override
@@ -228,12 +237,12 @@ class _$ToggleUserBlkAndUnblkImpl implements _ToggleUserBlkAndUnblk {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ToggleUserBlkAndUnblkImpl &&
-            (identical(other.toggleValue, toggleValue) ||
-                other.toggleValue == toggleValue));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, toggleValue);
+  int get hashCode => Object.hash(runtimeType, userId, context);
 
   @JsonKey(ignore: true)
   @override
@@ -246,29 +255,30 @@ class _$ToggleUserBlkAndUnblkImpl implements _ToggleUserBlkAndUnblk {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllCustomer,
-    required TResult Function(bool toggleValue) toggleUserBlkAndUnblk,
+    required TResult Function(int userId, BuildContext context)
+        toggleUserBlkAndUnblk,
   }) {
-    return toggleUserBlkAndUnblk(toggleValue);
+    return toggleUserBlkAndUnblk(userId, context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllCustomer,
-    TResult? Function(bool toggleValue)? toggleUserBlkAndUnblk,
+    TResult? Function(int userId, BuildContext context)? toggleUserBlkAndUnblk,
   }) {
-    return toggleUserBlkAndUnblk?.call(toggleValue);
+    return toggleUserBlkAndUnblk?.call(userId, context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllCustomer,
-    TResult Function(bool toggleValue)? toggleUserBlkAndUnblk,
+    TResult Function(int userId, BuildContext context)? toggleUserBlkAndUnblk,
     required TResult orElse(),
   }) {
     if (toggleUserBlkAndUnblk != null) {
-      return toggleUserBlkAndUnblk(toggleValue);
+      return toggleUserBlkAndUnblk(userId, context);
     }
     return orElse();
   }
@@ -307,10 +317,12 @@ class _$ToggleUserBlkAndUnblkImpl implements _ToggleUserBlkAndUnblk {
 }
 
 abstract class _ToggleUserBlkAndUnblk implements CustomerEvent {
-  const factory _ToggleUserBlkAndUnblk(final bool toggleValue) =
+  const factory _ToggleUserBlkAndUnblk(
+          final int userId, final BuildContext context) =
       _$ToggleUserBlkAndUnblkImpl;
 
-  bool get toggleValue;
+  int get userId;
+  BuildContext get context;
   @JsonKey(ignore: true)
   _$$ToggleUserBlkAndUnblkImplCopyWith<_$ToggleUserBlkAndUnblkImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -324,6 +336,9 @@ mixin _$CustomerState {
     required TResult Function() loading,
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
+    required TResult Function() toggleLoading,
+    required TResult Function() toggleSuccess,
+    required TResult Function(String errormsg) toggleError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -332,6 +347,9 @@ mixin _$CustomerState {
     TResult? Function()? loading,
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
+    TResult? Function()? toggleLoading,
+    TResult? Function()? toggleSuccess,
+    TResult? Function(String errormsg)? toggleError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -340,6 +358,9 @@ mixin _$CustomerState {
     TResult Function()? loading,
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
+    TResult Function()? toggleLoading,
+    TResult Function()? toggleSuccess,
+    TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -349,6 +370,9 @@ mixin _$CustomerState {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
+    required TResult Function(ToggleLoading value) toggleLoading,
+    required TResult Function(ToggleSuccess value) toggleSuccess,
+    required TResult Function(ToggleError value) toggleError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -357,6 +381,9 @@ mixin _$CustomerState {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
+    TResult? Function(ToggleLoading value)? toggleLoading,
+    TResult? Function(ToggleSuccess value)? toggleSuccess,
+    TResult? Function(ToggleError value)? toggleError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -365,6 +392,9 @@ mixin _$CustomerState {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
+    TResult Function(ToggleLoading value)? toggleLoading,
+    TResult Function(ToggleSuccess value)? toggleSuccess,
+    TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -430,6 +460,9 @@ class _$InitialImpl implements Initial {
     required TResult Function() loading,
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
+    required TResult Function() toggleLoading,
+    required TResult Function() toggleSuccess,
+    required TResult Function(String errormsg) toggleError,
   }) {
     return initial();
   }
@@ -441,6 +474,9 @@ class _$InitialImpl implements Initial {
     TResult? Function()? loading,
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
+    TResult? Function()? toggleLoading,
+    TResult? Function()? toggleSuccess,
+    TResult? Function(String errormsg)? toggleError,
   }) {
     return initial?.call();
   }
@@ -452,6 +488,9 @@ class _$InitialImpl implements Initial {
     TResult Function()? loading,
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
+    TResult Function()? toggleLoading,
+    TResult Function()? toggleSuccess,
+    TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -467,6 +506,9 @@ class _$InitialImpl implements Initial {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
+    required TResult Function(ToggleLoading value) toggleLoading,
+    required TResult Function(ToggleSuccess value) toggleSuccess,
+    required TResult Function(ToggleError value) toggleError,
   }) {
     return initial(this);
   }
@@ -478,6 +520,9 @@ class _$InitialImpl implements Initial {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
+    TResult? Function(ToggleLoading value)? toggleLoading,
+    TResult? Function(ToggleSuccess value)? toggleSuccess,
+    TResult? Function(ToggleError value)? toggleError,
   }) {
     return initial?.call(this);
   }
@@ -489,6 +534,9 @@ class _$InitialImpl implements Initial {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
+    TResult Function(ToggleLoading value)? toggleLoading,
+    TResult Function(ToggleSuccess value)? toggleSuccess,
+    TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -544,6 +592,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function() loading,
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
+    required TResult Function() toggleLoading,
+    required TResult Function() toggleSuccess,
+    required TResult Function(String errormsg) toggleError,
   }) {
     return loading();
   }
@@ -555,6 +606,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? loading,
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
+    TResult? Function()? toggleLoading,
+    TResult? Function()? toggleSuccess,
+    TResult? Function(String errormsg)? toggleError,
   }) {
     return loading?.call();
   }
@@ -566,6 +620,9 @@ class _$LoadingImpl implements Loading {
     TResult Function()? loading,
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
+    TResult Function()? toggleLoading,
+    TResult Function()? toggleSuccess,
+    TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -581,6 +638,9 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
+    required TResult Function(ToggleLoading value) toggleLoading,
+    required TResult Function(ToggleSuccess value) toggleSuccess,
+    required TResult Function(ToggleError value) toggleError,
   }) {
     return loading(this);
   }
@@ -592,6 +652,9 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
+    TResult? Function(ToggleLoading value)? toggleLoading,
+    TResult? Function(ToggleSuccess value)? toggleSuccess,
+    TResult? Function(ToggleError value)? toggleError,
   }) {
     return loading?.call(this);
   }
@@ -603,6 +666,9 @@ class _$LoadingImpl implements Loading {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
+    TResult Function(ToggleLoading value)? toggleLoading,
+    TResult Function(ToggleSuccess value)? toggleSuccess,
+    TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -690,6 +756,9 @@ class _$SuccessImpl implements Success {
     required TResult Function() loading,
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
+    required TResult Function() toggleLoading,
+    required TResult Function() toggleSuccess,
+    required TResult Function(String errormsg) toggleError,
   }) {
     return success(users);
   }
@@ -701,6 +770,9 @@ class _$SuccessImpl implements Success {
     TResult? Function()? loading,
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
+    TResult? Function()? toggleLoading,
+    TResult? Function()? toggleSuccess,
+    TResult? Function(String errormsg)? toggleError,
   }) {
     return success?.call(users);
   }
@@ -712,6 +784,9 @@ class _$SuccessImpl implements Success {
     TResult Function()? loading,
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
+    TResult Function()? toggleLoading,
+    TResult Function()? toggleSuccess,
+    TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -727,6 +802,9 @@ class _$SuccessImpl implements Success {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
+    required TResult Function(ToggleLoading value) toggleLoading,
+    required TResult Function(ToggleSuccess value) toggleSuccess,
+    required TResult Function(ToggleError value) toggleError,
   }) {
     return success(this);
   }
@@ -738,6 +816,9 @@ class _$SuccessImpl implements Success {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
+    TResult? Function(ToggleLoading value)? toggleLoading,
+    TResult? Function(ToggleSuccess value)? toggleSuccess,
+    TResult? Function(ToggleError value)? toggleError,
   }) {
     return success?.call(this);
   }
@@ -749,6 +830,9 @@ class _$SuccessImpl implements Success {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
+    TResult Function(ToggleLoading value)? toggleLoading,
+    TResult Function(ToggleSuccess value)? toggleSuccess,
+    TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -835,6 +919,9 @@ class _$ErrorStImpl implements ErrorSt {
     required TResult Function() loading,
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
+    required TResult Function() toggleLoading,
+    required TResult Function() toggleSuccess,
+    required TResult Function(String errormsg) toggleError,
   }) {
     return errorst(errmsg);
   }
@@ -846,6 +933,9 @@ class _$ErrorStImpl implements ErrorSt {
     TResult? Function()? loading,
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
+    TResult? Function()? toggleLoading,
+    TResult? Function()? toggleSuccess,
+    TResult? Function(String errormsg)? toggleError,
   }) {
     return errorst?.call(errmsg);
   }
@@ -857,6 +947,9 @@ class _$ErrorStImpl implements ErrorSt {
     TResult Function()? loading,
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
+    TResult Function()? toggleLoading,
+    TResult Function()? toggleSuccess,
+    TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
     if (errorst != null) {
@@ -872,6 +965,9 @@ class _$ErrorStImpl implements ErrorSt {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
+    required TResult Function(ToggleLoading value) toggleLoading,
+    required TResult Function(ToggleSuccess value) toggleSuccess,
+    required TResult Function(ToggleError value) toggleError,
   }) {
     return errorst(this);
   }
@@ -883,6 +979,9 @@ class _$ErrorStImpl implements ErrorSt {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
+    TResult? Function(ToggleLoading value)? toggleLoading,
+    TResult? Function(ToggleSuccess value)? toggleSuccess,
+    TResult? Function(ToggleError value)? toggleError,
   }) {
     return errorst?.call(this);
   }
@@ -894,6 +993,9 @@ class _$ErrorStImpl implements ErrorSt {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
+    TResult Function(ToggleLoading value)? toggleLoading,
+    TResult Function(ToggleSuccess value)? toggleSuccess,
+    TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
     if (errorst != null) {
@@ -909,5 +1011,433 @@ abstract class ErrorSt implements CustomerState {
   String get errmsg;
   @JsonKey(ignore: true)
   _$$ErrorStImplCopyWith<_$ErrorStImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleLoadingImplCopyWith<$Res> {
+  factory _$$ToggleLoadingImplCopyWith(
+          _$ToggleLoadingImpl value, $Res Function(_$ToggleLoadingImpl) then) =
+      __$$ToggleLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleLoadingImplCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$ToggleLoadingImpl>
+    implements _$$ToggleLoadingImplCopyWith<$Res> {
+  __$$ToggleLoadingImplCopyWithImpl(
+      _$ToggleLoadingImpl _value, $Res Function(_$ToggleLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ToggleLoadingImpl implements ToggleLoading {
+  const _$ToggleLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CustomerState.toggleLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ToggleLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function() toggleLoading,
+    required TResult Function() toggleSuccess,
+    required TResult Function(String errormsg) toggleError,
+  }) {
+    return toggleLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function()? toggleLoading,
+    TResult? Function()? toggleSuccess,
+    TResult? Function(String errormsg)? toggleError,
+  }) {
+    return toggleLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function()? toggleLoading,
+    TResult Function()? toggleSuccess,
+    TResult Function(String errormsg)? toggleError,
+    required TResult orElse(),
+  }) {
+    if (toggleLoading != null) {
+      return toggleLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(ErrorSt value) errorst,
+    required TResult Function(ToggleLoading value) toggleLoading,
+    required TResult Function(ToggleSuccess value) toggleSuccess,
+    required TResult Function(ToggleError value) toggleError,
+  }) {
+    return toggleLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(ErrorSt value)? errorst,
+    TResult? Function(ToggleLoading value)? toggleLoading,
+    TResult? Function(ToggleSuccess value)? toggleSuccess,
+    TResult? Function(ToggleError value)? toggleError,
+  }) {
+    return toggleLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(ErrorSt value)? errorst,
+    TResult Function(ToggleLoading value)? toggleLoading,
+    TResult Function(ToggleSuccess value)? toggleSuccess,
+    TResult Function(ToggleError value)? toggleError,
+    required TResult orElse(),
+  }) {
+    if (toggleLoading != null) {
+      return toggleLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleLoading implements CustomerState {
+  const factory ToggleLoading() = _$ToggleLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ToggleSuccessImplCopyWith<$Res> {
+  factory _$$ToggleSuccessImplCopyWith(
+          _$ToggleSuccessImpl value, $Res Function(_$ToggleSuccessImpl) then) =
+      __$$ToggleSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleSuccessImplCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$ToggleSuccessImpl>
+    implements _$$ToggleSuccessImplCopyWith<$Res> {
+  __$$ToggleSuccessImplCopyWithImpl(
+      _$ToggleSuccessImpl _value, $Res Function(_$ToggleSuccessImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ToggleSuccessImpl implements ToggleSuccess {
+  const _$ToggleSuccessImpl();
+
+  @override
+  String toString() {
+    return 'CustomerState.toggleSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ToggleSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function() toggleLoading,
+    required TResult Function() toggleSuccess,
+    required TResult Function(String errormsg) toggleError,
+  }) {
+    return toggleSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function()? toggleLoading,
+    TResult? Function()? toggleSuccess,
+    TResult? Function(String errormsg)? toggleError,
+  }) {
+    return toggleSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function()? toggleLoading,
+    TResult Function()? toggleSuccess,
+    TResult Function(String errormsg)? toggleError,
+    required TResult orElse(),
+  }) {
+    if (toggleSuccess != null) {
+      return toggleSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(ErrorSt value) errorst,
+    required TResult Function(ToggleLoading value) toggleLoading,
+    required TResult Function(ToggleSuccess value) toggleSuccess,
+    required TResult Function(ToggleError value) toggleError,
+  }) {
+    return toggleSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(ErrorSt value)? errorst,
+    TResult? Function(ToggleLoading value)? toggleLoading,
+    TResult? Function(ToggleSuccess value)? toggleSuccess,
+    TResult? Function(ToggleError value)? toggleError,
+  }) {
+    return toggleSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(ErrorSt value)? errorst,
+    TResult Function(ToggleLoading value)? toggleLoading,
+    TResult Function(ToggleSuccess value)? toggleSuccess,
+    TResult Function(ToggleError value)? toggleError,
+    required TResult orElse(),
+  }) {
+    if (toggleSuccess != null) {
+      return toggleSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleSuccess implements CustomerState {
+  const factory ToggleSuccess() = _$ToggleSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$ToggleErrorImplCopyWith<$Res> {
+  factory _$$ToggleErrorImplCopyWith(
+          _$ToggleErrorImpl value, $Res Function(_$ToggleErrorImpl) then) =
+      __$$ToggleErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errormsg});
+}
+
+/// @nodoc
+class __$$ToggleErrorImplCopyWithImpl<$Res>
+    extends _$CustomerStateCopyWithImpl<$Res, _$ToggleErrorImpl>
+    implements _$$ToggleErrorImplCopyWith<$Res> {
+  __$$ToggleErrorImplCopyWithImpl(
+      _$ToggleErrorImpl _value, $Res Function(_$ToggleErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errormsg = null,
+  }) {
+    return _then(_$ToggleErrorImpl(
+      null == errormsg
+          ? _value.errormsg
+          : errormsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleErrorImpl implements ToggleError {
+  const _$ToggleErrorImpl(this.errormsg);
+
+  @override
+  final String errormsg;
+
+  @override
+  String toString() {
+    return 'CustomerState.toggleError(errormsg: $errormsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleErrorImpl &&
+            (identical(other.errormsg, errormsg) ||
+                other.errormsg == errormsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errormsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleErrorImplCopyWith<_$ToggleErrorImpl> get copyWith =>
+      __$$ToggleErrorImplCopyWithImpl<_$ToggleErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function() toggleLoading,
+    required TResult Function() toggleSuccess,
+    required TResult Function(String errormsg) toggleError,
+  }) {
+    return toggleError(errormsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function()? toggleLoading,
+    TResult? Function()? toggleSuccess,
+    TResult? Function(String errormsg)? toggleError,
+  }) {
+    return toggleError?.call(errormsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function()? toggleLoading,
+    TResult Function()? toggleSuccess,
+    TResult Function(String errormsg)? toggleError,
+    required TResult orElse(),
+  }) {
+    if (toggleError != null) {
+      return toggleError(errormsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(ErrorSt value) errorst,
+    required TResult Function(ToggleLoading value) toggleLoading,
+    required TResult Function(ToggleSuccess value) toggleSuccess,
+    required TResult Function(ToggleError value) toggleError,
+  }) {
+    return toggleError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(ErrorSt value)? errorst,
+    TResult? Function(ToggleLoading value)? toggleLoading,
+    TResult? Function(ToggleSuccess value)? toggleSuccess,
+    TResult? Function(ToggleError value)? toggleError,
+  }) {
+    return toggleError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(ErrorSt value)? errorst,
+    TResult Function(ToggleLoading value)? toggleLoading,
+    TResult Function(ToggleSuccess value)? toggleSuccess,
+    TResult Function(ToggleError value)? toggleError,
+    required TResult orElse(),
+  }) {
+    if (toggleError != null) {
+      return toggleError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleError implements CustomerState {
+  const factory ToggleError(final String errormsg) = _$ToggleErrorImpl;
+
+  String get errormsg;
+  @JsonKey(ignore: true)
+  _$$ToggleErrorImplCopyWith<_$ToggleErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

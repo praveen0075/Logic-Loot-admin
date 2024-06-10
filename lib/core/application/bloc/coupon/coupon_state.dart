@@ -10,8 +10,14 @@ class CouponState with _$CouponState {
     required bool isAddCouponSuccess,
     String? message,
     required List<AvialableCoupon> avialableCoupons,
-  })= _CouponState;
-   factory CouponState.initial(){
-    return const CouponState(isLoading: false, isGetCouponHasError: false, isGetCouponHasSuccess: false,isAddCouponHasError: false,isAddCouponSuccess: false,avialableCoupons: []);
-   }
+  }) = _CouponState;
+  factory CouponState.initial() {
+    return const CouponState(
+        isLoading: false,
+        isGetCouponHasError: false,
+        isGetCouponHasSuccess: false,
+        isAddCouponHasError: false,
+        isAddCouponSuccess: false,
+        avialableCoupons: []);
+  }
 }

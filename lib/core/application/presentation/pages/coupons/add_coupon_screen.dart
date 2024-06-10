@@ -44,121 +44,121 @@ class _AddCouponScreenState extends State<AddCouponScreen> {
                       msg: state.message ?? "failed to add coupon",
                       bgColor: Colors.red);
                 } else if (state.isAddCouponSuccess) {
+               
+
                   snackBarWidget(
                       context: context,
                       msg: state.message ?? "Coupon adding success",
                       bgColor: Colors.green);
+                       context
+                      .read<CouponBloc>()
+                      .add(const CouponEvent.getCoupons());
                   validityDateController.clear();
                   couponCodecontroller.clear();
                   couponAmountController.clear();
                   couponLimitContoller.clear();
+                   
                   Navigator.pop(context);
+                   
                 }
               },
               builder: (context, state) {
-                if (state.isLoading) {
-                  return const Center(child: CircularProgressIndicator());
-                } else {
-                  return SingleChildScrollView(
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        kheight20,
-                        AddTextFormFieldWidget(
-                            txt: "Coupon Code",
-                            cntrlr: couponCodecontroller,
-                            errmsg: "Please enter the code"),
-                        kheight15,
-                        AddTextFormFieldWidget(
-                            txt: "Amount",
-                            cntrlr: couponAmountController,
-                            errmsg: "Amount is required"),
-                        kheight15,
-                        AddTextFormFieldWidget(
-                          txt: "Usage limit",
-                          cntrlr: couponLimitContoller,
-                          errmsg: "Please enter the limit",
-                        ),
-                        kheight15,
-                        TextFormField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          controller: validityDateController,
-                          readOnly: true,
-                          decoration: InputDecoration(
-                              hintText: "Select Validity",
-                              suffixIcon: IconButton(
-                                  onPressed: () async {
-                                    DateTime? dateValue = await showDatePicker(
-                                        context: context,
-                                        initialDate: DateTime.now(),
-                                        firstDate: DateTime.now(),
-                                        lastDate: DateTime(2030)
-                                            .add(const Duration(days: 365)));
-                                    final formattedDate =
-                                        DateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
-                                            .format(dateValue!.toUtc());
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      kheight20,
+                      AddTextFormFieldWidget(
+                          txt: "Coupon Code",
+                          cntrlr: couponCodecontroller,
+                          errmsg: "Please enter the code"),
+                      kheight15,
+                      AddTextFormFieldWidget(
+                          txt: "Amount",
+                          cntrlr: couponAmountController,
+                          errmsg: "Amount is required"),
+                      kheight15,
+                      AddTextFormFieldWidget(
+                        txt: "Usage limit",
+                        cntrlr: couponLimitContoller,
+                        errmsg: "Please enter the limit",
+                      ),
+                      kheight15,
+                      TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        controller: validityDateController,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                            hintText: "Select Validity",
+                            suffixIcon: IconButton(
+                                onPressed: () async {
+                                  DateTime? dateValue = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime.now(),
+                                      firstDate: DateTime.now(),
+                                      lastDate: DateTime(2030)
+                                          .add(const Duration(days: 365)));
+                                  final formattedDate =
+                                      DateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+                                          .format(dateValue!.toUtc());
 
-                                    setState(() {
-                                      validityDateController.text =
-                                          formattedDate;
-                                    });
-                                  },
-                                  icon:
-                                      const Icon(Icons.calendar_month_rounded)),
-                              focusedBorder: const OutlineInputBorder(),
-                              border: const OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                              ),
-                              filled: true,
-                              fillColor:
-                                  const Color.fromARGB(255, 212, 210, 234)),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Please Select the usage validity";
-                            } else {
-                              return null;
+                                  setState(() {
+                                    validityDateController.text = formattedDate;
+                                  });
+                                },
+                                icon: const Icon(Icons.calendar_month_rounded)),
+                            focusedBorder: const OutlineInputBorder(),
+                            border: const OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            ),
+                            filled: true,
+                            fillColor:
+                                const Color.fromARGB(255, 212, 210, 234)),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Please Select the usage validity";
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+                      kheight20,
+                      Container(
+                        height: size.height / 17,
+                        width: size.width,
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            gradient: LinearGradient(
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                                colors: [
+                                  Color.fromARGB(255, 77, 87, 231),
+                                  Color.fromARGB(255, 237, 128, 243),
+                                ])),
+                        child: AddButton(
+                          onpressed: () {
+                            if (formkeyCoupon.currentState!.validate()) {
+                              final amount =
+                                  int.parse(couponAmountController.text);
+                              final usageLimit =
+                                  int.parse(couponLimitContoller.text);
+                              final model = AddCouponBody(
+                                  amount: amount,
+                                  code: couponCodecontroller.text,
+                                  type: "fixed",
+                                  usageLimit: usageLimit,
+                                  validUntil: validityDateController.text);
+
+                              context.read<CouponBloc>().add(
+                                  CouponEvent.addCoupons(couponModel: model));
                             }
                           },
+                          txt: "Add Coupon",
                         ),
-                        kheight20,
-                        Container(
-                          height: size.height / 17,
-                          width: size.width,
-                          decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
-                              gradient: LinearGradient(
-                                  begin: Alignment.bottomLeft,
-                                  end: Alignment.topRight,
-                                  colors: [
-                                    Color.fromARGB(255, 77, 87, 231),
-                                    Color.fromARGB(255, 237, 128, 243),
-                                  ])),
-                          child: AddButton(
-                            onpressed: () {
-                              if (formkeyCoupon.currentState!.validate()) {
-                                final amount =
-                                    int.parse(couponAmountController.text);
-                                final usageLimit =
-                                    int.parse(couponLimitContoller.text);
-                                final model = AddCouponBody(
-                                    amount: amount,
-                                    code: couponCodecontroller.text,
-                                    type: "fixed",
-                                    usageLimit: usageLimit,
-                                    validUntil: validityDateController.text);
-
-                                context.read<CouponBloc>().add(
-                                    CouponEvent.addCoupons(couponModel: model));
-                              }
-                            },
-                            txt: "Add Coupon",
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }
+                      ),
+                    ],
+                  ),
+                );
+                // }
               },
             ),
           ),

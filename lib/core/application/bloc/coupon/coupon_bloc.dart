@@ -16,14 +16,10 @@ class CouponBloc extends Bloc<CouponEvent, CouponState> {
       final result = await couponRepo.getAllCoupons();
       result.fold((failure) {
         return emit(state.copyWith(
-            isLoading: false,
-            isGetCouponHasError: true,
-            isGetCouponHasSuccess: false,
-            message: failure));
+            isLoading: false, isGetCouponHasError: true, message: failure));
       }, (success) {
         return emit(state.copyWith(
             isLoading: false,
-            isGetCouponHasError: false,
             isGetCouponHasSuccess: true,
             avialableCoupons: success.avialableCoupons));
       });
@@ -34,16 +30,10 @@ class CouponBloc extends Bloc<CouponEvent, CouponState> {
       final result = await couponRepo.addCoupon(model: event.couponModel);
       result.fold((failure) {
         return emit(state.copyWith(
-            isAddCouponHasError: true,
-            isAddCouponSuccess: false,
-            isLoading: false,
-            message: failure));
+            isLoading: false, isAddCouponHasError: true, message: failure));
       }, (success) {
         return emit(state.copyWith(
-            isAddCouponHasError: false,
-            isAddCouponSuccess: true,
-            isLoading: false,
-            message: success));
+            isLoading: false, isAddCouponSuccess: true, message: success));
       });
     });
   }

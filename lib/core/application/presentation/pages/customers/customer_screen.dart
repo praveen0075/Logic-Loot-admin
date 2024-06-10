@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +5,7 @@ import 'package:logic_loot_admin/core/application/bloc/customer/customer_bloc.da
 import 'package:logic_loot_admin/core/application/presentation/pages/customers/widgets/customer_tile_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_widget.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
 
 class CustomerScreen extends StatefulWidget {
   const CustomerScreen({super.key});
@@ -46,20 +46,31 @@ class _CustomerScreenState extends State<CustomerScreen> {
             title: "Users",
           )),
       drawer: const SideBarWidget(),
-      body: BlocBuilder<CustomerBloc, CustomerState>(
-        builder: (context, state) {
-          if(state is Loading){
-            return const Center(child: CircularProgressIndicator(),);
-          }else if(state is ErrorSt){
-            return Center(child: Text(state.errmsg),);
-          }else if (state is Success){
-            print(state.users);
-            final userList = state.users;
-          return CustomerTileWidget(size: size, isBlock: isBlock,userList: userList,);
-          }else{
-            return const Center(child: Text("Internal Error"),);
-          }
-        },
+      body: MultiBlocListener(
+        listeners: [
+          BlocListener<CustomerBloc,CustomerState>(listener: (context, state) {
+            if(state is ToggleError){
+              snackBarWidget(context: context, msg: state.errormsg, bgColor: Colors.red);
+            }else if (state is ToggleSuccess){
+              // context.read<CustomerBloc>().add(const CustomerEvent.getAllCustomer());
+            }
+          },)
+        ],
+        child: BlocBuilder<CustomerBloc, CustomerState>(
+          builder: (context, state) {
+            if(state is Loading){
+              return const Center(child: CircularProgressIndicator(),);
+            }else if(state is ErrorSt){
+              return Center(child: Text(state.errmsg),);
+            }else if (state is Success){
+              print(state.users);
+              final userList = state.users;
+            return CustomerTileWidget(size: size,userList: userList,);
+            }else{
+              return const Center(child: Text("Internal Error"),);
+            }
+          },
+        ),
       ),
     );
   }
