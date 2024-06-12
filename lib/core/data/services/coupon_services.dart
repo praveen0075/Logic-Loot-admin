@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:logic_loot_admin/core/data/shared_preferances/shared_pref.dart';
@@ -57,23 +58,65 @@ class CouponServices {
       } else {
         final response = await http.Client().post(
             Uri.parse("https://lapify.online/admin/coupons?page=1&limit=50"),
-            headers: {"Cookie": "Authorise=$tkn"},body: body);
+            headers: {"Cookie": "Authorise=$tkn"},
+            body: body);
 
-            print("response statuscode --> ${response.statusCode}");
+        print("response statuscode --> ${response.statusCode}");
 
-            if(response.statusCode == 200){
-              print("success");
-              return Right("Coupon Added Successfully");
-            }else{
-              print("error");
-              final error = jsonDecode(response.body);
-              print(error);
-              final errmsg = error["error"];
-              return Left(errmsg);
-            }
+        if (response.statusCode == 200) {
+          print("success");
+          return Right("Coupon Added Successfully");
+        } else {
+          print("error");
+          final error = jsonDecode(response.body);
+          print(error);
+          final errmsg = error["error"];
+          return Left(errmsg);
+        }
       }
     } catch (e) {
       print("exception ---> $e");
+      return const Left("Oops! something went wrong");
+    }
+  }
+
+  Future<Either<String, String>> deleteCoupon(
+      {required String couponCode}) async {
+    try {
+      final adminToken = await SharedPreffs.getAdminToken();
+      log("admin token ---> $adminToken");
+      if (adminToken == null) {
+        return const Left("Oops! Something bad occured");
+      } else {
+        // final response = await http.Client().delete(
+        //     Uri.parse("https://lapify.online/admin/coupons"),
+        //     headers: {"Cookie": "Authorise=$adminToken"});
+
+        final request = http.MultipartRequest(
+          "DELETE",
+          Uri.parse("https://lapify.online/admin/coupons"),
+        );
+        request.headers.addAll({"Cookie": "Authorise=$adminToken"});
+        request.fields['code'] = couponCode;
+
+        final response = await request.send();
+        final responseBody = await response.stream.bytesToString();
+
+        log("response ---> $responseBody");
+        log("response statuc code ---> ${response.statusCode}");
+
+        if (response.statusCode == 200) {
+          log("Success");
+          return const Right("Coupon deleted");
+        } else {
+          final result = jsonDecode(responseBody);
+          final error = result["error"];
+          log(error);
+          return Left(error);
+        }
+      }
+    } catch (e) {
+      log("Exception ----> $e");
       return const Left("Oops! something went wrong");
     }
   }

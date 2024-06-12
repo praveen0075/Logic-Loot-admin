@@ -11,7 +11,8 @@ part of 'product_bloc.dart';
     const factory ProductState.addLoading() = AddLoading;
     const factory ProductState.deleteSuccess(String successmsg) = DeleteSuccess;
     const factory ProductState.deleteFailure(String errormsg) = DeleteFailure;
-    const factory ProductState.getProductByIdSuccess(ProductsById productById,ProductDetails productDetails) = GetProductByIdSuccess;
+    // const factory ProductState.getProductByIdLoading() = GetProductByIdLoading;
+    const factory ProductState.getProductByIdSuccess({required ProductById products,required ProductDetails productDetails ,required Inventory inventory}) = GetProductByIdSuccess;
     const factory ProductState.getProductByIdFailure(String errmsg) = GetProductByIdFailure;
   }
 

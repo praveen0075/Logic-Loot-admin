@@ -42,8 +42,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       result.fold(
           (failure) => emit(ProductState.getProductByIdFailure(failure)),
           (success) => emit(ProductState.getProductByIdSuccess(
-              success.products, success.productDetails)));
-    });
+              inventory: success.inventory,
+              productDetails: success.productDetails,
+              products: success.products)));
+    }); 
     // on<_GetAllProductEvent>((event, emit) async {
     //   emit(state.copyWith(isLoading: true));
     //   final result = await productRepo.getAllProuducts();

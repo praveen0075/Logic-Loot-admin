@@ -20,18 +20,21 @@ mixin _$CouponEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getCoupons,
     required TResult Function(AddCouponBody couponModel) addCoupons,
+    required TResult Function(String couponCode) deleteCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCoupons,
     TResult? Function(AddCouponBody couponModel)? addCoupons,
+    TResult? Function(String couponCode)? deleteCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCoupons,
     TResult Function(AddCouponBody couponModel)? addCoupons,
+    TResult Function(String couponCode)? deleteCoupon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$CouponEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCoupons value) getCoupons,
     required TResult Function(_AddCoupon value) addCoupons,
+    required TResult Function(_DeleteCoupon value) deleteCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetCoupons value)? getCoupons,
     TResult? Function(_AddCoupon value)? addCoupons,
+    TResult? Function(_DeleteCoupon value)? deleteCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCoupons value)? getCoupons,
     TResult Function(_AddCoupon value)? addCoupons,
+    TResult Function(_DeleteCoupon value)? deleteCoupon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$GetCouponsImpl implements _GetCoupons {
   TResult when<TResult extends Object?>({
     required TResult Function() getCoupons,
     required TResult Function(AddCouponBody couponModel) addCoupons,
+    required TResult Function(String couponCode) deleteCoupon,
   }) {
     return getCoupons();
   }
@@ -123,6 +130,7 @@ class _$GetCouponsImpl implements _GetCoupons {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCoupons,
     TResult? Function(AddCouponBody couponModel)? addCoupons,
+    TResult? Function(String couponCode)? deleteCoupon,
   }) {
     return getCoupons?.call();
   }
@@ -132,6 +140,7 @@ class _$GetCouponsImpl implements _GetCoupons {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCoupons,
     TResult Function(AddCouponBody couponModel)? addCoupons,
+    TResult Function(String couponCode)? deleteCoupon,
     required TResult orElse(),
   }) {
     if (getCoupons != null) {
@@ -145,6 +154,7 @@ class _$GetCouponsImpl implements _GetCoupons {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCoupons value) getCoupons,
     required TResult Function(_AddCoupon value) addCoupons,
+    required TResult Function(_DeleteCoupon value) deleteCoupon,
   }) {
     return getCoupons(this);
   }
@@ -154,6 +164,7 @@ class _$GetCouponsImpl implements _GetCoupons {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetCoupons value)? getCoupons,
     TResult? Function(_AddCoupon value)? addCoupons,
+    TResult? Function(_DeleteCoupon value)? deleteCoupon,
   }) {
     return getCoupons?.call(this);
   }
@@ -163,6 +174,7 @@ class _$GetCouponsImpl implements _GetCoupons {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCoupons value)? getCoupons,
     TResult Function(_AddCoupon value)? addCoupons,
+    TResult Function(_DeleteCoupon value)? deleteCoupon,
     required TResult orElse(),
   }) {
     if (getCoupons != null) {
@@ -243,6 +255,7 @@ class _$AddCouponImpl implements _AddCoupon {
   TResult when<TResult extends Object?>({
     required TResult Function() getCoupons,
     required TResult Function(AddCouponBody couponModel) addCoupons,
+    required TResult Function(String couponCode) deleteCoupon,
   }) {
     return addCoupons(couponModel);
   }
@@ -252,6 +265,7 @@ class _$AddCouponImpl implements _AddCoupon {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCoupons,
     TResult? Function(AddCouponBody couponModel)? addCoupons,
+    TResult? Function(String couponCode)? deleteCoupon,
   }) {
     return addCoupons?.call(couponModel);
   }
@@ -261,6 +275,7 @@ class _$AddCouponImpl implements _AddCoupon {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCoupons,
     TResult Function(AddCouponBody couponModel)? addCoupons,
+    TResult Function(String couponCode)? deleteCoupon,
     required TResult orElse(),
   }) {
     if (addCoupons != null) {
@@ -274,6 +289,7 @@ class _$AddCouponImpl implements _AddCoupon {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCoupons value) getCoupons,
     required TResult Function(_AddCoupon value) addCoupons,
+    required TResult Function(_DeleteCoupon value) deleteCoupon,
   }) {
     return addCoupons(this);
   }
@@ -283,6 +299,7 @@ class _$AddCouponImpl implements _AddCoupon {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetCoupons value)? getCoupons,
     TResult? Function(_AddCoupon value)? addCoupons,
+    TResult? Function(_DeleteCoupon value)? deleteCoupon,
   }) {
     return addCoupons?.call(this);
   }
@@ -292,6 +309,7 @@ class _$AddCouponImpl implements _AddCoupon {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCoupons value)? getCoupons,
     TResult Function(_AddCoupon value)? addCoupons,
+    TResult Function(_DeleteCoupon value)? deleteCoupon,
     required TResult orElse(),
   }) {
     if (addCoupons != null) {
@@ -312,18 +330,221 @@ abstract class _AddCoupon implements CouponEvent {
 }
 
 /// @nodoc
-mixin _$CouponState {
-  bool get isLoading => throw _privateConstructorUsedError;
-  bool get isGetCouponHasError => throw _privateConstructorUsedError;
-  bool get isGetCouponHasSuccess => throw _privateConstructorUsedError;
-  bool get isAddCouponHasError => throw _privateConstructorUsedError;
-  bool get isAddCouponSuccess => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
-  List<AvialableCoupon> get avialableCoupons =>
-      throw _privateConstructorUsedError;
+abstract class _$$DeleteCouponImplCopyWith<$Res> {
+  factory _$$DeleteCouponImplCopyWith(
+          _$DeleteCouponImpl value, $Res Function(_$DeleteCouponImpl) then) =
+      __$$DeleteCouponImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String couponCode});
+}
+
+/// @nodoc
+class __$$DeleteCouponImplCopyWithImpl<$Res>
+    extends _$CouponEventCopyWithImpl<$Res, _$DeleteCouponImpl>
+    implements _$$DeleteCouponImplCopyWith<$Res> {
+  __$$DeleteCouponImplCopyWithImpl(
+      _$DeleteCouponImpl _value, $Res Function(_$DeleteCouponImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? couponCode = null,
+  }) {
+    return _then(_$DeleteCouponImpl(
+      couponCode: null == couponCode
+          ? _value.couponCode
+          : couponCode // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteCouponImpl implements _DeleteCoupon {
+  const _$DeleteCouponImpl({required this.couponCode});
+
+  @override
+  final String couponCode;
+
+  @override
+  String toString() {
+    return 'CouponEvent.deleteCoupon(couponCode: $couponCode)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteCouponImpl &&
+            (identical(other.couponCode, couponCode) ||
+                other.couponCode == couponCode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, couponCode);
 
   @JsonKey(ignore: true)
-  $CouponStateCopyWith<CouponState> get copyWith =>
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteCouponImplCopyWith<_$DeleteCouponImpl> get copyWith =>
+      __$$DeleteCouponImplCopyWithImpl<_$DeleteCouponImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCoupons,
+    required TResult Function(AddCouponBody couponModel) addCoupons,
+    required TResult Function(String couponCode) deleteCoupon,
+  }) {
+    return deleteCoupon(couponCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCoupons,
+    TResult? Function(AddCouponBody couponModel)? addCoupons,
+    TResult? Function(String couponCode)? deleteCoupon,
+  }) {
+    return deleteCoupon?.call(couponCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCoupons,
+    TResult Function(AddCouponBody couponModel)? addCoupons,
+    TResult Function(String couponCode)? deleteCoupon,
+    required TResult orElse(),
+  }) {
+    if (deleteCoupon != null) {
+      return deleteCoupon(couponCode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCoupons value) getCoupons,
+    required TResult Function(_AddCoupon value) addCoupons,
+    required TResult Function(_DeleteCoupon value) deleteCoupon,
+  }) {
+    return deleteCoupon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCoupons value)? getCoupons,
+    TResult? Function(_AddCoupon value)? addCoupons,
+    TResult? Function(_DeleteCoupon value)? deleteCoupon,
+  }) {
+    return deleteCoupon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCoupons value)? getCoupons,
+    TResult Function(_AddCoupon value)? addCoupons,
+    TResult Function(_DeleteCoupon value)? deleteCoupon,
+    required TResult orElse(),
+  }) {
+    if (deleteCoupon != null) {
+      return deleteCoupon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCoupon implements CouponEvent {
+  const factory _DeleteCoupon({required final String couponCode}) =
+      _$DeleteCouponImpl;
+
+  String get couponCode;
+  @JsonKey(ignore: true)
+  _$$DeleteCouponImplCopyWith<_$DeleteCouponImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$CouponState {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -332,15 +553,6 @@ abstract class $CouponStateCopyWith<$Res> {
   factory $CouponStateCopyWith(
           CouponState value, $Res Function(CouponState) then) =
       _$CouponStateCopyWithImpl<$Res, CouponState>;
-  @useResult
-  $Res call(
-      {bool isLoading,
-      bool isGetCouponHasError,
-      bool isGetCouponHasSuccess,
-      bool isAddCouponHasError,
-      bool isAddCouponSuccess,
-      String? message,
-      List<AvialableCoupon> avialableCoupons});
 }
 
 /// @nodoc
@@ -352,114 +564,308 @@ class _$CouponStateCopyWithImpl<$Res, $Val extends CouponState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
 
-  @pragma('vm:prefer-inline')
+/// @nodoc
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$CouponStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
+
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? isGetCouponHasError = null,
-    Object? isGetCouponHasSuccess = null,
-    Object? isAddCouponHasError = null,
-    Object? isAddCouponSuccess = null,
-    Object? message = freezed,
-    Object? avialableCoupons = null,
+  String toString() {
+    return 'CouponState.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetCouponHasError: null == isGetCouponHasError
-          ? _value.isGetCouponHasError
-          : isGetCouponHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetCouponHasSuccess: null == isGetCouponHasSuccess
-          ? _value.isGetCouponHasSuccess
-          : isGetCouponHasSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddCouponHasError: null == isAddCouponHasError
-          ? _value.isAddCouponHasError
-          : isAddCouponHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddCouponSuccess: null == isAddCouponSuccess
-          ? _value.isAddCouponSuccess
-          : isAddCouponSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avialableCoupons: null == avialableCoupons
-          ? _value.avialableCoupons
-          : avialableCoupons // ignore: cast_nullable_to_non_nullable
-              as List<AvialableCoupon>,
-    ) as $Val);
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
   }
 }
 
-/// @nodoc
-abstract class _$$CouponStateImplCopyWith<$Res>
-    implements $CouponStateCopyWith<$Res> {
-  factory _$$CouponStateImplCopyWith(
-          _$CouponStateImpl value, $Res Function(_$CouponStateImpl) then) =
-      __$$CouponStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {bool isLoading,
-      bool isGetCouponHasError,
-      bool isGetCouponHasSuccess,
-      bool isAddCouponHasError,
-      bool isAddCouponSuccess,
-      String? message,
-      List<AvialableCoupon> avialableCoupons});
+abstract class Initial implements CouponState {
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-class __$$CouponStateImplCopyWithImpl<$Res>
-    extends _$CouponStateCopyWithImpl<$Res, _$CouponStateImpl>
-    implements _$$CouponStateImplCopyWith<$Res> {
-  __$$CouponStateImplCopyWithImpl(
-      _$CouponStateImpl _value, $Res Function(_$CouponStateImpl) _then)
+abstract class _$$GetLoadingImplCopyWith<$Res> {
+  factory _$$GetLoadingImplCopyWith(
+          _$GetLoadingImpl value, $Res Function(_$GetLoadingImpl) then) =
+      __$$GetLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetLoadingImplCopyWithImpl<$Res>
+    extends _$CouponStateCopyWithImpl<$Res, _$GetLoadingImpl>
+    implements _$$GetLoadingImplCopyWith<$Res> {
+  __$$GetLoadingImplCopyWithImpl(
+      _$GetLoadingImpl _value, $Res Function(_$GetLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetLoadingImpl implements GetLoading {
+  const _$GetLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CouponState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetLoading implements CouponState {
+  const factory GetLoading() = _$GetLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$GetSuccessImplCopyWith<$Res> {
+  factory _$$GetSuccessImplCopyWith(
+          _$GetSuccessImpl value, $Res Function(_$GetSuccessImpl) then) =
+      __$$GetSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<AvialableCoupon> avialableCoupons});
+}
+
+/// @nodoc
+class __$$GetSuccessImplCopyWithImpl<$Res>
+    extends _$CouponStateCopyWithImpl<$Res, _$GetSuccessImpl>
+    implements _$$GetSuccessImplCopyWith<$Res> {
+  __$$GetSuccessImplCopyWithImpl(
+      _$GetSuccessImpl _value, $Res Function(_$GetSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
-    Object? isGetCouponHasError = null,
-    Object? isGetCouponHasSuccess = null,
-    Object? isAddCouponHasError = null,
-    Object? isAddCouponSuccess = null,
-    Object? message = freezed,
     Object? avialableCoupons = null,
   }) {
-    return _then(_$CouponStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetCouponHasError: null == isGetCouponHasError
-          ? _value.isGetCouponHasError
-          : isGetCouponHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGetCouponHasSuccess: null == isGetCouponHasSuccess
-          ? _value.isGetCouponHasSuccess
-          : isGetCouponHasSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddCouponHasError: null == isAddCouponHasError
-          ? _value.isAddCouponHasError
-          : isAddCouponHasError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAddCouponSuccess: null == isAddCouponSuccess
-          ? _value.isAddCouponSuccess
-          : isAddCouponSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avialableCoupons: null == avialableCoupons
+    return _then(_$GetSuccessImpl(
+      null == avialableCoupons
           ? _value._avialableCoupons
           : avialableCoupons // ignore: cast_nullable_to_non_nullable
               as List<AvialableCoupon>,
@@ -469,29 +875,10 @@ class __$$CouponStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CouponStateImpl implements _CouponState {
-  const _$CouponStateImpl(
-      {required this.isLoading,
-      required this.isGetCouponHasError,
-      required this.isGetCouponHasSuccess,
-      required this.isAddCouponHasError,
-      required this.isAddCouponSuccess,
-      this.message,
-      required final List<AvialableCoupon> avialableCoupons})
+class _$GetSuccessImpl implements GetSuccess {
+  const _$GetSuccessImpl(final List<AvialableCoupon> avialableCoupons)
       : _avialableCoupons = avialableCoupons;
 
-  @override
-  final bool isLoading;
-  @override
-  final bool isGetCouponHasError;
-  @override
-  final bool isGetCouponHasSuccess;
-  @override
-  final bool isAddCouponHasError;
-  @override
-  final bool isAddCouponSuccess;
-  @override
-  final String? message;
   final List<AvialableCoupon> _avialableCoupons;
   @override
   List<AvialableCoupon> get avialableCoupons {
@@ -503,74 +890,982 @@ class _$CouponStateImpl implements _CouponState {
 
   @override
   String toString() {
-    return 'CouponState(isLoading: $isLoading, isGetCouponHasError: $isGetCouponHasError, isGetCouponHasSuccess: $isGetCouponHasSuccess, isAddCouponHasError: $isAddCouponHasError, isAddCouponSuccess: $isAddCouponSuccess, message: $message, avialableCoupons: $avialableCoupons)';
+    return 'CouponState.success(avialableCoupons: $avialableCoupons)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CouponStateImpl &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.isGetCouponHasError, isGetCouponHasError) ||
-                other.isGetCouponHasError == isGetCouponHasError) &&
-            (identical(other.isGetCouponHasSuccess, isGetCouponHasSuccess) ||
-                other.isGetCouponHasSuccess == isGetCouponHasSuccess) &&
-            (identical(other.isAddCouponHasError, isAddCouponHasError) ||
-                other.isAddCouponHasError == isAddCouponHasError) &&
-            (identical(other.isAddCouponSuccess, isAddCouponSuccess) ||
-                other.isAddCouponSuccess == isAddCouponSuccess) &&
-            (identical(other.message, message) || other.message == message) &&
+            other is _$GetSuccessImpl &&
             const DeepCollectionEquality()
                 .equals(other._avialableCoupons, _avialableCoupons));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isGetCouponHasError,
-      isGetCouponHasSuccess,
-      isAddCouponHasError,
-      isAddCouponSuccess,
-      message,
-      const DeepCollectionEquality().hash(_avialableCoupons));
+      runtimeType, const DeepCollectionEquality().hash(_avialableCoupons));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CouponStateImplCopyWith<_$CouponStateImpl> get copyWith =>
-      __$$CouponStateImplCopyWithImpl<_$CouponStateImpl>(this, _$identity);
+  _$$GetSuccessImplCopyWith<_$GetSuccessImpl> get copyWith =>
+      __$$GetSuccessImplCopyWithImpl<_$GetSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
+  }) {
+    return success(avialableCoupons);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) {
+    return success?.call(avialableCoupons);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(avialableCoupons);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _CouponState implements CouponState {
-  const factory _CouponState(
-          {required final bool isLoading,
-          required final bool isGetCouponHasError,
-          required final bool isGetCouponHasSuccess,
-          required final bool isAddCouponHasError,
-          required final bool isAddCouponSuccess,
-          final String? message,
-          required final List<AvialableCoupon> avialableCoupons}) =
-      _$CouponStateImpl;
+abstract class GetSuccess implements CouponState {
+  const factory GetSuccess(final List<AvialableCoupon> avialableCoupons) =
+      _$GetSuccessImpl;
+
+  List<AvialableCoupon> get avialableCoupons;
+  @JsonKey(ignore: true)
+  _$$GetSuccessImplCopyWith<_$GetSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GertErrorStImplCopyWith<$Res> {
+  factory _$$GertErrorStImplCopyWith(
+          _$GertErrorStImpl value, $Res Function(_$GertErrorStImpl) then) =
+      __$$GertErrorStImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errmsg});
+}
+
+/// @nodoc
+class __$$GertErrorStImplCopyWithImpl<$Res>
+    extends _$CouponStateCopyWithImpl<$Res, _$GertErrorStImpl>
+    implements _$$GertErrorStImplCopyWith<$Res> {
+  __$$GertErrorStImplCopyWithImpl(
+      _$GertErrorStImpl _value, $Res Function(_$GertErrorStImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errmsg = null,
+  }) {
+    return _then(_$GertErrorStImpl(
+      null == errmsg
+          ? _value.errmsg
+          : errmsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GertErrorStImpl implements GertErrorSt {
+  const _$GertErrorStImpl(this.errmsg);
 
   @override
-  bool get isLoading;
+  final String errmsg;
+
   @override
-  bool get isGetCouponHasError;
+  String toString() {
+    return 'CouponState.errorst(errmsg: $errmsg)';
+  }
+
   @override
-  bool get isGetCouponHasSuccess;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GertErrorStImpl &&
+            (identical(other.errmsg, errmsg) || other.errmsg == errmsg));
+  }
+
   @override
-  bool get isAddCouponHasError;
-  @override
-  bool get isAddCouponSuccess;
-  @override
-  String? get message;
-  @override
-  List<AvialableCoupon> get avialableCoupons;
-  @override
+  int get hashCode => Object.hash(runtimeType, errmsg);
+
   @JsonKey(ignore: true)
-  _$$CouponStateImplCopyWith<_$CouponStateImpl> get copyWith =>
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GertErrorStImplCopyWith<_$GertErrorStImpl> get copyWith =>
+      __$$GertErrorStImplCopyWithImpl<_$GertErrorStImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
+  }) {
+    return errorst(errmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) {
+    return errorst?.call(errmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (errorst != null) {
+      return errorst(errmsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) {
+    return errorst(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) {
+    return errorst?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (errorst != null) {
+      return errorst(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GertErrorSt implements CouponState {
+  const factory GertErrorSt(final String errmsg) = _$GertErrorStImpl;
+
+  String get errmsg;
+  @JsonKey(ignore: true)
+  _$$GertErrorStImplCopyWith<_$GertErrorStImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddSuccessImplCopyWith<$Res> {
+  factory _$$AddSuccessImplCopyWith(
+          _$AddSuccessImpl value, $Res Function(_$AddSuccessImpl) then) =
+      __$$AddSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String succcessmsg});
+}
+
+/// @nodoc
+class __$$AddSuccessImplCopyWithImpl<$Res>
+    extends _$CouponStateCopyWithImpl<$Res, _$AddSuccessImpl>
+    implements _$$AddSuccessImplCopyWith<$Res> {
+  __$$AddSuccessImplCopyWithImpl(
+      _$AddSuccessImpl _value, $Res Function(_$AddSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? succcessmsg = null,
+  }) {
+    return _then(_$AddSuccessImpl(
+      null == succcessmsg
+          ? _value.succcessmsg
+          : succcessmsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddSuccessImpl implements AddSuccess {
+  const _$AddSuccessImpl(this.succcessmsg);
+
+  @override
+  final String succcessmsg;
+
+  @override
+  String toString() {
+    return 'CouponState.addSuccess(succcessmsg: $succcessmsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddSuccessImpl &&
+            (identical(other.succcessmsg, succcessmsg) ||
+                other.succcessmsg == succcessmsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, succcessmsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddSuccessImplCopyWith<_$AddSuccessImpl> get copyWith =>
+      __$$AddSuccessImplCopyWithImpl<_$AddSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
+  }) {
+    return addSuccess(succcessmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) {
+    return addSuccess?.call(succcessmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (addSuccess != null) {
+      return addSuccess(succcessmsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) {
+    return addSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) {
+    return addSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (addSuccess != null) {
+      return addSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddSuccess implements CouponState {
+  const factory AddSuccess(final String succcessmsg) = _$AddSuccessImpl;
+
+  String get succcessmsg;
+  @JsonKey(ignore: true)
+  _$$AddSuccessImplCopyWith<_$AddSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddFailureImplCopyWith<$Res> {
+  factory _$$AddFailureImplCopyWith(
+          _$AddFailureImpl value, $Res Function(_$AddFailureImpl) then) =
+      __$$AddFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String failuremsg});
+}
+
+/// @nodoc
+class __$$AddFailureImplCopyWithImpl<$Res>
+    extends _$CouponStateCopyWithImpl<$Res, _$AddFailureImpl>
+    implements _$$AddFailureImplCopyWith<$Res> {
+  __$$AddFailureImplCopyWithImpl(
+      _$AddFailureImpl _value, $Res Function(_$AddFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failuremsg = null,
+  }) {
+    return _then(_$AddFailureImpl(
+      null == failuremsg
+          ? _value.failuremsg
+          : failuremsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddFailureImpl implements AddFailure {
+  const _$AddFailureImpl(this.failuremsg);
+
+  @override
+  final String failuremsg;
+
+  @override
+  String toString() {
+    return 'CouponState.addFailure(failuremsg: $failuremsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddFailureImpl &&
+            (identical(other.failuremsg, failuremsg) ||
+                other.failuremsg == failuremsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failuremsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddFailureImplCopyWith<_$AddFailureImpl> get copyWith =>
+      __$$AddFailureImplCopyWithImpl<_$AddFailureImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
+  }) {
+    return addFailure(failuremsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) {
+    return addFailure?.call(failuremsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (addFailure != null) {
+      return addFailure(failuremsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) {
+    return addFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) {
+    return addFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (addFailure != null) {
+      return addFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddFailure implements CouponState {
+  const factory AddFailure(final String failuremsg) = _$AddFailureImpl;
+
+  String get failuremsg;
+  @JsonKey(ignore: true)
+  _$$AddFailureImplCopyWith<_$AddFailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String successmsg});
+}
+
+/// @nodoc
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$CouponStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? successmsg = null,
+  }) {
+    return _then(_$DeleteSuccessImpl(
+      null == successmsg
+          ? _value.successmsg
+          : successmsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteSuccessImpl implements DeleteSuccess {
+  const _$DeleteSuccessImpl(this.successmsg);
+
+  @override
+  final String successmsg;
+
+  @override
+  String toString() {
+    return 'CouponState.deletesucces(successmsg: $successmsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteSuccessImpl &&
+            (identical(other.successmsg, successmsg) ||
+                other.successmsg == successmsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, successmsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
+      __$$DeleteSuccessImplCopyWithImpl<_$DeleteSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
+  }) {
+    return deletesucces(successmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) {
+    return deletesucces?.call(successmsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (deletesucces != null) {
+      return deletesucces(successmsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) {
+    return deletesucces(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) {
+    return deletesucces?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (deletesucces != null) {
+      return deletesucces(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteSuccess implements CouponState {
+  const factory DeleteSuccess(final String successmsg) = _$DeleteSuccessImpl;
+
+  String get successmsg;
+  @JsonKey(ignore: true)
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteFailureImplCopyWith<$Res> {
+  factory _$$DeleteFailureImplCopyWith(
+          _$DeleteFailureImpl value, $Res Function(_$DeleteFailureImpl) then) =
+      __$$DeleteFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String failuremsg});
+}
+
+/// @nodoc
+class __$$DeleteFailureImplCopyWithImpl<$Res>
+    extends _$CouponStateCopyWithImpl<$Res, _$DeleteFailureImpl>
+    implements _$$DeleteFailureImplCopyWith<$Res> {
+  __$$DeleteFailureImplCopyWithImpl(
+      _$DeleteFailureImpl _value, $Res Function(_$DeleteFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failuremsg = null,
+  }) {
+    return _then(_$DeleteFailureImpl(
+      null == failuremsg
+          ? _value.failuremsg
+          : failuremsg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteFailureImpl implements DeleteFailure {
+  const _$DeleteFailureImpl(this.failuremsg);
+
+  @override
+  final String failuremsg;
+
+  @override
+  String toString() {
+    return 'CouponState.deleteFailure(failuremsg: $failuremsg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteFailureImpl &&
+            (identical(other.failuremsg, failuremsg) ||
+                other.failuremsg == failuremsg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failuremsg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
+      __$$DeleteFailureImplCopyWithImpl<_$DeleteFailureImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<AvialableCoupon> avialableCoupons) success,
+    required TResult Function(String errmsg) errorst,
+    required TResult Function(String succcessmsg) addSuccess,
+    required TResult Function(String failuremsg) addFailure,
+    required TResult Function(String successmsg) deletesucces,
+    required TResult Function(String failuremsg) deleteFailure,
+  }) {
+    return deleteFailure(failuremsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult? Function(String errmsg)? errorst,
+    TResult? Function(String succcessmsg)? addSuccess,
+    TResult? Function(String failuremsg)? addFailure,
+    TResult? Function(String successmsg)? deletesucces,
+    TResult? Function(String failuremsg)? deleteFailure,
+  }) {
+    return deleteFailure?.call(failuremsg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<AvialableCoupon> avialableCoupons)? success,
+    TResult Function(String errmsg)? errorst,
+    TResult Function(String succcessmsg)? addSuccess,
+    TResult Function(String failuremsg)? addFailure,
+    TResult Function(String successmsg)? deletesucces,
+    TResult Function(String failuremsg)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (deleteFailure != null) {
+      return deleteFailure(failuremsg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(GetLoading value) loading,
+    required TResult Function(GetSuccess value) success,
+    required TResult Function(GertErrorSt value) errorst,
+    required TResult Function(AddSuccess value) addSuccess,
+    required TResult Function(AddFailure value) addFailure,
+    required TResult Function(DeleteSuccess value) deletesucces,
+    required TResult Function(DeleteFailure value) deleteFailure,
+  }) {
+    return deleteFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(GetLoading value)? loading,
+    TResult? Function(GetSuccess value)? success,
+    TResult? Function(GertErrorSt value)? errorst,
+    TResult? Function(AddSuccess value)? addSuccess,
+    TResult? Function(AddFailure value)? addFailure,
+    TResult? Function(DeleteSuccess value)? deletesucces,
+    TResult? Function(DeleteFailure value)? deleteFailure,
+  }) {
+    return deleteFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(GetLoading value)? loading,
+    TResult Function(GetSuccess value)? success,
+    TResult Function(GertErrorSt value)? errorst,
+    TResult Function(AddSuccess value)? addSuccess,
+    TResult Function(AddFailure value)? addFailure,
+    TResult Function(DeleteSuccess value)? deletesucces,
+    TResult Function(DeleteFailure value)? deleteFailure,
+    required TResult orElse(),
+  }) {
+    if (deleteFailure != null) {
+      return deleteFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteFailure implements CouponState {
+  const factory DeleteFailure(final String failuremsg) = _$DeleteFailureImpl;
+
+  String get failuremsg;
+  @JsonKey(ignore: true)
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

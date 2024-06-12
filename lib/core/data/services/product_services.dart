@@ -33,9 +33,6 @@ class ProductServices {
 
       final responseModel = await response.stream.bytesToString();
 
-      print("response model --> $responseModel");
-      print("response body --> $responseModel");
-
       if (response.statusCode == 200) {
         print("succes");
         // final resultModel = addProductResponseModelFromJson(responseModel);
@@ -69,13 +66,13 @@ class ProductServices {
       } else {
         final response = await http.Client().get(
             Uri.parse("https://lapify.online/admin/products?page=1&limit=50"),
-              );
+            headers: {"Cookie": "Authorise=$tkn"});
 
         print("resonse --> $response");
 
         print("response statuscode --> ${response.statusCode}");
 
-        // 
+        //
 
         // print("response result model ---> $responseResult");
 
@@ -85,16 +82,17 @@ class ProductServices {
 
           // if(jsonResponse["produ"])
 
-           if (jsonResponse['products'] != null) {
-          final List<dynamic> productsJson = jsonResponse['products'];
-          final List<Products> products = productsJson.map((item) => Products.fromJson(item)).toList();
-          print("Parsed products --> $products");
+          if (jsonResponse['products'] != null) {
+            final List<dynamic> productsJson = jsonResponse['products'];
+            final List<Products> products =
+                productsJson.map((item) => Products.fromJson(item)).toList();
+            print("Parsed products --> $products");
 
-          return Right(products);
-        } else {
-          return Left("Product is empty");
-        }
-          
+            return Right(products);
+          } else {
+            return Left("Product is empty");
+          }
+
           // print("result--> $success");
 
           // if(success.products != null)
@@ -111,7 +109,7 @@ class ProductServices {
     }
   }
 
-  Future<Either<String, GetProductById>> getProductDetialsById(
+  Future<Either<String, ProductDetailsById>> getProductDetialsById(
       {required int id}) async {
     try {
       final tkn = await SharedPreffs.getAdminToken();
@@ -132,7 +130,7 @@ class ProductServices {
 
         if (response.statusCode == 200) {
           print("success");
-          final result = getProductByIdFromJson(response.body);
+          final result = productDetailsByIdFromJson(response.body);
           return Right(result);
         } else {
           print("Error");

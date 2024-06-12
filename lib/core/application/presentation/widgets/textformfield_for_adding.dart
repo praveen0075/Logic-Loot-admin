@@ -77,6 +77,36 @@ class AdminTextformFields {
     );
   }
 
+    static TextFormField textFromFieldForEditProduct(
+      {required String name,
+      required String errormsg,
+      // required String initValue,
+      required TextEditingController cntrlr}) {
+    return TextFormField( 
+      initialValue: errormsg,
+      // controller: cntrlr,
+      // controller: TextEditingController(text: errormsg),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+          hintText: name,
+          hintStyle: const TextStyle(color: black),
+          // label: Text("Product Name"),
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+          )),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return errormsg;
+        } else {
+          return null;
+        }
+      },
+      onChanged: (value) {
+        // cntrlr.text = value;
+      },
+    );
+  }
+
   static TextFormField descriptionField(
       {required String name,
       required String errmsg,

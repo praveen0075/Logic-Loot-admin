@@ -112,9 +112,7 @@ class AdminTextformFieldsForEdit {
           return null;
         }
       },
-      onChanged: (value) {
-        
-      },
+
     );
   }
 

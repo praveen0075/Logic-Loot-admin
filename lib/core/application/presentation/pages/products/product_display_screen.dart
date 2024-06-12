@@ -34,7 +34,7 @@ class ProductDisplayScreen extends StatelessWidget {
           } else if (state is GetProductByIdFailure) {
             return const Center(child: Text("Error loading product details"));
           } else if (state is GetProductByIdSuccess) {
-            var product = state.productById;
+            var product = state.products;
             var productDetails =
                 state.productDetails;
             return Column(
@@ -116,7 +116,7 @@ class ProductDisplayScreen extends StatelessWidget {
               ],
             );
           }else{
-            return const Center(child: Text("No data found"),);
+            return const Center(child: Text(""),);
           }
         },
       ),
