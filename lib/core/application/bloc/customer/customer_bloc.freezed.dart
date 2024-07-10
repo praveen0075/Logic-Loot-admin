@@ -337,10 +337,6 @@ mixin _$CustomerState {
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
     required TResult Function() toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function() toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(String errormsg) toggleError,
   }) =>
       throw _privateConstructorUsedError;
@@ -351,10 +347,6 @@ mixin _$CustomerState {
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
     TResult? Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(String errormsg)? toggleError,
   }) =>
       throw _privateConstructorUsedError;
@@ -365,10 +357,6 @@ mixin _$CustomerState {
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
     TResult Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) =>
@@ -380,10 +368,6 @@ mixin _$CustomerState {
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
     required TResult Function(ToggleLoading value) toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function(ToggleSuccess value) toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(ToggleError value) toggleError,
   }) =>
       throw _privateConstructorUsedError;
@@ -394,10 +378,6 @@ mixin _$CustomerState {
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
     TResult? Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(ToggleError value)? toggleError,
   }) =>
       throw _privateConstructorUsedError;
@@ -408,10 +388,6 @@ mixin _$CustomerState {
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
     TResult Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) =>
@@ -479,10 +455,6 @@ class _$InitialImpl implements Initial {
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
     required TResult Function() toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function() toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(String errormsg) toggleError,
   }) {
     return initial();
@@ -496,10 +468,6 @@ class _$InitialImpl implements Initial {
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
     TResult? Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(String errormsg)? toggleError,
   }) {
     return initial?.call();
@@ -513,10 +481,6 @@ class _$InitialImpl implements Initial {
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
     TResult Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
@@ -534,10 +498,6 @@ class _$InitialImpl implements Initial {
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
     required TResult Function(ToggleLoading value) toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function(ToggleSuccess value) toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(ToggleError value) toggleError,
   }) {
     return initial(this);
@@ -551,10 +511,6 @@ class _$InitialImpl implements Initial {
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
     TResult? Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(ToggleError value)? toggleError,
   }) {
     return initial?.call(this);
@@ -568,10 +524,6 @@ class _$InitialImpl implements Initial {
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
     TResult Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
@@ -629,10 +581,6 @@ class _$LoadingImpl implements Loading {
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
     required TResult Function() toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function() toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(String errormsg) toggleError,
   }) {
     return loading();
@@ -646,10 +594,6 @@ class _$LoadingImpl implements Loading {
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
     TResult? Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(String errormsg)? toggleError,
   }) {
     return loading?.call();
@@ -663,10 +607,6 @@ class _$LoadingImpl implements Loading {
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
     TResult Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
@@ -684,10 +624,6 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
     required TResult Function(ToggleLoading value) toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function(ToggleSuccess value) toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(ToggleError value) toggleError,
   }) {
     return loading(this);
@@ -701,10 +637,6 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
     TResult? Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(ToggleError value)? toggleError,
   }) {
     return loading?.call(this);
@@ -718,10 +650,6 @@ class _$LoadingImpl implements Loading {
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
     TResult Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
@@ -811,10 +739,6 @@ class _$SuccessImpl implements Success {
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
     required TResult Function() toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function() toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(String errormsg) toggleError,
   }) {
     return success(users);
@@ -828,10 +752,6 @@ class _$SuccessImpl implements Success {
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
     TResult? Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(String errormsg)? toggleError,
   }) {
     return success?.call(users);
@@ -845,10 +765,6 @@ class _$SuccessImpl implements Success {
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
     TResult Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
@@ -866,10 +782,6 @@ class _$SuccessImpl implements Success {
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
     required TResult Function(ToggleLoading value) toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function(ToggleSuccess value) toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(ToggleError value) toggleError,
   }) {
     return success(this);
@@ -883,10 +795,6 @@ class _$SuccessImpl implements Success {
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
     TResult? Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(ToggleError value)? toggleError,
   }) {
     return success?.call(this);
@@ -900,10 +808,6 @@ class _$SuccessImpl implements Success {
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
     TResult Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
@@ -992,10 +896,6 @@ class _$ErrorStImpl implements ErrorSt {
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
     required TResult Function() toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function() toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(String errormsg) toggleError,
   }) {
     return errorst(errmsg);
@@ -1009,10 +909,6 @@ class _$ErrorStImpl implements ErrorSt {
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
     TResult? Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(String errormsg)? toggleError,
   }) {
     return errorst?.call(errmsg);
@@ -1026,10 +922,6 @@ class _$ErrorStImpl implements ErrorSt {
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
     TResult Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
@@ -1047,10 +939,6 @@ class _$ErrorStImpl implements ErrorSt {
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
     required TResult Function(ToggleLoading value) toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function(ToggleSuccess value) toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(ToggleError value) toggleError,
   }) {
     return errorst(this);
@@ -1064,10 +952,6 @@ class _$ErrorStImpl implements ErrorSt {
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
     TResult? Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(ToggleError value)? toggleError,
   }) {
     return errorst?.call(this);
@@ -1081,10 +965,6 @@ class _$ErrorStImpl implements ErrorSt {
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
     TResult Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
@@ -1147,10 +1027,6 @@ class _$ToggleLoadingImpl implements ToggleLoading {
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
     required TResult Function() toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function() toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(String errormsg) toggleError,
   }) {
     return toggleLoading();
@@ -1164,10 +1040,6 @@ class _$ToggleLoadingImpl implements ToggleLoading {
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
     TResult? Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(String errormsg)? toggleError,
   }) {
     return toggleLoading?.call();
@@ -1181,10 +1053,6 @@ class _$ToggleLoadingImpl implements ToggleLoading {
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
     TResult Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
@@ -1202,10 +1070,6 @@ class _$ToggleLoadingImpl implements ToggleLoading {
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
     required TResult Function(ToggleLoading value) toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function(ToggleSuccess value) toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(ToggleError value) toggleError,
   }) {
     return toggleLoading(this);
@@ -1219,10 +1083,6 @@ class _$ToggleLoadingImpl implements ToggleLoading {
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
     TResult? Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(ToggleError value)? toggleError,
   }) {
     return toggleLoading?.call(this);
@@ -1236,10 +1096,6 @@ class _$ToggleLoadingImpl implements ToggleLoading {
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
     TResult Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {
@@ -1255,141 +1111,6 @@ abstract class ToggleLoading implements CustomerState {
 }
 
 /// @nodoc
-<<<<<<< HEAD
-=======
-abstract class _$$ToggleSuccessImplCopyWith<$Res> {
-  factory _$$ToggleSuccessImplCopyWith(
-          _$ToggleSuccessImpl value, $Res Function(_$ToggleSuccessImpl) then) =
-      __$$ToggleSuccessImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleSuccessImplCopyWithImpl<$Res>
-    extends _$CustomerStateCopyWithImpl<$Res, _$ToggleSuccessImpl>
-    implements _$$ToggleSuccessImplCopyWith<$Res> {
-  __$$ToggleSuccessImplCopyWithImpl(
-      _$ToggleSuccessImpl _value, $Res Function(_$ToggleSuccessImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ToggleSuccessImpl implements ToggleSuccess {
-  const _$ToggleSuccessImpl();
-
-  @override
-  String toString() {
-    return 'CustomerState.toggleSuccess()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleSuccessImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<User> users) success,
-    required TResult Function(String errmsg) errorst,
-    required TResult Function() toggleLoading,
-    required TResult Function() toggleSuccess,
-    required TResult Function(String errormsg) toggleError,
-  }) {
-    return toggleSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<User> users)? success,
-    TResult? Function(String errmsg)? errorst,
-    TResult? Function()? toggleLoading,
-    TResult? Function()? toggleSuccess,
-    TResult? Function(String errormsg)? toggleError,
-  }) {
-    return toggleSuccess?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<User> users)? success,
-    TResult Function(String errmsg)? errorst,
-    TResult Function()? toggleLoading,
-    TResult Function()? toggleSuccess,
-    TResult Function(String errormsg)? toggleError,
-    required TResult orElse(),
-  }) {
-    if (toggleSuccess != null) {
-      return toggleSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Success value) success,
-    required TResult Function(ErrorSt value) errorst,
-    required TResult Function(ToggleLoading value) toggleLoading,
-    required TResult Function(ToggleSuccess value) toggleSuccess,
-    required TResult Function(ToggleError value) toggleError,
-  }) {
-    return toggleSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Success value)? success,
-    TResult? Function(ErrorSt value)? errorst,
-    TResult? Function(ToggleLoading value)? toggleLoading,
-    TResult? Function(ToggleSuccess value)? toggleSuccess,
-    TResult? Function(ToggleError value)? toggleError,
-  }) {
-    return toggleSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Success value)? success,
-    TResult Function(ErrorSt value)? errorst,
-    TResult Function(ToggleLoading value)? toggleLoading,
-    TResult Function(ToggleSuccess value)? toggleSuccess,
-    TResult Function(ToggleError value)? toggleError,
-    required TResult orElse(),
-  }) {
-    if (toggleSuccess != null) {
-      return toggleSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleSuccess implements CustomerState {
-  const factory ToggleSuccess() = _$ToggleSuccessImpl;
-}
-
-/// @nodoc
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
 abstract class _$$ToggleErrorImplCopyWith<$Res> {
   factory _$$ToggleErrorImplCopyWith(
           _$ToggleErrorImpl value, $Res Function(_$ToggleErrorImpl) then) =
@@ -1459,10 +1180,6 @@ class _$ToggleErrorImpl implements ToggleError {
     required TResult Function(List<User> users) success,
     required TResult Function(String errmsg) errorst,
     required TResult Function() toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function() toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(String errormsg) toggleError,
   }) {
     return toggleError(errormsg);
@@ -1476,10 +1193,6 @@ class _$ToggleErrorImpl implements ToggleError {
     TResult? Function(List<User> users)? success,
     TResult? Function(String errmsg)? errorst,
     TResult? Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(String errormsg)? toggleError,
   }) {
     return toggleError?.call(errormsg);
@@ -1493,10 +1206,6 @@ class _$ToggleErrorImpl implements ToggleError {
     TResult Function(List<User> users)? success,
     TResult Function(String errmsg)? errorst,
     TResult Function()? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function()? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(String errormsg)? toggleError,
     required TResult orElse(),
   }) {
@@ -1514,10 +1223,6 @@ class _$ToggleErrorImpl implements ToggleError {
     required TResult Function(Success value) success,
     required TResult Function(ErrorSt value) errorst,
     required TResult Function(ToggleLoading value) toggleLoading,
-<<<<<<< HEAD
-=======
-    required TResult Function(ToggleSuccess value) toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     required TResult Function(ToggleError value) toggleError,
   }) {
     return toggleError(this);
@@ -1531,10 +1236,6 @@ class _$ToggleErrorImpl implements ToggleError {
     TResult? Function(Success value)? success,
     TResult? Function(ErrorSt value)? errorst,
     TResult? Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult? Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult? Function(ToggleError value)? toggleError,
   }) {
     return toggleError?.call(this);
@@ -1548,10 +1249,6 @@ class _$ToggleErrorImpl implements ToggleError {
     TResult Function(Success value)? success,
     TResult Function(ErrorSt value)? errorst,
     TResult Function(ToggleLoading value)? toggleLoading,
-<<<<<<< HEAD
-=======
-    TResult Function(ToggleSuccess value)? toggleSuccess,
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     TResult Function(ToggleError value)? toggleError,
     required TResult orElse(),
   }) {

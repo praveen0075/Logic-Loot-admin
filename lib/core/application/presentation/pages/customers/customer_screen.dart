@@ -51,11 +51,6 @@ class _CustomerScreenState extends State<CustomerScreen> {
           BlocListener<CustomerBloc,CustomerState>(listener: (context, state) {
             if(state is ToggleError){
               snackBarWidget(context: context, msg: state.errormsg, bgColor: Colors.red);
-<<<<<<< HEAD
-=======
-            }else if (state is ToggleSuccess){
-              // context.read<CustomerBloc>().add(const CustomerEvent.getAllCustomer());
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
             }
           },)
         ],

@@ -68,23 +68,14 @@ class ProductServices implements IproductRepo {
       } else {
         final response = await http.Client().get(
             Uri.parse("https://lapify.online/admin/products?page=1&limit=50"),
-<<<<<<< HEAD
             headers: {"Cookie": "Authorise=$tkn"});
-=======
-              headers:  {"Cookie": "Authorise=$tkn"});
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
 
         print("resonse --> $response");
 
         print("response statuscode --> ${response.statusCode}");
 
-<<<<<<< HEAD
         //
 
-=======
-        // 
- 
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
         // print("response result model ---> $responseResult");
 
         if (response.statusCode == 200) {
@@ -120,10 +111,7 @@ class ProductServices implements IproductRepo {
     }
   }
 
-<<<<<<< HEAD
   @override
-=======
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
   Future<Either<String, ProductDetailsById>> getProductDetialsById(
       {required int id}) async {
     try {

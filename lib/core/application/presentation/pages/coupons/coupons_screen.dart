@@ -43,7 +43,6 @@ class _CouponScreenState extends State<CouponScreen> {
           },
           child: const Icon(Icons.add)),
       drawer: const SideBarWidget(),
-<<<<<<< HEAD
       body: MultiBlocListener(
         listeners: [
           BlocListener<CouponBloc, CouponState>(
@@ -101,45 +100,6 @@ class _CouponScreenState extends State<CouponScreen> {
                                     const Icon(
                                       Icons.delete,
                                       color: Colors.red,
-=======
-      body: BlocBuilder<CouponBloc, CouponState>(
-        builder: (context, state) {
-          if(state.isLoading){
-            return const Center(child: CircularProgressIndicator());
-          }else if(state.isGetCouponHasError){
-            return  Center(child: Text(state.message??"Failed to Fetch Coupons"),);
-          }else if (state.avialableCoupons.isEmpty){
-            return const Center(child: Text("Coupon is Empty"),);
-          }
-          else if (state.isGetCouponHasSuccess){
-          return ListView.separated(
-              itemBuilder: (context, index) => ListTile(
-                    onLongPress: () {
-                      showDeleteOption(ctx: context, indext: index);
-                    },
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text("Coupon Details"),
-                            titleTextStyle: const TextStyle(
-                                fontSize: 30,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                            content: SizedBox(
-                              height: size.height / 3,
-                              width: size.width / 3,
-                              child: ListView(
-                                children: [
-                                  ListTile(
-                                    // leading: Text("•"),
-                                    title: const Text(
-                                      "• Code",
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.w500),
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
                                     ),
                                     Text(
                                       choice,
@@ -192,7 +152,6 @@ class _CouponScreenState extends State<CouponScreen> {
                         ],
                       );
                     },
-<<<<<<< HEAD
                     separatorBuilder: (context, index) => kheight10,
                     itemCount: state.avialableCoupons.length);
               } else {
@@ -207,27 +166,6 @@ class _CouponScreenState extends State<CouponScreen> {
             }
           },
         ),
-=======
-                    title:  Row(
-                      children: [
-                        const Icon(Icons.yard, size: 16, color: Colors.grey),
-                        kwidth10,
-                        Text(
-                          state.avialableCoupons[index].code,
-                          style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    trailing:  Text("Amount: ₹${state.avialableCoupons[index].amount}"),
-                  ),
-              separatorBuilder: (context, index) => kheight10,
-              itemCount: state.avialableCoupons.length);
-          }else{
-            return Center(child:Text("NO Data available"),);
-          }
-        },
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
       ),
     );
   }

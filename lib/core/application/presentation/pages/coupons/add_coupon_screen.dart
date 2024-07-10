@@ -43,11 +43,7 @@ class _AddCouponScreenState extends State<AddCouponScreen> {
                       context: context,
                       msg: state.failuremsg,
                       bgColor: Colors.red);
-<<<<<<< HEAD
                 } else if (state is AddSuccess) {
-=======
-                } else if (state.isAddCouponSuccess) {
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
                
 
                   snackBarWidget(

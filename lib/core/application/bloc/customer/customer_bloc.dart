@@ -11,7 +11,7 @@ part 'customer_bloc.freezed.dart';
 class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   final CustomerServices customerRepo;
   CustomerBloc(this.customerRepo) : super(const CustomerState.initial()) {
-    on<_GetAllCustomer>((event, emit) async {
+    on<_GetAllCustomer>((event, emit) async { 
       emit(const CustomerState.loading());
       final result = await customerRepo.getAllUsers();
       result.fold((failure) => emit(CustomerState.errorst(failure)),

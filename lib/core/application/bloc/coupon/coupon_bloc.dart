@@ -14,26 +14,13 @@ class CouponBloc extends Bloc<CouponEvent, CouponState> {
     on<_GetCoupons>((event, emit) async {
       emit(const CouponState.loading());
       final result = await couponRepo.getAllCoupons();
-<<<<<<< HEAD
       result.fold((failure) => emit(CouponState.errorst(failure)),
           (success) => emit(CouponState.success(success.avialableCoupons)));
-=======
-      result.fold((failure) {
-        return emit(state.copyWith(
-            isLoading: false, isGetCouponHasError: true, message: failure));
-      }, (success) {
-        return emit(state.copyWith(
-            isLoading: false,
-            isGetCouponHasSuccess: true,
-            avialableCoupons: success.avialableCoupons));
-      });
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     });
 
     on<_AddCoupon>((event, emit) async {
       emit(const CouponState.loading());
       final result = await couponRepo.addCoupon(model: event.couponModel);
-<<<<<<< HEAD
       result.fold((failure) => emit(CouponState.addFailure(failure)),
           (success) => emit(CouponState.addSuccess(success)));
     });
@@ -43,15 +30,6 @@ class CouponBloc extends Bloc<CouponEvent, CouponState> {
           await couponRepo.deleteCoupon(couponCode: event.couponCode);
       result.fold((failure) => emit(CouponState.deleteFailure(failure)),
           (success) => emit(CouponState.deletesucces(success)));
-=======
-      result.fold((failure) {
-        return emit(state.copyWith(
-            isLoading: false, isAddCouponHasError: true, message: failure));
-      }, (success) {
-        return emit(state.copyWith(
-            isLoading: false, isAddCouponSuccess: true, message: success));
-      });
->>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     });
   }
 }
