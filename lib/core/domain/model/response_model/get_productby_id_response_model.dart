@@ -11,7 +11,11 @@ String productDetailsByIdToJson(ProductDetailsById data) => json.encode(data.toJ
 class ProductDetailsById {
     Inventory inventory;
     ProductDetails productDetails;
+<<<<<<< HEAD
     ProductById products;
+=======
+    Product products;
+>>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
 
     ProductDetailsById({
         required this.inventory,
@@ -22,7 +26,11 @@ class ProductDetailsById {
     factory ProductDetailsById.fromJson(Map<String, dynamic> json) => ProductDetailsById(
         inventory: Inventory.fromJson(json["inventory"]),
         productDetails: ProductDetails.fromJson(json["product details"]),
+<<<<<<< HEAD
         products: ProductById.fromJson(json["products"]),
+=======
+        products: Product.fromJson(json["products"]),
+>>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     );
 
     Map<String, dynamic> toJson() => {
@@ -80,7 +88,11 @@ class ProductDetails {
     };
 }
 
+<<<<<<< HEAD
 class ProductById {
+=======
+class Product {
+>>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
     int id;
     String name;
     int price;
@@ -90,7 +102,11 @@ class ProductById {
     int category;
     String imageurl;
 
+<<<<<<< HEAD
     ProductById({
+=======
+    Product({
+>>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
         required this.id,
         required this.name,
         required this.price,
@@ -101,7 +117,11 @@ class ProductById {
         required this.imageurl,
     });
 
+<<<<<<< HEAD
     factory ProductById.fromJson(Map<String, dynamic> json) => ProductById(
+=======
+    factory Product.fromJson(Map<String, dynamic> json) => Product(
+>>>>>>> 96b867c57ac070ca535e58f69d91c795a59ca909
         id: json["ID"],
         name: json["name"],
         price: json["price"],
