@@ -54,10 +54,11 @@ class AdminTextformFields {
   }
 
   static TextFormField textFromFieldForAddProduct(
-      {required String name,
+      {TextInputType? txtInputType,required String name,
       required String errormsg,
       required TextEditingController cntrlr}) {
     return TextFormField(
+      keyboardType: txtInputType,
       controller: cntrlr,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(

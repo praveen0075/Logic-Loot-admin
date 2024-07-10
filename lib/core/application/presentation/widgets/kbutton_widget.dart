@@ -7,13 +7,13 @@ class KbuttonWidget extends StatelessWidget {
   const KbuttonWidget(
       {super.key,
       required this.size,
-      required this.formKey,
+      // required this.formKey,
 
       required this.labeltxt, this.onpress});
 
   final String labeltxt;
   final Size size;
-  final GlobalKey<FormState> formKey;
+  // final GlobalKey<FormState> formKey;
   final Function()? onpress;
   
   @override

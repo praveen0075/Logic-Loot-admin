@@ -6,9 +6,10 @@ import 'package:logic_loot_admin/core/domain/model/body_model/product_model.dart
 import 'package:logic_loot_admin/core/domain/model/response_model/get_product_response_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:logic_loot_admin/core/domain/model/response_model/get_productby_id_response_model.dart';
+import 'package:logic_loot_admin/core/domain/repository/product_repository.dart';
 
-// class ProductServices implements IproductRepo{
-class ProductServices {
+class ProductServices implements IproductRepo {
+  @override
   Future<Either<String, String>> addProduct(
       {required AddproductModel productModel}) async {
     try {
@@ -54,6 +55,7 @@ class ProductServices {
     }
   }
 
+  @override
   Future<Either<String, List<Products>>> getAllProuducts() async {
     try {
       final tkn = await SharedPreffs.getAdminToken();
@@ -109,6 +111,7 @@ class ProductServices {
     }
   }
 
+  @override
   Future<Either<String, ProductDetailsById>> getProductDetialsById(
       {required int id}) async {
     try {
@@ -145,6 +148,7 @@ class ProductServices {
     }
   }
 
+  @override
   Future<Either<String, String>> deleteProductById(
       {required int productId}) async {
     try {
@@ -177,6 +181,22 @@ class ProductServices {
     } catch (e) {
       print("Exception ---> $e");
       return const Left("Something went wrong");
+    }
+  }
+
+  @override
+  Future<Either<String, String>> editProductById(
+      {required AddproductModel productModel}) async {
+    final adminToken = await SharedPreffs.getAdminToken();
+    if (adminToken == null) {
+      return Left("Oops! something bad occured");
+    } else {
+      try {
+        final response = await http.Client().put(Uri.parse(""));
+        return Left("sjdljfl");
+      } catch (e) {
+        return Left(e.toString());
+      }
     }
   }
 

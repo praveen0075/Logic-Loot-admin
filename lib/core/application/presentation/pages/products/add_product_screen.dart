@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:logic_loot_admin/core/application/bloc/category/category_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
+import 'package:logic_loot_admin/core/application/presentation/pages/products/widgets/textformfields.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/controllers/textediting_controllers.dart';
@@ -37,7 +38,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   int? selectedCategoryId;
   String? selectedSize;
   List<DropDownValueModel> categoryList = [];
-  File? _image;
+  File?   _image;
 
   @override
   void initState() {
@@ -93,7 +94,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   },
                   builder: (context, state) {
                     if (state is AddLoading) {
-                      return SizedBox( 
+                      return SizedBox(
                         height: size.height,
                         // width: size.width,
                         child: const Center(child: CircularProgressIndicator()),
@@ -117,9 +118,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                 setState(() {
                                   _image = File(pickedFile.path);
                                 });
-                              } else {
-                                print('No image selected.');
-                              }
+                              } else {}
                             },
                             child: Container(
                               clipBehavior: Clip.hardEdge,
@@ -146,7 +145,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                     )
                                   : Image(
                                       image: FileImage(_image!),
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.contain,
                                     ),
                             ),
                           ),
@@ -163,16 +162,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                               ),
                               kheight10,
                               AdminTextformFields.textFromFieldForAddProduct(
-                                cntrlr:
-                                    TxtEdtControllers.productPriceController,
-                                errormsg: "Enter the Price",
-                                name: "Price (eg:45000)",
-                              ),
+                                  cntrlr:
+                                      TxtEdtControllers.productPriceController,
+                                  errormsg: "Enter the Price",
+                                  name: "Price (eg:45000)",
+                                  txtInputType: TextInputType.number),
                               kheight10,
                               AdminTextformFields.textFromFieldForAddProduct(
+                                txtInputType: TextInputType.number,
                                 cntrlr:
                                     TxtEdtControllers.productQuantityController,
-                                errormsg: "Name is required",
+                                errormsg: "Quantity is required",
                                 name: "Quantity",
                               ),
                               kheight10,
@@ -314,110 +314,76 @@ class _AddProductScreenState extends State<AddProductScreen> {
                               kheight10,
                               Row(
                                 children: [
-                                  Expanded(
-                                      child: SizedBox(
-                                    height: 50,
-                                    child: OutlinedButton(
-                                        style: const ButtonStyle(
-                                            side: MaterialStatePropertyAll(
-                                                BorderSide(
-                                                    color: appcolorblue)),
-                                            foregroundColor:
-                                                MaterialStatePropertyAll(
-                                                    Colors.red)),
-                                        onPressed: () {
-                                          setState(() {
-                                            AllKeys.formKeyforAddProduct
-                                                .currentState!
-                                                .reset();
-                                            clearValues();
-                                          });
-                                        },
-                                        child: const Text("Clear")),
+                                  Expanded(child: Buttons.clearButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        AllKeys
+                                            .formKeyforAddProduct.currentState!
+                                            .reset(); 
+                                        clearValues();
+                                      });
+                                    },
                                   )),
                                   kwidth15,
                                   Expanded(
-                                      child: SizedBox(
-                                          height: 50,
-                                          child: OutlinedButton(
-                                              style: const ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStatePropertyAll(
-                                                          appcolorblue),
-                                                  foregroundColor:
-                                                      MaterialStatePropertyAll(
-                                                          Colors.white),
-                                                  side: MaterialStatePropertyAll(
-                                                      BorderSide(
-                                                          color:
-                                                              appcolorblue))),
-                                              onPressed: () async {
-                                                if (AllKeys.formKeyforAddProduct
-                                                    .currentState!
-                                                    .validate()) {
-                                                  // if (selectedCategoryId == null) {
-                                                  //   snackBarWidget(
-                                                  //       context: context, msg: "Category is not selected", bgColor: Colors.red);
-                                                  // } else if (selectedSize == null) {
-                                                  //   snackBarWidget(
-                                                  //       context: context, msg: "Product size is not selected", bgColor: Colors.red);
+                                      child: Buttons.saveButton(
+                                          context: context,
+                                          onPressed: () async {
+                                            if (AllKeys.formKeyforAddProduct
+                                                .currentState!
+                                                .validate()) {
+                                              // if (selectedCategoryId == null) {
+                                              //   snackBarWidget(
+                                              //       context: context, msg: "Category is not selected", bgColor: Colors.red);
+                                              // } else if (selectedSize == null) {
+                                              //   snackBarWidget(
+                                              //       context: context, msg: "Product size is not selected", bgColor: Colors.red);
 
-                                                  if (_image == null) {
-                                                    snackBarWidget(
-                                                        context: context,
-                                                        msg:
-                                                            "Please select image for the product",
-                                                        bgColor: Colors.red);
-                                                  } else {
-                                                    final productPrice = num
-                                                        .parse(TxtEdtControllers
-                                                            .productPriceController
-                                                            .text);
-                                                    final productQuantity = int
-                                                        .parse(TxtEdtControllers
-                                                            .productQuantityController
-                                                            .text);
-                                                    final productImageFile =
-                                                        _image;
-                                                    final productModel =
-                                                        AddproductModel(
-                                                      name: TxtEdtControllers
-                                                          .productNameController
+                                              if (_image == null) {
+                                                snackBarWidget(
+                                                    context: context,
+                                                    msg:
+                                                        "Please select image for the product",
+                                                    bgColor: Colors.red);
+                                              } else {
+                                                final productPrice = num.parse(
+                                                    TxtEdtControllers
+                                                        .productPriceController
+                                                        .text);
+                                                final productQuantity =
+                                                    int.parse(TxtEdtControllers
+                                                        .productQuantityController
+                                                        .text);
+                                                final productImageFile = _image;
+                                                final productModel =
+                                                    AddproductModel(
+                                                  name: TxtEdtControllers
+                                                      .productNameController
+                                                      .text
+                                                      .trim(),
+                                                  price: productPrice,
+                                                  size: selectedSize ?? '',
+                                                  specification:
+                                                      TxtEdtControllers
+                                                          .productSpecController
                                                           .text
                                                           .trim(),
-                                                      price: productPrice,
-                                                      size: selectedSize ?? '',
-                                                      specification:
-                                                          TxtEdtControllers
-                                                              .productSpecController
-                                                              .text
-                                                              .trim(),
-                                                      quantity: productQuantity,
-                                                      description: TxtEdtControllers
-                                                          .productQuantityController
-                                                          .text
-                                                          .trim(),
-                                                      categoryId:
-                                                          selectedCategoryId!,
-                                                      imageurl:
-                                                          productImageFile!,
-                                                    );
-                                                    context
-                                                        .read<ProductBloc>()
-                                                        .add(ProductEvent
-                                                            .addProductEvent(
-                                                                productModel:
-                                                                    productModel));
-                                                  }
-                                                  // Print the selected category ID and size for debugging
-                                                  print(
-                                                      "Selected Category ID: $selectedCategoryId");
-                                                  print(
-                                                      "Selected Size: $selectedSize");
-                                                  // }
-                                                }
-                                              },
-                                              child: const Text("Submit"))))
+                                                  quantity: productQuantity,
+                                                  description: TxtEdtControllers
+                                                      .productDescriptionController
+                                                      .text,
+                                                  categoryId:
+                                                      selectedCategoryId!,
+                                                  imageurl: productImageFile!,
+                                                );
+                                                context.read<ProductBloc>().add(
+                                                    ProductEvent
+                                                        .addProductEvent(
+                                                            productModel:
+                                                                productModel));
+                                              }
+                                            }
+                                          }))
                                 ],
                               ),
                             ],

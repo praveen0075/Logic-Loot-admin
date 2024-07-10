@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/auth/auth_bloc.dart';
+import 'package:logic_loot_admin/core/application/bloc/banner/banner_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/category/category_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/coupon/coupon_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/customer/customer_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart
 import 'package:logic_loot_admin/core/application/presentation/pages/dashboard/dashboard_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/login/login_screen.dart';
 import 'package:logic_loot_admin/core/data/services/auth_services.dart';
+import 'package:logic_loot_admin/core/data/services/banner_services.dart';
 import 'package:logic_loot_admin/core/data/services/category_services.dart';
 import 'package:logic_loot_admin/core/data/services/coupon_services.dart';
 import 'package:logic_loot_admin/core/data/services/customer_services.dart';
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
   final couponRepo = CouponServices();
   final customerRepo = CustomerServices();
   final ordersRepo = OrderServices();
+  final bannerRepo = BannerServices();
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +58,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<OrdersBloc>(
           create: (context) => OrdersBloc(ordersRepo),
+        ),
+        BlocProvider<BannerBloc>(
+          create: (context) => BannerBloc(bannerRepo),
         ),
       ],
       child: MaterialApp(

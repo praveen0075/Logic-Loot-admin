@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:logic_loot_admin/core/application/presentation/pages/banners/screens/banner_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/category/category_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/coupons/coupons_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/customers/customer_screen.dart';
@@ -120,6 +121,12 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   txt: "Coupons",
                   index: 5,
                   targetScreen: const CouponScreen()),
+              buildMenuItem(
+                  context: context,
+                  icon: Icons.add_box_rounded,
+                  txt: "Banners",
+                  index: 5,
+                  targetScreen: const BannerScreen()),
               // divider,
               buildMenuItem(
                   context: context,

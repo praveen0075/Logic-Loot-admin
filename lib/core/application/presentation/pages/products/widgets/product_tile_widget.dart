@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/edit_product_screen.dart';
-import 'package:logic_loot_admin/core/application/presentation/pages/products/edit_products_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/product_display_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
@@ -73,12 +72,6 @@ class ProductTileWidget extends StatelessWidget {
                                   ),
                                 ));
                           },
-                          onLongPress: () {
-                            // showLongpressOptionsforProduct(
-                            //     ctx: context,
-                            //     indext: index,
-                            //     prdouctId: state.prouctModel![index].id);
-                          },
                           child: Stack(
                             children: [
                               IconButton(
@@ -111,7 +104,7 @@ class ProductTileWidget extends StatelessWidget {
                                           child: Image(
                                             image: NetworkImage(
                                                 state.products[index].imageUrl),
-                                            fit: BoxFit.cover,
+                                            fit: BoxFit.contain,
                                           )),
                                     ),
                                     kwidth15,
@@ -166,16 +159,15 @@ class ProductTileWidget extends StatelessWidget {
                                   child: PopupMenuButton<String>(
                                       onSelected: (value) {
                                     if (value == 'Edit') {
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //     builder: (context) =>
-                                      //         EditProductScreen(
-                                      //             productId:
-                                      //                 state.products[index].id
-                                      //                 ),
-                                      //   ),
-                                      // );
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => 
+                                              EditProductScreen( 
+                                                 productId:  state.products[index].id,
+                                                      ),
+                                        ),
+                                      );
                                     } else if (value == 'Delete') {
                                       showDialog(
                                           context: context,
@@ -224,8 +216,8 @@ class ProductTileWidget extends StatelessWidget {
                                           children: [
                                             choice == 'Edit'
                                                 ? const Icon(Icons.edit)
-                                                : const Icon(Icons.delete),
-                                            Text(choice)
+                                                : const Icon(Icons.delete,color: Colors.red,),
+                                            choice == "Edit"?const Text("Edit") : const Text("Delete",style: TextStyle(color: Colors.red),)
                                           ],
                                         ),
                                       );

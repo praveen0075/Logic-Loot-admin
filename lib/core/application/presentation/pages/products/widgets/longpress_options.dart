@@ -66,7 +66,7 @@
 //                                   ProductEvent.deleteProductByid(
 //                                       productId: prdouctId));
 //                               context.read<ProductBloc>().add(
-//                                   const ProductEvent.getAllProductEvent());
+//                                   const ProductEvent.getAllProductEvent());  ;
 //                               Navigator.pop(context);
 //                             },
 //                             child: const Text(

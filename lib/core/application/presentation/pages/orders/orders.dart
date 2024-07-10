@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/orders/orders_bloc.dart';
-import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
+import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
@@ -37,11 +37,16 @@ class OrdersScreen extends StatelessWidget {
                         context: context,
                         msg: state.successmsg,
                         bgColor: Colors.green);
-                  }else if(state is UpdateOrderFailure){
-                    snackBarWidget(context: context, msg: state.errormsg, bgColor: Colors.red);
-                  }else if(state is UpdateOrderSuccess){
+                  } else if (state is UpdateOrderFailure) {
+                    snackBarWidget(
+                        context: context,
+                        msg: state.errormsg,
+                        bgColor: Colors.red);
+                  } else if (state is UpdateOrderSuccess) {
                     // snackBarWidget(context: context, msg: , bgColor: bgColor)
-                    context.read<OrdersBloc>().add(const OrdersEvent.getOrders());
+                    context
+                        .read<OrdersBloc>()
+                        .add(const OrdersEvent.getOrders());
                     // Navigator.pop(co/text);
                   }
                 },
@@ -86,14 +91,12 @@ class OrdersScreen extends StatelessWidget {
                             style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w600),
                           ),
-                          trailing: Text(
-                            state.orders[index].status,
-                            style: state.orders[index].status == "success"
-                                ? const TextStyle(
-                                    color: Colors.green, fontSize: 16)
-                                : const TextStyle(
-                                    color: Colors.black, fontSize: 16),
-                          ),
+                          trailing: Text(state.orders[index].status,
+                              style: state.orders[index].status == "Delivered"
+                                  ? const TextStyle(
+                                      color: Colors.green, fontSize: 16)
+                                  : const TextStyle(
+                                      color: Colors.black, fontSize: 16)),
                           children: [
                             ListTile(
                               title: Column(
@@ -137,25 +140,25 @@ class OrdersScreen extends StatelessWidget {
                                     ],
                                   ),
                                   kheight10,
-                                  const Row(
+                                  Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("Payment method"),
-                                      Text("Razorpay")
+                                      const Text("Payment method"),
+                                      Text(state.orders[index].paymentmethod)
                                     ],
                                   ),
                                   kheight10,
-                                  const Row(
+                                  Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("Total amount"),
-                                      Text("₹5600")
+                                      const Text("Total amount"),
+                                      Text(state.orders[index].total.toString())
                                     ],
                                   ),
                                   kheight10,
@@ -179,11 +182,23 @@ class OrdersScreen extends StatelessWidget {
                                               Icons.app_registration_rounded),
                                           onSelected: (value) {
                                             if (value == 'Shipped') {
-                                              context.read<OrdersBloc>().add(OrdersEvent.updateOrderStatus(id: state.orders[index].orderid, statuc: value));
+                                              context.read<OrdersBloc>().add(
+                                                  OrdersEvent.updateOrderStatus(
+                                                      id: state.orders[index]
+                                                          .orderid,
+                                                      statuc: value));
                                             } else if (value == "Delivered") {
-                                              context.read<OrdersBloc>().add(OrdersEvent.updateOrderStatus(id: state.orders[index].orderid, statuc: value));
+                                              context.read<OrdersBloc>().add(
+                                                  OrdersEvent.updateOrderStatus(
+                                                      id: state.orders[index]
+                                                          .orderid,
+                                                      statuc: value));
                                             } else if (value == "Pending") {
-                                              context.read<OrdersBloc>().add(OrdersEvent.updateOrderStatus(id: state.orders[index].orderid, statuc: value));
+                                              context.read<OrdersBloc>().add(
+                                                  OrdersEvent.updateOrderStatus(
+                                                      id: state.orders[index]
+                                                          .orderid,
+                                                      statuc: value));
                                             } else if (value == 'Cancelled') {
                                               showDialog(
                                                   context: context,
@@ -361,7 +376,7 @@ class OrdersScreen extends StatelessWidget {
                               // ),
                             ),
                           ],
-                        ); 
+                        );
                       },
                     )
                   ]));

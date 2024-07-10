@@ -1,16 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:logic_loot_admin/core/data/services/product_services.dart';
 import 'package:logic_loot_admin/core/domain/model/body_model/product_model.dart';
 import 'package:logic_loot_admin/core/domain/model/response_model/get_product_response_model.dart';
 import 'package:logic_loot_admin/core/domain/model/response_model/get_productby_id_response_model.dart';
+import 'package:logic_loot_admin/core/domain/repository/product_repository.dart';
 
 part 'product_event.dart';
 part 'product_state.dart';
 part 'product_bloc.freezed.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
-  final ProductServices productRepo;
+  final IproductRepo productRepo;
   ProductBloc(this.productRepo) : super(const ProductState.initial()) {
     on<_GetAllProductEvent>((event, emit) async {
       emit(const ProductState.loading());
