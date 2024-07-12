@@ -99,7 +99,16 @@ class BannerScreen extends StatelessWidget {
                                                         ),
                                                         actions: [
                                                           TextButton(
-                                                              onPressed: () {},
+                                                              onPressed: () {
+                                                                context
+                                                                    .read<
+                                                                        BannerBloc>()
+                                                                    .add(BannerEvent.deleteBanner(state
+                                                                        .banners[
+                                                                            index]
+                                                                        .id
+                                                                        .toString()));
+                                                              },
                                                               child: const Text(
                                                                 "Delete",
                                                                 style:
