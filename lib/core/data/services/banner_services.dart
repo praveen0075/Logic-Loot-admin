@@ -66,13 +66,42 @@ class BannerServices implements BannerRepo {
           log(success.banners.toString());
           return Right(success);
         } else {
-          log("Error status"); 
+          log("Error status");
           final error = responseModel["error"];
           return Left(error);
         }
       } catch (e) {
         log("Exception occured --> $e");
         return const Left("Oops! Unable to connect server");
+      }
+    }
+  }
+
+  @override
+  Future<Either<String, String>> deleteBanner(String id) async {
+    final adminToken = await SharedPreffs.getAdminToken();
+    if (adminToken == null) {
+      log("Token is empty");
+      return const Left("Unauthorized admin");
+    } else {
+      try {
+        final response = await http.Client().get(
+            Uri.parse("https://lapify.online/admin/banner/$id"),
+            headers: {"Cookie": "Authorise=$adminToken"});
+
+        log("status code ---> ${response.statusCode}");
+
+        final responseBody = jsonDecode(response.body);
+
+        if (response.statusCode == 200) {
+          return const Right("Banner deleted successfully");
+        } else {
+          final result = responseBody["error"];
+          return Left(result);
+        }
+      } catch (e) {
+        log("Exception ---> $e");
+        return const Left("Oops! unable to reach server");
       }
     }
   }

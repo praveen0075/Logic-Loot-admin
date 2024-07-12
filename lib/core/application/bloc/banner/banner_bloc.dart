@@ -27,5 +27,14 @@ class BannerBloc extends Bloc<BannerEvent, BannerState> {
           (success) =>
               emit(BannerState.getBannerSuccess(banners: success.banners)));
     });
+
+    on<deleteBanner>((event, emit) async {
+      emit(const BannerState.loading());
+      final result = await bannerRepo.deleteBanner(event.bannerId);
+      result.fold(
+          (failure) => emit(BannerState.errorSt(errormsg: failure)),
+          (success) =>
+              emit(BannerState.deleteBannerSuccess(dltErrmsg: success)));
+    });
   }
 }

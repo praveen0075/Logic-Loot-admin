@@ -6,6 +6,7 @@ import 'package:logic_loot_admin/core/application/presentation/pages/banners/scr
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/appbar_widget.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/sidebar_widget.dart';
+import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
 
 class BannerScreen extends StatelessWidget {
   const BannerScreen({super.key});
@@ -31,7 +32,12 @@ class BannerScreen extends StatelessWidget {
             child: AppBarWidget(title: "Banners")),
         drawer: const SideBarWidget(),
         body: BlocConsumer<BannerBloc, BannerState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state is DeleteBannerError) {
+              snackBarWidget(
+                  context: context, msg: state.errormsg, bgColor: Colors.red);
+            }
+          },
           builder: (context, state) {
             if (state is Loading) {
               return const Center(
@@ -58,7 +64,8 @@ class BannerScreen extends StatelessWidget {
                                 child: InkWell(
                                   onLongPress: () {
                                     showModalBottomSheet(
-                                      backgroundColor: Color(Color.getAlphaFromOpacity(1)),
+                                      backgroundColor:
+                                          Color(Color.getAlphaFromOpacity(1)),
                                       context: context,
                                       builder: (context) => SafeArea(
                                           child: SizedBox(
@@ -75,16 +82,32 @@ class BannerScreen extends StatelessWidget {
                                                       context: context,
                                                       builder: (context) =>
                                                           AlertDialog(
-                                                            
                                                         title: const Text(
-                                                            "Delete?",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                                                          "Delete?",
+                                                          style: TextStyle(
+                                                              fontSize: 20,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
                                                         content: const Text(
-                                                            "Do you want to delete this banner?",style: TextStyle(fontWeight: FontWeight.bold),),
+                                                          "Do you want to delete this banner?",
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
                                                         actions: [
                                                           TextButton(
-                                                              onPressed: () {}, 
+                                                              onPressed: () {},
                                                               child: const Text(
-                                                                  "Delete",style: TextStyle(color: Colors.red,),)),
+                                                                "Delete",
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Colors
+                                                                      .red,
+                                                                ),
+                                                              )),
                                                           TextButton(
                                                               onPressed: () {},
                                                               child: const Text(
@@ -93,8 +116,15 @@ class BannerScreen extends StatelessWidget {
                                                       ),
                                                     );
                                                   },
-                                                  leading: const Icon(Icons.delete,color: Colors.red,),
-                                                  title: const Text("Delete",style: TextStyle(color: Colors.red),),
+                                                  leading: const Icon(
+                                                    Icons.delete,
+                                                    color: Colors.red,
+                                                  ),
+                                                  title: const Text(
+                                                    "Delete",
+                                                    style: TextStyle(
+                                                        color: Colors.red),
+                                                  ),
                                                 ),
                                               )
                                             ],
