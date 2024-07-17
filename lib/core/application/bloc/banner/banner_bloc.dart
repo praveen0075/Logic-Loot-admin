@@ -34,7 +34,7 @@ class BannerBloc extends Bloc<BannerEvent, BannerState> {
       result.fold(
           (failure) => emit(BannerState.errorSt(errormsg: failure)),
           (success) =>
-              emit(BannerState.deleteBannerSuccess(dltErrmsg: success)));
+              emit(BannerState.deleteBannerSuccess(dltsuccessmsg: success)));
     });
   }
 }

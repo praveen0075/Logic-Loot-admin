@@ -477,7 +477,7 @@ mixin _$BannerState {
     required TResult Function(String successmsg) loaded,
     required TResult Function(String errormsg) errorSt,
     required TResult Function(List<Banner> banners) getBannerSuccess,
-    required TResult Function(String dltErrmsg) deleteBannerSuccess,
+    required TResult Function(String dltsuccessmsg) deleteBannerSuccess,
     required TResult Function(String errormsg) deleteBannerError,
   }) =>
       throw _privateConstructorUsedError;
@@ -488,7 +488,7 @@ mixin _$BannerState {
     TResult? Function(String successmsg)? loaded,
     TResult? Function(String errormsg)? errorSt,
     TResult? Function(List<Banner> banners)? getBannerSuccess,
-    TResult? Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult? Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult? Function(String errormsg)? deleteBannerError,
   }) =>
       throw _privateConstructorUsedError;
@@ -499,7 +499,7 @@ mixin _$BannerState {
     TResult Function(String successmsg)? loaded,
     TResult Function(String errormsg)? errorSt,
     TResult Function(List<Banner> banners)? getBannerSuccess,
-    TResult Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult Function(String errormsg)? deleteBannerError,
     required TResult orElse(),
   }) =>
@@ -601,7 +601,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(String successmsg) loaded,
     required TResult Function(String errormsg) errorSt,
     required TResult Function(List<Banner> banners) getBannerSuccess,
-    required TResult Function(String dltErrmsg) deleteBannerSuccess,
+    required TResult Function(String dltsuccessmsg) deleteBannerSuccess,
     required TResult Function(String errormsg) deleteBannerError,
   }) {
     return initial();
@@ -615,7 +615,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(String successmsg)? loaded,
     TResult? Function(String errormsg)? errorSt,
     TResult? Function(List<Banner> banners)? getBannerSuccess,
-    TResult? Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult? Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult? Function(String errormsg)? deleteBannerError,
   }) {
     return initial?.call();
@@ -629,7 +629,7 @@ class _$InitialImpl implements Initial {
     TResult Function(String successmsg)? loaded,
     TResult Function(String errormsg)? errorSt,
     TResult Function(List<Banner> banners)? getBannerSuccess,
-    TResult Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult Function(String errormsg)? deleteBannerError,
     required TResult orElse(),
   }) {
@@ -733,7 +733,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(String successmsg) loaded,
     required TResult Function(String errormsg) errorSt,
     required TResult Function(List<Banner> banners) getBannerSuccess,
-    required TResult Function(String dltErrmsg) deleteBannerSuccess,
+    required TResult Function(String dltsuccessmsg) deleteBannerSuccess,
     required TResult Function(String errormsg) deleteBannerError,
   }) {
     return loading();
@@ -747,7 +747,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(String successmsg)? loaded,
     TResult? Function(String errormsg)? errorSt,
     TResult? Function(List<Banner> banners)? getBannerSuccess,
-    TResult? Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult? Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult? Function(String errormsg)? deleteBannerError,
   }) {
     return loading?.call();
@@ -761,7 +761,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(String successmsg)? loaded,
     TResult Function(String errormsg)? errorSt,
     TResult Function(List<Banner> banners)? getBannerSuccess,
-    TResult Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult Function(String errormsg)? deleteBannerError,
     required TResult orElse(),
   }) {
@@ -892,7 +892,7 @@ class _$LoadedImpl implements Loaded {
     required TResult Function(String successmsg) loaded,
     required TResult Function(String errormsg) errorSt,
     required TResult Function(List<Banner> banners) getBannerSuccess,
-    required TResult Function(String dltErrmsg) deleteBannerSuccess,
+    required TResult Function(String dltsuccessmsg) deleteBannerSuccess,
     required TResult Function(String errormsg) deleteBannerError,
   }) {
     return loaded(successmsg);
@@ -906,7 +906,7 @@ class _$LoadedImpl implements Loaded {
     TResult? Function(String successmsg)? loaded,
     TResult? Function(String errormsg)? errorSt,
     TResult? Function(List<Banner> banners)? getBannerSuccess,
-    TResult? Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult? Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult? Function(String errormsg)? deleteBannerError,
   }) {
     return loaded?.call(successmsg);
@@ -920,7 +920,7 @@ class _$LoadedImpl implements Loaded {
     TResult Function(String successmsg)? loaded,
     TResult Function(String errormsg)? errorSt,
     TResult Function(List<Banner> banners)? getBannerSuccess,
-    TResult Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult Function(String errormsg)? deleteBannerError,
     required TResult orElse(),
   }) {
@@ -1056,7 +1056,7 @@ class _$ErrorStImpl implements ErrorSt {
     required TResult Function(String successmsg) loaded,
     required TResult Function(String errormsg) errorSt,
     required TResult Function(List<Banner> banners) getBannerSuccess,
-    required TResult Function(String dltErrmsg) deleteBannerSuccess,
+    required TResult Function(String dltsuccessmsg) deleteBannerSuccess,
     required TResult Function(String errormsg) deleteBannerError,
   }) {
     return errorSt(errormsg);
@@ -1070,7 +1070,7 @@ class _$ErrorStImpl implements ErrorSt {
     TResult? Function(String successmsg)? loaded,
     TResult? Function(String errormsg)? errorSt,
     TResult? Function(List<Banner> banners)? getBannerSuccess,
-    TResult? Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult? Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult? Function(String errormsg)? deleteBannerError,
   }) {
     return errorSt?.call(errormsg);
@@ -1084,7 +1084,7 @@ class _$ErrorStImpl implements ErrorSt {
     TResult Function(String successmsg)? loaded,
     TResult Function(String errormsg)? errorSt,
     TResult Function(List<Banner> banners)? getBannerSuccess,
-    TResult Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult Function(String errormsg)? deleteBannerError,
     required TResult orElse(),
   }) {
@@ -1227,7 +1227,7 @@ class _$GetBannerSuccessImpl implements GetBannerSuccess {
     required TResult Function(String successmsg) loaded,
     required TResult Function(String errormsg) errorSt,
     required TResult Function(List<Banner> banners) getBannerSuccess,
-    required TResult Function(String dltErrmsg) deleteBannerSuccess,
+    required TResult Function(String dltsuccessmsg) deleteBannerSuccess,
     required TResult Function(String errormsg) deleteBannerError,
   }) {
     return getBannerSuccess(banners);
@@ -1241,7 +1241,7 @@ class _$GetBannerSuccessImpl implements GetBannerSuccess {
     TResult? Function(String successmsg)? loaded,
     TResult? Function(String errormsg)? errorSt,
     TResult? Function(List<Banner> banners)? getBannerSuccess,
-    TResult? Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult? Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult? Function(String errormsg)? deleteBannerError,
   }) {
     return getBannerSuccess?.call(banners);
@@ -1255,7 +1255,7 @@ class _$GetBannerSuccessImpl implements GetBannerSuccess {
     TResult Function(String successmsg)? loaded,
     TResult Function(String errormsg)? errorSt,
     TResult Function(List<Banner> banners)? getBannerSuccess,
-    TResult Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult Function(String errormsg)? deleteBannerError,
     required TResult orElse(),
   }) {
@@ -1328,7 +1328,7 @@ abstract class _$$DeleteBannerSuccessImplCopyWith<$Res> {
           $Res Function(_$DeleteBannerSuccessImpl) then) =
       __$$DeleteBannerSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String dltErrmsg});
+  $Res call({String dltsuccessmsg});
 }
 
 /// @nodoc
@@ -1342,12 +1342,12 @@ class __$$DeleteBannerSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dltErrmsg = null,
+    Object? dltsuccessmsg = null,
   }) {
     return _then(_$DeleteBannerSuccessImpl(
-      dltErrmsg: null == dltErrmsg
-          ? _value.dltErrmsg
-          : dltErrmsg // ignore: cast_nullable_to_non_nullable
+      dltsuccessmsg: null == dltsuccessmsg
+          ? _value.dltsuccessmsg
+          : dltsuccessmsg // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -1356,14 +1356,14 @@ class __$$DeleteBannerSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeleteBannerSuccessImpl implements DeleteBannerSuccess {
-  const _$DeleteBannerSuccessImpl({required this.dltErrmsg});
+  const _$DeleteBannerSuccessImpl({required this.dltsuccessmsg});
 
   @override
-  final String dltErrmsg;
+  final String dltsuccessmsg;
 
   @override
   String toString() {
-    return 'BannerState.deleteBannerSuccess(dltErrmsg: $dltErrmsg)';
+    return 'BannerState.deleteBannerSuccess(dltsuccessmsg: $dltsuccessmsg)';
   }
 
   @override
@@ -1371,12 +1371,12 @@ class _$DeleteBannerSuccessImpl implements DeleteBannerSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeleteBannerSuccessImpl &&
-            (identical(other.dltErrmsg, dltErrmsg) ||
-                other.dltErrmsg == dltErrmsg));
+            (identical(other.dltsuccessmsg, dltsuccessmsg) ||
+                other.dltsuccessmsg == dltsuccessmsg));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, dltErrmsg);
+  int get hashCode => Object.hash(runtimeType, dltsuccessmsg);
 
   @JsonKey(ignore: true)
   @override
@@ -1393,10 +1393,10 @@ class _$DeleteBannerSuccessImpl implements DeleteBannerSuccess {
     required TResult Function(String successmsg) loaded,
     required TResult Function(String errormsg) errorSt,
     required TResult Function(List<Banner> banners) getBannerSuccess,
-    required TResult Function(String dltErrmsg) deleteBannerSuccess,
+    required TResult Function(String dltsuccessmsg) deleteBannerSuccess,
     required TResult Function(String errormsg) deleteBannerError,
   }) {
-    return deleteBannerSuccess(dltErrmsg);
+    return deleteBannerSuccess(dltsuccessmsg);
   }
 
   @override
@@ -1407,10 +1407,10 @@ class _$DeleteBannerSuccessImpl implements DeleteBannerSuccess {
     TResult? Function(String successmsg)? loaded,
     TResult? Function(String errormsg)? errorSt,
     TResult? Function(List<Banner> banners)? getBannerSuccess,
-    TResult? Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult? Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult? Function(String errormsg)? deleteBannerError,
   }) {
-    return deleteBannerSuccess?.call(dltErrmsg);
+    return deleteBannerSuccess?.call(dltsuccessmsg);
   }
 
   @override
@@ -1421,12 +1421,12 @@ class _$DeleteBannerSuccessImpl implements DeleteBannerSuccess {
     TResult Function(String successmsg)? loaded,
     TResult Function(String errormsg)? errorSt,
     TResult Function(List<Banner> banners)? getBannerSuccess,
-    TResult Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult Function(String errormsg)? deleteBannerError,
     required TResult orElse(),
   }) {
     if (deleteBannerSuccess != null) {
-      return deleteBannerSuccess(dltErrmsg);
+      return deleteBannerSuccess(dltsuccessmsg);
     }
     return orElse();
   }
@@ -1479,10 +1479,10 @@ class _$DeleteBannerSuccessImpl implements DeleteBannerSuccess {
 }
 
 abstract class DeleteBannerSuccess implements BannerState {
-  const factory DeleteBannerSuccess({required final String dltErrmsg}) =
+  const factory DeleteBannerSuccess({required final String dltsuccessmsg}) =
       _$DeleteBannerSuccessImpl;
 
-  String get dltErrmsg;
+  String get dltsuccessmsg;
   @JsonKey(ignore: true)
   _$$DeleteBannerSuccessImplCopyWith<_$DeleteBannerSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1559,7 +1559,7 @@ class _$DeleteBannerErrorImpl implements DeleteBannerError {
     required TResult Function(String successmsg) loaded,
     required TResult Function(String errormsg) errorSt,
     required TResult Function(List<Banner> banners) getBannerSuccess,
-    required TResult Function(String dltErrmsg) deleteBannerSuccess,
+    required TResult Function(String dltsuccessmsg) deleteBannerSuccess,
     required TResult Function(String errormsg) deleteBannerError,
   }) {
     return deleteBannerError(errormsg);
@@ -1573,7 +1573,7 @@ class _$DeleteBannerErrorImpl implements DeleteBannerError {
     TResult? Function(String successmsg)? loaded,
     TResult? Function(String errormsg)? errorSt,
     TResult? Function(List<Banner> banners)? getBannerSuccess,
-    TResult? Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult? Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult? Function(String errormsg)? deleteBannerError,
   }) {
     return deleteBannerError?.call(errormsg);
@@ -1587,7 +1587,7 @@ class _$DeleteBannerErrorImpl implements DeleteBannerError {
     TResult Function(String successmsg)? loaded,
     TResult Function(String errormsg)? errorSt,
     TResult Function(List<Banner> banners)? getBannerSuccess,
-    TResult Function(String dltErrmsg)? deleteBannerSuccess,
+    TResult Function(String dltsuccessmsg)? deleteBannerSuccess,
     TResult Function(String errormsg)? deleteBannerError,
     required TResult orElse(),
   }) {

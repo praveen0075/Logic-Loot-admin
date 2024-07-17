@@ -85,7 +85,7 @@ class BannerServices implements BannerRepo {
       return const Left("Unauthorized admin");
     } else {
       try {
-        final response = await http.Client().get(
+        final response = await http.Client().delete(
             Uri.parse("https://lapify.online/admin/banner/$id"),
             headers: {"Cookie": "Authorise=$adminToken"});
 
