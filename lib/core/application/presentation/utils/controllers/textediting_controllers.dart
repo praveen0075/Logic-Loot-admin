@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TxtEdtControllers {
-  static String? productName;
-  static int? productPrice;
-  static int? productQuanity;
-  static String? productSpec;
-  static String? productDesc;
-  
-  TxtEdtControllers();
-
   static final addCategoryNameController = TextEditingController();
 
   static final addCategoryDescriptioncontroller = TextEditingController();
@@ -29,17 +21,17 @@ class TxtEdtControllers {
       TextEditingController();
 
   static final TextEditingController editproductNameController =
-      TextEditingController(text: productName);
+      TextEditingController();
   static final TextEditingController editproductPriceController =
-      TextEditingController(text: productPrice.toString());
+      TextEditingController();
   static final TextEditingController editproductQuantityController =
-      TextEditingController(text: productQuanity.toString());
+      TextEditingController();
   static final TextEditingController editproductCategoryController =
       TextEditingController();
   static final TextEditingController editproductSizeController =
       TextEditingController();
   static final TextEditingController editproductSpecController =
-      TextEditingController(text: productSpec);
+      TextEditingController();
   static final TextEditingController editproductDescriptionController =
-      TextEditingController(text:  productDesc);
+      TextEditingController();
 }

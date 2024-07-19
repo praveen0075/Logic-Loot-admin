@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:logic_loot_admin/core/data/shared_preferances/shared_pref.dart';
@@ -119,8 +120,7 @@ class ProductServices implements IproductRepo {
       print("admin token ----> $tkn");
 
       if (tkn == null) {
-        print("token is empty");
-        return Left("Some internal error occured (T)");
+        return const Left("Some internal error occured (T)");
       } else {
         final response = await http.Client().get(
             Uri.parse("https://lapify.online/admin/products/details/$id"),
@@ -186,16 +186,30 @@ class ProductServices implements IproductRepo {
 
   @override
   Future<Either<String, String>> editProductById(
-      {required AddproductModel productModel}) async {
+      {required AddproductModel productModel, required int productId}) async {
     final adminToken = await SharedPreffs.getAdminToken();
+    final jsonModel = jsonEncode(productModel);
     if (adminToken == null) {
-      return Left("Oops! something bad occured");
+      return const Left("Oops! something bad occured");
     } else {
       try {
-        final response = await http.Client().put(Uri.parse(""));
-        return Left("sjdljfl");
+        final response = await http.Client().post(
+            Uri.parse("https://lapify.online/admin/products/$productId"),
+            headers: {"Cookie": "Authorise=$adminToken"},
+            body: jsonModel);
+
+        log("Status code ---> ${response.statusCode}");
+
+        if (response.statusCode == 200) {
+          return const Right("Product Updated");
+        } else {
+          final result = jsonDecode(response.body);
+          final errormsg = result["error"];
+          return Left(errormsg);
+        }
       } catch (e) {
-        return Left(e.toString());
+        log("Exception occured --> $e");
+        return const Left("Oops! unable to reach server");
       }
     }
   }

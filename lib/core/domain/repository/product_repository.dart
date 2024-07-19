@@ -11,5 +11,5 @@ abstract class IproductRepo {
       {required int id});
   Future<Either<String, String>> deleteProductById({required int productId});
   Future<Either<String, String>> editProductById(
-      {required AddproductModel productModel});
+      {required AddproductModel productModel,required int productId});
 }

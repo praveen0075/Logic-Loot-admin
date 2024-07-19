@@ -7,6 +7,7 @@ import 'package:logic_loot_admin/core/application/bloc/coupon/coupon_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/customer/customer_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/orders/orders_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
+import 'package:logic_loot_admin/core/application/bloc/product_by_id/product_by_id_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/dashboard/dashboard_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/login/login_screen.dart';
 import 'package:logic_loot_admin/core/data/services/auth_services.dart';
@@ -17,6 +18,7 @@ import 'package:logic_loot_admin/core/data/services/customer_services.dart';
 import 'package:logic_loot_admin/core/data/services/order_services.dart';
 import 'package:logic_loot_admin/core/data/services/product_services.dart';
 import 'package:logic_loot_admin/core/data/shared_preferances/shared_pref.dart';
+import 'package:logic_loot_admin/core/domain/model/response_model/get_productby_id_response_model.dart';
 
 bool? log;
 
@@ -61,6 +63,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<BannerBloc>(
           create: (context) => BannerBloc(bannerRepo),
+        ),
+        BlocProvider<ProductByIdBloc>(
+          create: (context) => ProductByIdBloc(productRepo),
         ),
       ],
       child: MaterialApp(

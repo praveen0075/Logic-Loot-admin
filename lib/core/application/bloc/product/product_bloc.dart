@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logic_loot_admin/core/domain/model/body_model/product_model.dart';
 import 'package:logic_loot_admin/core/domain/model/response_model/get_product_response_model.dart';
-import 'package:logic_loot_admin/core/domain/model/response_model/get_productby_id_response_model.dart';
 import 'package:logic_loot_admin/core/domain/repository/product_repository.dart';
 
 part 'product_event.dart';
@@ -35,17 +34,26 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           (success) => emit(ProductState.addSuccess(success)));
     });
 
-    on<_GetProductById>((event, emit) async {
+    on<_EditProductEvent>((event, emit) async {
       emit(const ProductState.loading());
-      final result =
-          await productRepo.getProductDetialsById(id: event.productId);
+      final result = await productRepo.editProductById(
+          productModel: event.productModel, productId: event.productId);
       result.fold(
-          (failure) => emit(ProductState.getProductByIdFailure(failure)),
-          (success) => emit(ProductState.getProductByIdSuccess(
-              inventory: success.inventory,
-              productDetails: success.productDetails,
-              products: success.products)));
-    }); 
+          (failure) => emit(ProductState.editProductByIdFailure(failure)),
+          (success) => emit(ProductState.editProductByIdSuccess(success)));
+    });
+
+    // on<_GetProductById>((event, emit) async {
+    //   emit(const ProductState.loading());
+    //   final result =
+    //       await productRepo.getProductDetialsById(id: event.productId);
+    //   result.fold(
+    //       (failure) => emit(ProductState.getProductByIdFailure(failure)),
+    //       (success) => emit(ProductState.getProductByIdSuccess(
+    //           inventory: success.inventory,
+    //           productDetails: success.productDetails,
+    //           products: success.products)));
+    // });
     // on<_GetAllProductEvent>((event, emit) async {
     //   emit(state.copyWith(isLoading: true));
     //   final result = await productRepo.getAllProuducts();

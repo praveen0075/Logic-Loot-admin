@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/edit_product_screen.dart';
+import 'package:logic_loot_admin/core/application/presentation/pages/products/edit_products_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/product_display_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
 import 'package:logic_loot_admin/core/application/presentation/widgets/snackbar_widget.dart';
@@ -163,9 +164,7 @@ class ProductTileWidget extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => 
-                                              EditProductScreen( 
-                                                 productId:  state.products[index].id,
-                                                      ),
+                                              EditProductScreen(productID: state.products[index].id,)
                                         ),
                                       );
                                     } else if (value == 'Delete') {

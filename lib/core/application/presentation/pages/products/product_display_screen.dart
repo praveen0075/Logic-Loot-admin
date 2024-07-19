@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logic_loot_admin/core/application/bloc/product/product_bloc.dart';
+import 'package:logic_loot_admin/core/application/bloc/product_by_id/product_by_id_bloc.dart';
 import 'package:logic_loot_admin/core/application/presentation/pages/products/product_screen.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/colors.dart';
 import 'package:logic_loot_admin/core/application/presentation/utils/constants/space_constants.dart';
@@ -13,8 +14,8 @@ class ProductDisplayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ProductBloc>(context)
-        .add(ProductEvent.getProductById(productId: id));
+    BlocProvider.of<ProductByIdBloc>(context)
+        .add(ProductByIdEvent.getProductById(productId: id));
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -27,7 +28,7 @@ class ProductDisplayScreen extends StatelessWidget {
             }, icon: const Icon(Icons.arrow_back)),
             title: "Product Details",
           )),
-      body: BlocBuilder<ProductBloc, ProductState>(
+      body: BlocBuilder<ProductByIdBloc, ProductByIdState>(
         builder: (context, state) {
           if (state is Loading) {
             return const Center(child: CircularProgressIndicator());

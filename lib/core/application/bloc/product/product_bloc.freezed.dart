@@ -20,27 +20,27 @@ mixin _$ProductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(AddproductModel productModel) addProductEvent,
     required TResult Function() getAllProductEvent,
-    required TResult Function(int productId) getProductById,
     required TResult Function(int productId) deleteProductByid,
-    required TResult Function(AddproductModel productModel) editProductById,
+    required TResult Function(AddproductModel productModel, int productId)
+        editProductById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddproductModel productModel)? addProductEvent,
     TResult? Function()? getAllProductEvent,
-    TResult? Function(int productId)? getProductById,
     TResult? Function(int productId)? deleteProductByid,
-    TResult? Function(AddproductModel productModel)? editProductById,
+    TResult? Function(AddproductModel productModel, int productId)?
+        editProductById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddproductModel productModel)? addProductEvent,
     TResult Function()? getAllProductEvent,
-    TResult Function(int productId)? getProductById,
     TResult Function(int productId)? deleteProductByid,
-    TResult Function(AddproductModel productModel)? editProductById,
+    TResult Function(AddproductModel productModel, int productId)?
+        editProductById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,7 +48,6 @@ mixin _$ProductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddproductEvent value) addProductEvent,
     required TResult Function(_GetAllProductEvent value) getAllProductEvent,
-    required TResult Function(_GetProductById value) getProductById,
     required TResult Function(_DeleteProductById value) deleteProductByid,
     required TResult Function(_EditProductEvent value) editProductById,
   }) =>
@@ -57,7 +56,6 @@ mixin _$ProductEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddproductEvent value)? addProductEvent,
     TResult? Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult? Function(_GetProductById value)? getProductById,
     TResult? Function(_DeleteProductById value)? deleteProductByid,
     TResult? Function(_EditProductEvent value)? editProductById,
   }) =>
@@ -66,7 +64,6 @@ mixin _$ProductEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddproductEvent value)? addProductEvent,
     TResult Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult Function(_GetProductById value)? getProductById,
     TResult Function(_DeleteProductById value)? deleteProductByid,
     TResult Function(_EditProductEvent value)? editProductById,
     required TResult orElse(),
@@ -160,9 +157,9 @@ class _$AddproductEventImpl implements _AddproductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(AddproductModel productModel) addProductEvent,
     required TResult Function() getAllProductEvent,
-    required TResult Function(int productId) getProductById,
     required TResult Function(int productId) deleteProductByid,
-    required TResult Function(AddproductModel productModel) editProductById,
+    required TResult Function(AddproductModel productModel, int productId)
+        editProductById,
   }) {
     return addProductEvent(productModel);
   }
@@ -172,9 +169,9 @@ class _$AddproductEventImpl implements _AddproductEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddproductModel productModel)? addProductEvent,
     TResult? Function()? getAllProductEvent,
-    TResult? Function(int productId)? getProductById,
     TResult? Function(int productId)? deleteProductByid,
-    TResult? Function(AddproductModel productModel)? editProductById,
+    TResult? Function(AddproductModel productModel, int productId)?
+        editProductById,
   }) {
     return addProductEvent?.call(productModel);
   }
@@ -184,9 +181,9 @@ class _$AddproductEventImpl implements _AddproductEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddproductModel productModel)? addProductEvent,
     TResult Function()? getAllProductEvent,
-    TResult Function(int productId)? getProductById,
     TResult Function(int productId)? deleteProductByid,
-    TResult Function(AddproductModel productModel)? editProductById,
+    TResult Function(AddproductModel productModel, int productId)?
+        editProductById,
     required TResult orElse(),
   }) {
     if (addProductEvent != null) {
@@ -200,7 +197,6 @@ class _$AddproductEventImpl implements _AddproductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddproductEvent value) addProductEvent,
     required TResult Function(_GetAllProductEvent value) getAllProductEvent,
-    required TResult Function(_GetProductById value) getProductById,
     required TResult Function(_DeleteProductById value) deleteProductByid,
     required TResult Function(_EditProductEvent value) editProductById,
   }) {
@@ -212,7 +208,6 @@ class _$AddproductEventImpl implements _AddproductEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddproductEvent value)? addProductEvent,
     TResult? Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult? Function(_GetProductById value)? getProductById,
     TResult? Function(_DeleteProductById value)? deleteProductByid,
     TResult? Function(_EditProductEvent value)? editProductById,
   }) {
@@ -224,7 +219,6 @@ class _$AddproductEventImpl implements _AddproductEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddproductEvent value)? addProductEvent,
     TResult Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult Function(_GetProductById value)? getProductById,
     TResult Function(_DeleteProductById value)? deleteProductByid,
     TResult Function(_EditProductEvent value)? editProductById,
     required TResult orElse(),
@@ -286,9 +280,9 @@ class _$GetAllProductEventImpl implements _GetAllProductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(AddproductModel productModel) addProductEvent,
     required TResult Function() getAllProductEvent,
-    required TResult Function(int productId) getProductById,
     required TResult Function(int productId) deleteProductByid,
-    required TResult Function(AddproductModel productModel) editProductById,
+    required TResult Function(AddproductModel productModel, int productId)
+        editProductById,
   }) {
     return getAllProductEvent();
   }
@@ -298,9 +292,9 @@ class _$GetAllProductEventImpl implements _GetAllProductEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddproductModel productModel)? addProductEvent,
     TResult? Function()? getAllProductEvent,
-    TResult? Function(int productId)? getProductById,
     TResult? Function(int productId)? deleteProductByid,
-    TResult? Function(AddproductModel productModel)? editProductById,
+    TResult? Function(AddproductModel productModel, int productId)?
+        editProductById,
   }) {
     return getAllProductEvent?.call();
   }
@@ -310,9 +304,9 @@ class _$GetAllProductEventImpl implements _GetAllProductEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddproductModel productModel)? addProductEvent,
     TResult Function()? getAllProductEvent,
-    TResult Function(int productId)? getProductById,
     TResult Function(int productId)? deleteProductByid,
-    TResult Function(AddproductModel productModel)? editProductById,
+    TResult Function(AddproductModel productModel, int productId)?
+        editProductById,
     required TResult orElse(),
   }) {
     if (getAllProductEvent != null) {
@@ -326,7 +320,6 @@ class _$GetAllProductEventImpl implements _GetAllProductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddproductEvent value) addProductEvent,
     required TResult Function(_GetAllProductEvent value) getAllProductEvent,
-    required TResult Function(_GetProductById value) getProductById,
     required TResult Function(_DeleteProductById value) deleteProductByid,
     required TResult Function(_EditProductEvent value) editProductById,
   }) {
@@ -338,7 +331,6 @@ class _$GetAllProductEventImpl implements _GetAllProductEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddproductEvent value)? addProductEvent,
     TResult? Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult? Function(_GetProductById value)? getProductById,
     TResult? Function(_DeleteProductById value)? deleteProductByid,
     TResult? Function(_EditProductEvent value)? editProductById,
   }) {
@@ -350,7 +342,6 @@ class _$GetAllProductEventImpl implements _GetAllProductEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddproductEvent value)? addProductEvent,
     TResult Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult Function(_GetProductById value)? getProductById,
     TResult Function(_DeleteProductById value)? deleteProductByid,
     TResult Function(_EditProductEvent value)? editProductById,
     required TResult orElse(),
@@ -364,160 +355,6 @@ class _$GetAllProductEventImpl implements _GetAllProductEvent {
 
 abstract class _GetAllProductEvent implements ProductEvent {
   const factory _GetAllProductEvent() = _$GetAllProductEventImpl;
-}
-
-/// @nodoc
-abstract class _$$GetProductByIdImplCopyWith<$Res> {
-  factory _$$GetProductByIdImplCopyWith(_$GetProductByIdImpl value,
-          $Res Function(_$GetProductByIdImpl) then) =
-      __$$GetProductByIdImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int productId});
-}
-
-/// @nodoc
-class __$$GetProductByIdImplCopyWithImpl<$Res>
-    extends _$ProductEventCopyWithImpl<$Res, _$GetProductByIdImpl>
-    implements _$$GetProductByIdImplCopyWith<$Res> {
-  __$$GetProductByIdImplCopyWithImpl(
-      _$GetProductByIdImpl _value, $Res Function(_$GetProductByIdImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? productId = null,
-  }) {
-    return _then(_$GetProductByIdImpl(
-      productId: null == productId
-          ? _value.productId
-          : productId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetProductByIdImpl implements _GetProductById {
-  const _$GetProductByIdImpl({required this.productId});
-
-  @override
-  final int productId;
-
-  @override
-  String toString() {
-    return 'ProductEvent.getProductById(productId: $productId)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetProductByIdImpl &&
-            (identical(other.productId, productId) ||
-                other.productId == productId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, productId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetProductByIdImplCopyWith<_$GetProductByIdImpl> get copyWith =>
-      __$$GetProductByIdImplCopyWithImpl<_$GetProductByIdImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AddproductModel productModel) addProductEvent,
-    required TResult Function() getAllProductEvent,
-    required TResult Function(int productId) getProductById,
-    required TResult Function(int productId) deleteProductByid,
-    required TResult Function(AddproductModel productModel) editProductById,
-  }) {
-    return getProductById(productId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AddproductModel productModel)? addProductEvent,
-    TResult? Function()? getAllProductEvent,
-    TResult? Function(int productId)? getProductById,
-    TResult? Function(int productId)? deleteProductByid,
-    TResult? Function(AddproductModel productModel)? editProductById,
-  }) {
-    return getProductById?.call(productId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AddproductModel productModel)? addProductEvent,
-    TResult Function()? getAllProductEvent,
-    TResult Function(int productId)? getProductById,
-    TResult Function(int productId)? deleteProductByid,
-    TResult Function(AddproductModel productModel)? editProductById,
-    required TResult orElse(),
-  }) {
-    if (getProductById != null) {
-      return getProductById(productId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AddproductEvent value) addProductEvent,
-    required TResult Function(_GetAllProductEvent value) getAllProductEvent,
-    required TResult Function(_GetProductById value) getProductById,
-    required TResult Function(_DeleteProductById value) deleteProductByid,
-    required TResult Function(_EditProductEvent value) editProductById,
-  }) {
-    return getProductById(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AddproductEvent value)? addProductEvent,
-    TResult? Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult? Function(_GetProductById value)? getProductById,
-    TResult? Function(_DeleteProductById value)? deleteProductByid,
-    TResult? Function(_EditProductEvent value)? editProductById,
-  }) {
-    return getProductById?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AddproductEvent value)? addProductEvent,
-    TResult Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult Function(_GetProductById value)? getProductById,
-    TResult Function(_DeleteProductById value)? deleteProductByid,
-    TResult Function(_EditProductEvent value)? editProductById,
-    required TResult orElse(),
-  }) {
-    if (getProductById != null) {
-      return getProductById(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetProductById implements ProductEvent {
-  const factory _GetProductById({required final int productId}) =
-      _$GetProductByIdImpl;
-
-  int get productId;
-  @JsonKey(ignore: true)
-  _$$GetProductByIdImplCopyWith<_$GetProductByIdImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -588,9 +425,9 @@ class _$DeleteProductByIdImpl implements _DeleteProductById {
   TResult when<TResult extends Object?>({
     required TResult Function(AddproductModel productModel) addProductEvent,
     required TResult Function() getAllProductEvent,
-    required TResult Function(int productId) getProductById,
     required TResult Function(int productId) deleteProductByid,
-    required TResult Function(AddproductModel productModel) editProductById,
+    required TResult Function(AddproductModel productModel, int productId)
+        editProductById,
   }) {
     return deleteProductByid(productId);
   }
@@ -600,9 +437,9 @@ class _$DeleteProductByIdImpl implements _DeleteProductById {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddproductModel productModel)? addProductEvent,
     TResult? Function()? getAllProductEvent,
-    TResult? Function(int productId)? getProductById,
     TResult? Function(int productId)? deleteProductByid,
-    TResult? Function(AddproductModel productModel)? editProductById,
+    TResult? Function(AddproductModel productModel, int productId)?
+        editProductById,
   }) {
     return deleteProductByid?.call(productId);
   }
@@ -612,9 +449,9 @@ class _$DeleteProductByIdImpl implements _DeleteProductById {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddproductModel productModel)? addProductEvent,
     TResult Function()? getAllProductEvent,
-    TResult Function(int productId)? getProductById,
     TResult Function(int productId)? deleteProductByid,
-    TResult Function(AddproductModel productModel)? editProductById,
+    TResult Function(AddproductModel productModel, int productId)?
+        editProductById,
     required TResult orElse(),
   }) {
     if (deleteProductByid != null) {
@@ -628,7 +465,6 @@ class _$DeleteProductByIdImpl implements _DeleteProductById {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddproductEvent value) addProductEvent,
     required TResult Function(_GetAllProductEvent value) getAllProductEvent,
-    required TResult Function(_GetProductById value) getProductById,
     required TResult Function(_DeleteProductById value) deleteProductByid,
     required TResult Function(_EditProductEvent value) editProductById,
   }) {
@@ -640,7 +476,6 @@ class _$DeleteProductByIdImpl implements _DeleteProductById {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddproductEvent value)? addProductEvent,
     TResult? Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult? Function(_GetProductById value)? getProductById,
     TResult? Function(_DeleteProductById value)? deleteProductByid,
     TResult? Function(_EditProductEvent value)? editProductById,
   }) {
@@ -652,7 +487,6 @@ class _$DeleteProductByIdImpl implements _DeleteProductById {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddproductEvent value)? addProductEvent,
     TResult Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult Function(_GetProductById value)? getProductById,
     TResult Function(_DeleteProductById value)? deleteProductByid,
     TResult Function(_EditProductEvent value)? editProductById,
     required TResult orElse(),
@@ -680,7 +514,7 @@ abstract class _$$EditProductEventImplCopyWith<$Res> {
           $Res Function(_$EditProductEventImpl) then) =
       __$$EditProductEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AddproductModel productModel});
+  $Res call({AddproductModel productModel, int productId});
 }
 
 /// @nodoc
@@ -695,12 +529,17 @@ class __$$EditProductEventImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productModel = null,
+    Object? productId = null,
   }) {
     return _then(_$EditProductEventImpl(
       productModel: null == productModel
           ? _value.productModel
           : productModel // ignore: cast_nullable_to_non_nullable
               as AddproductModel,
+      productId: null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -708,14 +547,17 @@ class __$$EditProductEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EditProductEventImpl implements _EditProductEvent {
-  const _$EditProductEventImpl({required this.productModel});
+  const _$EditProductEventImpl(
+      {required this.productModel, required this.productId});
 
   @override
   final AddproductModel productModel;
+  @override
+  final int productId;
 
   @override
   String toString() {
-    return 'ProductEvent.editProductById(productModel: $productModel)';
+    return 'ProductEvent.editProductById(productModel: $productModel, productId: $productId)';
   }
 
   @override
@@ -724,11 +566,13 @@ class _$EditProductEventImpl implements _EditProductEvent {
         (other.runtimeType == runtimeType &&
             other is _$EditProductEventImpl &&
             (identical(other.productModel, productModel) ||
-                other.productModel == productModel));
+                other.productModel == productModel) &&
+            (identical(other.productId, productId) ||
+                other.productId == productId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, productModel);
+  int get hashCode => Object.hash(runtimeType, productModel, productId);
 
   @JsonKey(ignore: true)
   @override
@@ -742,11 +586,11 @@ class _$EditProductEventImpl implements _EditProductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(AddproductModel productModel) addProductEvent,
     required TResult Function() getAllProductEvent,
-    required TResult Function(int productId) getProductById,
     required TResult Function(int productId) deleteProductByid,
-    required TResult Function(AddproductModel productModel) editProductById,
+    required TResult Function(AddproductModel productModel, int productId)
+        editProductById,
   }) {
-    return editProductById(productModel);
+    return editProductById(productModel, productId);
   }
 
   @override
@@ -754,11 +598,11 @@ class _$EditProductEventImpl implements _EditProductEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AddproductModel productModel)? addProductEvent,
     TResult? Function()? getAllProductEvent,
-    TResult? Function(int productId)? getProductById,
     TResult? Function(int productId)? deleteProductByid,
-    TResult? Function(AddproductModel productModel)? editProductById,
+    TResult? Function(AddproductModel productModel, int productId)?
+        editProductById,
   }) {
-    return editProductById?.call(productModel);
+    return editProductById?.call(productModel, productId);
   }
 
   @override
@@ -766,13 +610,13 @@ class _$EditProductEventImpl implements _EditProductEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AddproductModel productModel)? addProductEvent,
     TResult Function()? getAllProductEvent,
-    TResult Function(int productId)? getProductById,
     TResult Function(int productId)? deleteProductByid,
-    TResult Function(AddproductModel productModel)? editProductById,
+    TResult Function(AddproductModel productModel, int productId)?
+        editProductById,
     required TResult orElse(),
   }) {
     if (editProductById != null) {
-      return editProductById(productModel);
+      return editProductById(productModel, productId);
     }
     return orElse();
   }
@@ -782,7 +626,6 @@ class _$EditProductEventImpl implements _EditProductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddproductEvent value) addProductEvent,
     required TResult Function(_GetAllProductEvent value) getAllProductEvent,
-    required TResult Function(_GetProductById value) getProductById,
     required TResult Function(_DeleteProductById value) deleteProductByid,
     required TResult Function(_EditProductEvent value) editProductById,
   }) {
@@ -794,7 +637,6 @@ class _$EditProductEventImpl implements _EditProductEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddproductEvent value)? addProductEvent,
     TResult? Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult? Function(_GetProductById value)? getProductById,
     TResult? Function(_DeleteProductById value)? deleteProductByid,
     TResult? Function(_EditProductEvent value)? editProductById,
   }) {
@@ -806,7 +648,6 @@ class _$EditProductEventImpl implements _EditProductEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddproductEvent value)? addProductEvent,
     TResult Function(_GetAllProductEvent value)? getAllProductEvent,
-    TResult Function(_GetProductById value)? getProductById,
     TResult Function(_DeleteProductById value)? deleteProductByid,
     TResult Function(_EditProductEvent value)? editProductById,
     required TResult orElse(),
@@ -820,9 +661,11 @@ class _$EditProductEventImpl implements _EditProductEvent {
 
 abstract class _EditProductEvent implements ProductEvent {
   const factory _EditProductEvent(
-      {required final AddproductModel productModel}) = _$EditProductEventImpl;
+      {required final AddproductModel productModel,
+      required final int productId}) = _$EditProductEventImpl;
 
   AddproductModel get productModel;
+  int get productId;
   @JsonKey(ignore: true)
   _$$EditProductEventImplCopyWith<_$EditProductEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -841,10 +684,6 @@ mixin _$ProductState {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) =>
@@ -860,10 +699,6 @@ mixin _$ProductState {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) =>
@@ -879,10 +714,6 @@ mixin _$ProductState {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -899,10 +730,6 @@ mixin _$ProductState {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -920,8 +747,6 @@ mixin _$ProductState {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) =>
@@ -937,8 +762,6 @@ mixin _$ProductState {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -1011,10 +834,6 @@ class _$InitialImpl implements Initial {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -1033,10 +852,6 @@ class _$InitialImpl implements Initial {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -1055,10 +870,6 @@ class _$InitialImpl implements Initial {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -1081,10 +892,6 @@ class _$InitialImpl implements Initial {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -1105,8 +912,6 @@ class _$InitialImpl implements Initial {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -1125,8 +930,6 @@ class _$InitialImpl implements Initial {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -1189,10 +992,6 @@ class _$LoadingImpl implements Loading {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -1211,10 +1010,6 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -1233,10 +1028,6 @@ class _$LoadingImpl implements Loading {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -1259,10 +1050,6 @@ class _$LoadingImpl implements Loading {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -1283,8 +1070,6 @@ class _$LoadingImpl implements Loading {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -1303,8 +1088,6 @@ class _$LoadingImpl implements Loading {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -1393,10 +1176,6 @@ class _$ErrorstImpl implements Errorst {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -1415,10 +1194,6 @@ class _$ErrorstImpl implements Errorst {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -1437,10 +1212,6 @@ class _$ErrorstImpl implements Errorst {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -1463,10 +1234,6 @@ class _$ErrorstImpl implements Errorst {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -1487,8 +1254,6 @@ class _$ErrorstImpl implements Errorst {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -1507,8 +1272,6 @@ class _$ErrorstImpl implements Errorst {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -1608,10 +1371,6 @@ class _$SuccessImpl implements Success {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -1630,10 +1389,6 @@ class _$SuccessImpl implements Success {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -1652,10 +1407,6 @@ class _$SuccessImpl implements Success {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -1678,10 +1429,6 @@ class _$SuccessImpl implements Success {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -1702,8 +1449,6 @@ class _$SuccessImpl implements Success {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -1722,8 +1467,6 @@ class _$SuccessImpl implements Success {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -1818,10 +1561,6 @@ class _$AddSuccessImpl implements AddSuccess {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -1840,10 +1579,6 @@ class _$AddSuccessImpl implements AddSuccess {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -1862,10 +1597,6 @@ class _$AddSuccessImpl implements AddSuccess {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -1888,10 +1619,6 @@ class _$AddSuccessImpl implements AddSuccess {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -1912,8 +1639,6 @@ class _$AddSuccessImpl implements AddSuccess {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -1932,8 +1657,6 @@ class _$AddSuccessImpl implements AddSuccess {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -2028,10 +1751,6 @@ class _$AddFailureImpl implements AddFailure {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -2050,10 +1769,6 @@ class _$AddFailureImpl implements AddFailure {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -2072,10 +1787,6 @@ class _$AddFailureImpl implements AddFailure {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -2098,10 +1809,6 @@ class _$AddFailureImpl implements AddFailure {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -2122,8 +1829,6 @@ class _$AddFailureImpl implements AddFailure {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -2142,8 +1847,6 @@ class _$AddFailureImpl implements AddFailure {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -2211,10 +1914,6 @@ class _$AddLoadingImpl implements AddLoading {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -2233,10 +1932,6 @@ class _$AddLoadingImpl implements AddLoading {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -2255,10 +1950,6 @@ class _$AddLoadingImpl implements AddLoading {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -2281,10 +1972,6 @@ class _$AddLoadingImpl implements AddLoading {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -2305,8 +1992,6 @@ class _$AddLoadingImpl implements AddLoading {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -2325,8 +2010,6 @@ class _$AddLoadingImpl implements AddLoading {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -2416,10 +2099,6 @@ class _$DeleteSuccessImpl implements DeleteSuccess {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -2438,10 +2117,6 @@ class _$DeleteSuccessImpl implements DeleteSuccess {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -2460,10 +2135,6 @@ class _$DeleteSuccessImpl implements DeleteSuccess {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -2486,10 +2157,6 @@ class _$DeleteSuccessImpl implements DeleteSuccess {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -2510,8 +2177,6 @@ class _$DeleteSuccessImpl implements DeleteSuccess {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -2530,8 +2195,6 @@ class _$DeleteSuccessImpl implements DeleteSuccess {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -2626,10 +2289,6 @@ class _$DeleteFailureImpl implements DeleteFailure {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -2648,10 +2307,6 @@ class _$DeleteFailureImpl implements DeleteFailure {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -2670,10 +2325,6 @@ class _$DeleteFailureImpl implements DeleteFailure {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -2696,10 +2347,6 @@ class _$DeleteFailureImpl implements DeleteFailure {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -2720,8 +2367,6 @@ class _$DeleteFailureImpl implements DeleteFailure {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -2740,8 +2385,6 @@ class _$DeleteFailureImpl implements DeleteFailure {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -2760,460 +2403,6 @@ abstract class DeleteFailure implements ProductState {
   @JsonKey(ignore: true)
   _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetProductByIdSuccessImplCopyWith<$Res> {
-  factory _$$GetProductByIdSuccessImplCopyWith(
-          _$GetProductByIdSuccessImpl value,
-          $Res Function(_$GetProductByIdSuccessImpl) then) =
-      __$$GetProductByIdSuccessImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call(
-      {ProductById products,
-      ProductDetails productDetails,
-      Inventory inventory});
-}
-
-/// @nodoc
-class __$$GetProductByIdSuccessImplCopyWithImpl<$Res>
-    extends _$ProductStateCopyWithImpl<$Res, _$GetProductByIdSuccessImpl>
-    implements _$$GetProductByIdSuccessImplCopyWith<$Res> {
-  __$$GetProductByIdSuccessImplCopyWithImpl(_$GetProductByIdSuccessImpl _value,
-      $Res Function(_$GetProductByIdSuccessImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? products = null,
-    Object? productDetails = null,
-    Object? inventory = null,
-  }) {
-    return _then(_$GetProductByIdSuccessImpl(
-      products: null == products
-          ? _value.products
-          : products // ignore: cast_nullable_to_non_nullable
-              as ProductById,
-      productDetails: null == productDetails
-          ? _value.productDetails
-          : productDetails // ignore: cast_nullable_to_non_nullable
-              as ProductDetails,
-      inventory: null == inventory
-          ? _value.inventory
-          : inventory // ignore: cast_nullable_to_non_nullable
-              as Inventory,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetProductByIdSuccessImpl implements GetProductByIdSuccess {
-  const _$GetProductByIdSuccessImpl(
-      {required this.products,
-      required this.productDetails,
-      required this.inventory});
-
-  @override
-  final ProductById products;
-  @override
-  final ProductDetails productDetails;
-  @override
-  final Inventory inventory;
-
-  @override
-  String toString() {
-    return 'ProductState.getProductByIdSuccess(products: $products, productDetails: $productDetails, inventory: $inventory)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetProductByIdSuccessImpl &&
-            (identical(other.products, products) ||
-                other.products == products) &&
-            (identical(other.productDetails, productDetails) ||
-                other.productDetails == productDetails) &&
-            (identical(other.inventory, inventory) ||
-                other.inventory == inventory));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, products, productDetails, inventory);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetProductByIdSuccessImplCopyWith<_$GetProductByIdSuccessImpl>
-      get copyWith => __$$GetProductByIdSuccessImplCopyWithImpl<
-          _$GetProductByIdSuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(String errmsg) erorrst,
-    required TResult Function(List<Products> products) success,
-    required TResult Function(String successmsg) addSuccess,
-    required TResult Function(String failuremsg) addFailure,
-    required TResult Function() addLoading,
-    required TResult Function(String successmsg) deleteSuccess,
-    required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
-    required TResult Function(String successmsg) editProductByIdSuccess,
-    required TResult Function(String errmsg) editProductByIdFailure,
-  }) {
-    return getProductByIdSuccess(products, productDetails, inventory);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(String errmsg)? erorrst,
-    TResult? Function(List<Products> products)? success,
-    TResult? Function(String successmsg)? addSuccess,
-    TResult? Function(String failuremsg)? addFailure,
-    TResult? Function()? addLoading,
-    TResult? Function(String successmsg)? deleteSuccess,
-    TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
-    TResult? Function(String successmsg)? editProductByIdSuccess,
-    TResult? Function(String errmsg)? editProductByIdFailure,
-  }) {
-    return getProductByIdSuccess?.call(products, productDetails, inventory);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String errmsg)? erorrst,
-    TResult Function(List<Products> products)? success,
-    TResult Function(String successmsg)? addSuccess,
-    TResult Function(String failuremsg)? addFailure,
-    TResult Function()? addLoading,
-    TResult Function(String successmsg)? deleteSuccess,
-    TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
-    TResult Function(String successmsg)? editProductByIdSuccess,
-    TResult Function(String errmsg)? editProductByIdFailure,
-    required TResult orElse(),
-  }) {
-    if (getProductByIdSuccess != null) {
-      return getProductByIdSuccess(products, productDetails, inventory);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Errorst value) erorrst,
-    required TResult Function(Success value) success,
-    required TResult Function(AddSuccess value) addSuccess,
-    required TResult Function(AddFailure value) addFailure,
-    required TResult Function(AddLoading value) addLoading,
-    required TResult Function(DeleteSuccess value) deleteSuccess,
-    required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
-    required TResult Function(EditProductByIdSuccess value)
-        editProductByIdSuccess,
-    required TResult Function(EditProductByIdFailure value)
-        editProductByIdFailure,
-  }) {
-    return getProductByIdSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Errorst value)? erorrst,
-    TResult? Function(Success value)? success,
-    TResult? Function(AddSuccess value)? addSuccess,
-    TResult? Function(AddFailure value)? addFailure,
-    TResult? Function(AddLoading value)? addLoading,
-    TResult? Function(DeleteSuccess value)? deleteSuccess,
-    TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
-    TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
-    TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
-  }) {
-    return getProductByIdSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Errorst value)? erorrst,
-    TResult Function(Success value)? success,
-    TResult Function(AddSuccess value)? addSuccess,
-    TResult Function(AddFailure value)? addFailure,
-    TResult Function(AddLoading value)? addLoading,
-    TResult Function(DeleteSuccess value)? deleteSuccess,
-    TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
-    TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
-    TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
-    required TResult orElse(),
-  }) {
-    if (getProductByIdSuccess != null) {
-      return getProductByIdSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetProductByIdSuccess implements ProductState {
-  const factory GetProductByIdSuccess(
-      {required final ProductById products,
-      required final ProductDetails productDetails,
-      required final Inventory inventory}) = _$GetProductByIdSuccessImpl;
-
-  ProductById get products;
-  ProductDetails get productDetails;
-  Inventory get inventory;
-  @JsonKey(ignore: true)
-  _$$GetProductByIdSuccessImplCopyWith<_$GetProductByIdSuccessImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetProductByIdFailureImplCopyWith<$Res> {
-  factory _$$GetProductByIdFailureImplCopyWith(
-          _$GetProductByIdFailureImpl value,
-          $Res Function(_$GetProductByIdFailureImpl) then) =
-      __$$GetProductByIdFailureImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String errmsg});
-}
-
-/// @nodoc
-class __$$GetProductByIdFailureImplCopyWithImpl<$Res>
-    extends _$ProductStateCopyWithImpl<$Res, _$GetProductByIdFailureImpl>
-    implements _$$GetProductByIdFailureImplCopyWith<$Res> {
-  __$$GetProductByIdFailureImplCopyWithImpl(_$GetProductByIdFailureImpl _value,
-      $Res Function(_$GetProductByIdFailureImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? errmsg = null,
-  }) {
-    return _then(_$GetProductByIdFailureImpl(
-      null == errmsg
-          ? _value.errmsg
-          : errmsg // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetProductByIdFailureImpl implements GetProductByIdFailure {
-  const _$GetProductByIdFailureImpl(this.errmsg);
-
-  @override
-  final String errmsg;
-
-  @override
-  String toString() {
-    return 'ProductState.getProductByIdFailure(errmsg: $errmsg)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetProductByIdFailureImpl &&
-            (identical(other.errmsg, errmsg) || other.errmsg == errmsg));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, errmsg);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetProductByIdFailureImplCopyWith<_$GetProductByIdFailureImpl>
-      get copyWith => __$$GetProductByIdFailureImplCopyWithImpl<
-          _$GetProductByIdFailureImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(String errmsg) erorrst,
-    required TResult Function(List<Products> products) success,
-    required TResult Function(String successmsg) addSuccess,
-    required TResult Function(String failuremsg) addFailure,
-    required TResult Function() addLoading,
-    required TResult Function(String successmsg) deleteSuccess,
-    required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
-    required TResult Function(String successmsg) editProductByIdSuccess,
-    required TResult Function(String errmsg) editProductByIdFailure,
-  }) {
-    return getProductByIdFailure(errmsg);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(String errmsg)? erorrst,
-    TResult? Function(List<Products> products)? success,
-    TResult? Function(String successmsg)? addSuccess,
-    TResult? Function(String failuremsg)? addFailure,
-    TResult? Function()? addLoading,
-    TResult? Function(String successmsg)? deleteSuccess,
-    TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
-    TResult? Function(String successmsg)? editProductByIdSuccess,
-    TResult? Function(String errmsg)? editProductByIdFailure,
-  }) {
-    return getProductByIdFailure?.call(errmsg);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String errmsg)? erorrst,
-    TResult Function(List<Products> products)? success,
-    TResult Function(String successmsg)? addSuccess,
-    TResult Function(String failuremsg)? addFailure,
-    TResult Function()? addLoading,
-    TResult Function(String successmsg)? deleteSuccess,
-    TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
-    TResult Function(String successmsg)? editProductByIdSuccess,
-    TResult Function(String errmsg)? editProductByIdFailure,
-    required TResult orElse(),
-  }) {
-    if (getProductByIdFailure != null) {
-      return getProductByIdFailure(errmsg);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Errorst value) erorrst,
-    required TResult Function(Success value) success,
-    required TResult Function(AddSuccess value) addSuccess,
-    required TResult Function(AddFailure value) addFailure,
-    required TResult Function(AddLoading value) addLoading,
-    required TResult Function(DeleteSuccess value) deleteSuccess,
-    required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
-    required TResult Function(EditProductByIdSuccess value)
-        editProductByIdSuccess,
-    required TResult Function(EditProductByIdFailure value)
-        editProductByIdFailure,
-  }) {
-    return getProductByIdFailure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Errorst value)? erorrst,
-    TResult? Function(Success value)? success,
-    TResult? Function(AddSuccess value)? addSuccess,
-    TResult? Function(AddFailure value)? addFailure,
-    TResult? Function(AddLoading value)? addLoading,
-    TResult? Function(DeleteSuccess value)? deleteSuccess,
-    TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
-    TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
-    TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
-  }) {
-    return getProductByIdFailure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Errorst value)? erorrst,
-    TResult Function(Success value)? success,
-    TResult Function(AddSuccess value)? addSuccess,
-    TResult Function(AddFailure value)? addFailure,
-    TResult Function(AddLoading value)? addLoading,
-    TResult Function(DeleteSuccess value)? deleteSuccess,
-    TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
-    TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
-    TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
-    required TResult orElse(),
-  }) {
-    if (getProductByIdFailure != null) {
-      return getProductByIdFailure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetProductByIdFailure implements ProductState {
-  const factory GetProductByIdFailure(final String errmsg) =
-      _$GetProductByIdFailureImpl;
-
-  String get errmsg;
-  @JsonKey(ignore: true)
-  _$$GetProductByIdFailureImplCopyWith<_$GetProductByIdFailureImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3293,10 +2482,6 @@ class _$EditProductByIdSuccessImpl implements EditProductByIdSuccess {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -3315,10 +2500,6 @@ class _$EditProductByIdSuccessImpl implements EditProductByIdSuccess {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -3337,10 +2518,6 @@ class _$EditProductByIdSuccessImpl implements EditProductByIdSuccess {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -3363,10 +2540,6 @@ class _$EditProductByIdSuccessImpl implements EditProductByIdSuccess {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -3387,8 +2560,6 @@ class _$EditProductByIdSuccessImpl implements EditProductByIdSuccess {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -3407,8 +2578,6 @@ class _$EditProductByIdSuccessImpl implements EditProductByIdSuccess {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),
@@ -3506,10 +2675,6 @@ class _$EditProductByIdFailureImpl implements EditProductByIdFailure {
     required TResult Function() addLoading,
     required TResult Function(String successmsg) deleteSuccess,
     required TResult Function(String errormsg) deleteFailure,
-    required TResult Function(ProductById products,
-            ProductDetails productDetails, Inventory inventory)
-        getProductByIdSuccess,
-    required TResult Function(String errmsg) getProductByIdFailure,
     required TResult Function(String successmsg) editProductByIdSuccess,
     required TResult Function(String errmsg) editProductByIdFailure,
   }) {
@@ -3528,10 +2693,6 @@ class _$EditProductByIdFailureImpl implements EditProductByIdFailure {
     TResult? Function()? addLoading,
     TResult? Function(String successmsg)? deleteSuccess,
     TResult? Function(String errormsg)? deleteFailure,
-    TResult? Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult? Function(String errmsg)? getProductByIdFailure,
     TResult? Function(String successmsg)? editProductByIdSuccess,
     TResult? Function(String errmsg)? editProductByIdFailure,
   }) {
@@ -3550,10 +2711,6 @@ class _$EditProductByIdFailureImpl implements EditProductByIdFailure {
     TResult Function()? addLoading,
     TResult Function(String successmsg)? deleteSuccess,
     TResult Function(String errormsg)? deleteFailure,
-    TResult Function(ProductById products, ProductDetails productDetails,
-            Inventory inventory)?
-        getProductByIdSuccess,
-    TResult Function(String errmsg)? getProductByIdFailure,
     TResult Function(String successmsg)? editProductByIdSuccess,
     TResult Function(String errmsg)? editProductByIdFailure,
     required TResult orElse(),
@@ -3576,10 +2733,6 @@ class _$EditProductByIdFailureImpl implements EditProductByIdFailure {
     required TResult Function(AddLoading value) addLoading,
     required TResult Function(DeleteSuccess value) deleteSuccess,
     required TResult Function(DeleteFailure value) deleteFailure,
-    required TResult Function(GetProductByIdSuccess value)
-        getProductByIdSuccess,
-    required TResult Function(GetProductByIdFailure value)
-        getProductByIdFailure,
     required TResult Function(EditProductByIdSuccess value)
         editProductByIdSuccess,
     required TResult Function(EditProductByIdFailure value)
@@ -3600,8 +2753,6 @@ class _$EditProductByIdFailureImpl implements EditProductByIdFailure {
     TResult? Function(AddLoading value)? addLoading,
     TResult? Function(DeleteSuccess value)? deleteSuccess,
     TResult? Function(DeleteFailure value)? deleteFailure,
-    TResult? Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult? Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult? Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult? Function(EditProductByIdFailure value)? editProductByIdFailure,
   }) {
@@ -3620,8 +2771,6 @@ class _$EditProductByIdFailureImpl implements EditProductByIdFailure {
     TResult Function(AddLoading value)? addLoading,
     TResult Function(DeleteSuccess value)? deleteSuccess,
     TResult Function(DeleteFailure value)? deleteFailure,
-    TResult Function(GetProductByIdSuccess value)? getProductByIdSuccess,
-    TResult Function(GetProductByIdFailure value)? getProductByIdFailure,
     TResult Function(EditProductByIdSuccess value)? editProductByIdSuccess,
     TResult Function(EditProductByIdFailure value)? editProductByIdFailure,
     required TResult orElse(),

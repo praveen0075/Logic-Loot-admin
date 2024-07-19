@@ -36,9 +36,6 @@ class BannerScreen extends StatelessWidget {
             if (state is DeleteBannerError) {
               snackBarWidget(
                   context: context, msg: state.errormsg, bgColor: Colors.red);
-            }else if (state is DeleteBannerSuccess){
-              snackBarWidget(context: context, msg: state.dltsuccessmsg, bgColor: Colors.green);
-              context.read<BannerBloc>().add(const BannerEvent.getBanner());
             }
           },
           builder: (context, state) {
@@ -80,8 +77,7 @@ class BannerScreen extends StatelessWidget {
                                               Card(
                                                 elevation: 10,
                                                 child: ListTile(
-                                                  onTap: () { 
-                                                     Navigator.pop(context);
+                                                  onTap: () {
                                                     showDialog(
                                                       context: context,
                                                       builder: (context) =>
@@ -103,7 +99,7 @@ class BannerScreen extends StatelessWidget {
                                                         ),
                                                         actions: [
                                                           TextButton(
-                                                              onPressed: (){
+                                                              onPressed: () {
                                                                 context
                                                                     .read<
                                                                         BannerBloc>()
@@ -112,7 +108,6 @@ class BannerScreen extends StatelessWidget {
                                                                             index]
                                                                         .id
                                                                         .toString()));
-                                                                        Navigator.pop(context);
                                                               },
                                                               child: const Text(
                                                                 "Delete",
@@ -129,7 +124,6 @@ class BannerScreen extends StatelessWidget {
                                                         ],
                                                       ),
                                                     );
-                                                   
                                                   },
                                                   leading: const Icon(
                                                     Icons.delete,
@@ -147,7 +141,6 @@ class BannerScreen extends StatelessWidget {
                                         ),
                                       )),
                                     );
-                                    // Navigator.pop(context); 
                                   },
                                   child: Image(
                                     image: NetworkImage(
